@@ -54,8 +54,10 @@ def _op(fn):
 MAX_LOCATE_ATTEMPTS = 3
 MAX_PATCH_ATTEMPTS = 5
 
-MODEL = "meta-llama/Llama-3.3-70B-Instruct"
-MAX_TOKENS = 4000
+from .claude import PATCHER_MODEL, structured  # noqa: E402
+
+MODEL = PATCHER_MODEL
+MAX_TOKENS = 32000
 
 
 # --------------------------------------------------------------------------
@@ -294,7 +296,14 @@ PROMPT = PATCHER_FIND_REPLACE
 def request_edits(client, criterion: str, component: str, findings_text: str,
                   path: str, source: str, lessons: str = "",
                   retry_note: str = "", model: str = MODEL) -> dict:
-    """One model call. Traced, so the retry loop is visible in the trace tree."""
+    """One model call. `client` is ignored -- kept so call sites read the same.
+
+    Opus, with thinking on and effort at xhigh, because this is the call that
+    has to reproduce a block of source character for character. The previous
+    model could not, and that is half of why no run before Accel ever produced
+    a verified fix. The other half was being shown the wrong file, which
+    whichfile.py now handles.
+    """
     prompt = (PROMPT
               .replace("__CRITERION__", criterion)
               .replace("__COMPONENT__", component)
@@ -303,21 +312,8 @@ def request_edits(client, criterion: str, component: str, findings_text: str,
               .replace("__SOURCE__", source)
               .replace("__LESSONS__", lessons)
               .replace("__RETRY__", retry_note))
-    r = client.chat.completions.create(
-        model=model, messages=[{"role": "user", "content": prompt}],
-        response_format={"type": "json_schema",
-                         "json_schema": {"name": "Patch", "schema": SCHEMA}},
-        max_tokens=MAX_TOKENS)
-    choice = r.choices[0]
-    body = (choice.message.content or "").strip()
-    if choice.finish_reason == "length":
-        # Truncated mid-object. Say so rather than letting json.loads raise
-        # "Unterminated string", which reads as a model failure when it is a
-        # budget failure -- the same mistake as the 400-token cap earlier.
-        raise ValueError(
-            f"the response was cut off at max_tokens={MAX_TOKENS}; ask for a "
-            "shorter `find` rather than the whole element")
-    return json.loads(body)
+    return structured(prompt, SCHEMA, model=model,
+                      max_tokens=MAX_TOKENS, effort="xhigh")
 
 
 def resolve_find(source: str, find: str) -> str | None:
