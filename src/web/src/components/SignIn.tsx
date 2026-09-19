@@ -1,63 +1,44 @@
-// The gate. Nothing else in the product is reachable without a GitHub token,
-// because every run clones a repository and opens a pull request as the person
-// who started it.
+// The gate. Nothing else is reachable without a GitHub token, because every
+// run clones a repository and opens a pull request as the person signing in.
 //
-// The criteria listed here are what ACCEL checks TODAY, not what ACCEL is.
-// This screen has to say that plainly, because a list of five reads as a
-// limit unless it is labelled as a front. The product is an accessibility
-// agent; the coverage grows, and the copy must not have to be rewritten each
-// time it does.
+// One screen, one claim, one button. The earlier version listed all five
+// criteria with a sentence each, which is a specification, not a landing page
+// -- nobody reads five blurbs before deciding whether to sign in.
+//
+// What replaces it is the coverage line. `5 / 55` says where ACCEL is against
+// WCAG 2.2 Level AA without a word of hedging, and it reframes the five from a
+// limit into progress. The number is the whole argument, so it gets the space
+// a paragraph would have taken.
 
 import { BrandMark } from '../Icon'
 import { signIn } from '../auth'
 
-const LIVE_CHECKS = [
-  { id: '2.1.1', name: 'Keyboard', blurb: 'A control you can click but never reach by Tab' },
-  { id: '2.1.2', name: 'No Keyboard Trap', blurb: 'Focus goes in and cannot get out' },
-  { id: '2.4.3', name: 'Focus Order', blurb: 'Tab jumps backwards up the page' },
-  { id: '2.4.7', name: 'Focus Visible', blurb: 'A focus ring that exists in CSS and not on screen' },
-  { id: '2.4.11', name: 'Focus Not Obscured', blurb: 'Focus lands behind a sticky header' },
-]
+/** Success criteria live today, against WCAG 2.2 Level AA (A + AA = 55). */
+const LIVE = 5
+const TARGET = 55
 
 export function SignIn() {
+  const pct = Math.round((LIVE / TARGET) * 100)
+
   return (
-    <main className="signin-shell" id="main">
-      <div className="signin-card">
-        <span className="brand signin-brand">
+    <main className="gate" id="main">
+      <div className="gate-inner">
+        <span className="gate-brand">
           <BrandMark />
           <span>ACCEL</span>
         </span>
 
-        <h1>Accessibility that proves itself.</h1>
-        <p className="signin-lede">
-          ACCEL opens your deployed site in a real browser and uses it the way
-          someone relying on assistive technology would. It records what
-          actually happens, finds the component behind each failure, writes the
-          fix, and opens a pull request on your repository — and it only calls
-          a finding closed when the same check stops firing on the rebuilt page.
+        <h1 className="gate-title">
+          Accessibility that<br />proves itself.
+        </h1>
+
+        <p className="gate-lede">
+          ACCEL uses your site in a real browser the way assistive technology
+          does, finds what a scanner cannot see, and opens a pull request with
+          the fix.
         </p>
 
-        <div className="signin-section-head">
-          <h2>Checking now</h2>
-          <span>WCAG 2.2 · more criteria landing continuously</span>
-        </div>
-
-        <ul className="signin-criteria">
-          {LIVE_CHECKS.map((c) => (
-            <li key={c.id}>
-              <code>{c.id}</code>
-              <strong>{c.name}</strong>
-              <span>{c.blurb}</span>
-            </li>
-          ))}
-        </ul>
-
-        <p className="signin-note">
-          Most of these have no axe-core rule at all. A scanner reading your
-          HTML cannot find them — you have to open the page and use it.
-        </p>
-
-        <button type="button" className="signin-button" onClick={() => void signIn()}>
+        <button type="button" className="gate-cta" onClick={() => void signIn()}>
           <svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
               0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
@@ -70,11 +51,24 @@ export function SignIn() {
           Sign in with GitHub
         </button>
 
-        <p className="signin-scope">
-          ACCEL asks for repository access so it can read your source and open a
-          pull request. It only ever touches the repository you name, and it
-          opens pull requests — it never pushes to your default branch.
-        </p>
+        <div className="gate-coverage">
+          <div className="gate-coverage-top">
+            <span className="gate-count">
+              <strong>{LIVE}</strong> of {TARGET}
+            </span>
+            <span className="gate-standard">WCAG 2.2 Level AA</span>
+          </div>
+          <div
+            className="gate-bar"
+            role="progressbar"
+            aria-valuenow={LIVE}
+            aria-valuemin={0}
+            aria-valuemax={TARGET}
+            aria-label={`${LIVE} of ${TARGET} WCAG 2.2 Level AA success criteria`}
+          >
+            <span style={{ width: `${pct}%` }} />
+          </div>
+        </div>
       </div>
     </main>
   )

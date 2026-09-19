@@ -1271,82 +1271,94 @@ table.grid td.num, table.grid th.num { text-align: right; font-family: var(--fon
 table.grid tr.dim td { color: var(--text-muted); }
 
 /* ---------------------------------------------------------------------------
-   The sign-in gate.
+   The gate.
 
-   One column, centred, dark. The live checks are the argument, so they get the
-   space: a person who has only ever seen a colour-contrast report needs to
-   understand these are a different kind of defect before the GitHub button
-   means anything. They sit under a heading that says "checking now", because
-   the list is a front, not a boundary.
+   One screen: name, claim, button, coverage. Everything is centred on a single
+   column and nothing competes with the button. The coverage bar sits BELOW the
+   button on purpose -- it is the reason to trust the claim, not the reason to
+   click, and putting it above meant reading a statistic before knowing what
+   the product was.
    ------------------------------------------------------------------------- */
 
 .app-booting {
   min-height: 100vh; display: grid; place-items: center;
-  color: var(--ink-soft, #9aa4b2); font-size: 15px; letter-spacing: .01em;
+  color: var(--ink-soft, #9aa4b2); font-size: 15px;
 }
 
-.signin-shell {
+.gate {
   min-height: 100vh;
   display: grid;
   place-items: center;
-  padding: 48px 16px;
+  padding: 40px 20px;
 }
 
-.signin-card {
+.gate-inner {
   width: 100%;
-  max-width: 560px;
+  max-width: 460px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  text-align: center;
+  gap: 22px;
 }
 
-.signin-brand { font-size: 20px; letter-spacing: .14em; font-weight: 600; }
+.gate-brand {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: .22em; text-transform: uppercase;
+  opacity: .72;
+}
+.gate-brand svg { width: 20px; height: 20px; }
 
-.signin-card h1 {
-  font-size: clamp(28px, 5vw, 40px);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+.gate-title {
   margin: 0;
+  font-size: clamp(34px, 7vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  font-weight: 600;
 }
 
-.signin-lede { margin: 0; font-size: 16px; line-height: 1.6; opacity: .85; }
-.signin-lede kbd {
-  font: inherit; font-size: .9em; padding: 1px 6px; border-radius: 5px;
-  border: 1px solid currentColor; opacity: .8;
+.gate-lede {
+  margin: 0;
+  max-width: 40ch;
+  font-size: 15.5px;
+  line-height: 1.6;
+  opacity: .66;
 }
 
-.signin-criteria { list-style: none; margin: 8px 0 0; padding: 0;
-  display: flex; flex-direction: column; gap: 1px;
-  border-radius: 12px; overflow: hidden; }
-
-.signin-criteria li {
-  display: grid;
-  grid-template-columns: 62px minmax(0, 170px) minmax(0, 1fr);
-  gap: 12px; align-items: baseline;
-  padding: 12px 14px;
-  background: rgba(255, 255, 255, .035);
-}
-.signin-criteria code { font-size: 12px; opacity: .65; letter-spacing: .02em; }
-.signin-criteria strong { font-size: 14px; font-weight: 600; }
-.signin-criteria span { font-size: 13px; opacity: .7; line-height: 1.45; }
-
-.signin-note { margin: 0; font-size: 14px; line-height: 1.55; opacity: .8; }
-
-.signin-button {
+.gate-cta {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  width: 100%; padding: 15px 20px; margin-top: 4px;
+  width: 100%; padding: 16px 22px; margin-top: 4px;
   font: inherit; font-size: 15px; font-weight: 600;
   border: 0; border-radius: 12px; cursor: pointer;
-  background: #fff; color: #111;
-  transition: transform .12s ease, box-shadow .12s ease;
+  background: #fff; color: #0b0d10;
+  transition: transform .14s ease, box-shadow .14s ease;
 }
-.signin-button:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
-/* This is an accessibility tool. Its own focus ring is not optional, and it
-   is not allowed to be subtle. */
-.signin-button:focus-visible,
+.gate-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+/* This is an accessibility tool. Its own focus ring is not optional, and it is
+   not allowed to be subtle. */
+.gate-cta:focus-visible,
 .signout:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 3px; }
 
-.signin-scope { margin: 0; font-size: 12.5px; line-height: 1.55; opacity: .55; }
+.gate-coverage { width: 100%; margin-top: 10px; display: grid; gap: 8px; }
+
+.gate-coverage-top {
+  display: flex; align-items: baseline; justify-content: space-between;
+  font-size: 12.5px; letter-spacing: .02em;
+}
+.gate-count { opacity: .8; }
+.gate-count strong { font-size: 15px; font-weight: 650; opacity: 1; }
+.gate-standard { opacity: .45; }
+
+.gate-bar {
+  height: 3px; width: 100%; border-radius: 99px;
+  background: rgba(255,255,255,.1);
+  overflow: hidden;
+}
+.gate-bar > span {
+  display: block; height: 100%; border-radius: 99px;
+  background: currentColor; opacity: .85;
+}
 
 .signout {
   background: none; border: 0; padding: 0; cursor: pointer;
@@ -1356,17 +1368,3 @@ table.grid tr.dim td { color: var(--text-muted); }
 .signout:hover { opacity: 1; }
 
 .sidebar-bottom .avatar { border-radius: 50%; object-fit: cover; }
-
-@media (max-width: 560px) {
-  .signin-criteria li { grid-template-columns: 1fr; gap: 2px; }
-}
-
-.signin-section-head {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 12px; flex-wrap: wrap; margin-top: 8px;
-}
-.signin-section-head h2 {
-  margin: 0; font-size: 12px; font-weight: 600;
-  letter-spacing: .12em; text-transform: uppercase; opacity: .75;
-}
-.signin-section-head span { font-size: 12px; opacity: .5; }
