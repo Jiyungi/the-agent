@@ -58,14 +58,14 @@ def build_body(audit, fix_summary: dict, outcomes: list, findings: list) -> tupl
 
     if closed:
         kind = "verified"
-        headline = (f"Fixes {closed} keyboard accessibility "
+        headline = (f"Fixes {closed} accessibility "
                     f"{'issue' if closed == 1 else 'issues'}")
     elif outcomes:
         kind = "unverified"
-        headline = "Proposed keyboard accessibility fixes (not confirmed)"
+        headline = "Proposed accessibility fixes (not confirmed)"
     else:
         kind = "diagnosis"
-        headline = "Keyboard accessibility findings"
+        headline = "Accessibility findings"
 
     lines = [f"## {headline}", ""]
 
@@ -103,12 +103,12 @@ def build_body(audit, fix_summary: dict, outcomes: list, findings: list) -> tupl
         lines.append("")
 
     lines += ["### How this was tested", "",
-              "Accel opened each page in a real Chrome browser in an isolated cloud "
-              "sandbox, pressed Tab through it, and recorded every focus stop with a "
-              "screenshot and the accessibility tree. The criteria checked are "
-              "2.1.1 Keyboard, 2.1.2 No Keyboard Trap, 2.4.3 Focus Order, "
-              "2.4.7 Focus Visible and 2.4.11 Focus Not Obscured — four of which have "
-              "no axe-core rule, so a scanner cannot see them.", ""]
+              "ACCEL opened each page in a real Chrome browser in an isolated cloud "
+              "sandbox and used it the way assistive technology does, recording every "
+              "state it reached with a screenshot and the accessibility tree. The WCAG "
+              "criteria checked on this run were 2.1.1, 2.1.2, 2.4.3, 2.4.7 and 2.4.11 "
+              "— most of which have no axe-core rule, so a scanner cannot see them. "
+              "Coverage grows as criteria are added.", ""]
 
     ax = getattr(audit, "axe", None)
     if ax is not None and getattr(ax, "ran", False):
@@ -117,7 +117,7 @@ def build_body(audit, fix_summary: dict, outcomes: list, findings: list) -> tupl
         lines.append("")
 
     lines.append("---")
-    lines.append("*Opened by [Accel](https://the-agent-5dk9.onrender.com).*")
+    lines.append("*Opened by [ACCEL](https://the-agent-5dk9.onrender.com).*")
     return headline, "\n".join(lines)
 
 

@@ -1,0 +1,3270 @@
+{
+  "id": "job-7c2e9029",
+  "url": "https://bit-estate.vercel.app",
+  "repo": "github.com/Carldtitan/BitEstate-Capstone-",
+  "branch": "",
+  "status": "done",
+  "phase": "pr",
+  "source": "src/components/HomePage.jsx",
+  "events": [
+    {
+      "at": 1789845334.4927332,
+      "phase": "clone",
+      "message": "Cloning Carldtitan/BitEstate-Capstone-",
+      "level": "info"
+    },
+    {
+      "at": 1789845354.774543,
+      "phase": "clone",
+      "message": "At f2bd4d2",
+      "level": "info"
+    },
+    {
+      "at": 1789845356.4551349,
+      "phase": "clone",
+      "message": "The page is backed by src/components/HomePage.jsx",
+      "level": "info"
+    },
+    {
+      "at": 1789845356.4551349,
+      "phase": "audit",
+      "message": "4 routes declared in the repository: /, /verify, /source-truth, /login",
+      "level": "info"
+    },
+    {
+      "at": 1789845356.4551349,
+      "phase": "audit",
+      "message": "4 sandbox(es) starting together",
+      "level": "info"
+    },
+    {
+      "at": 1789845368.2914374,
+      "phase": "audit",
+      "message": "[0] sandbox ready, opening https://bit-estate.vercel.app",
+      "level": "info"
+    },
+    {
+      "at": 1789845368.4618018,
+      "phase": "audit",
+      "message": "[1] sandbox ready, opening https://bit-estate.vercel.app/verify",
+      "level": "info"
+    },
+    {
+      "at": 1789845368.546614,
+      "phase": "audit",
+      "message": "[3] sandbox ready, opening https://bit-estate.vercel.app/login",
+      "level": "info"
+    },
+    {
+      "at": 1789845368.6926885,
+      "phase": "audit",
+      "message": "[2] sandbox ready, opening https://bit-estate.vercel.app/source-truth",
+      "level": "info"
+    },
+    {
+      "at": 1789845449.583369,
+      "phase": "audit",
+      "message": "[3] 0 finding(s) on https://bit-estate.vercel.app/login",
+      "level": "info"
+    },
+    {
+      "at": 1789845480.2679522,
+      "phase": "audit",
+      "message": "[1] 0 finding(s) on https://bit-estate.vercel.app/verify",
+      "level": "info"
+    },
+    {
+      "at": 1789845493.0756745,
+      "phase": "audit",
+      "message": "[2] 0 finding(s) on https://bit-estate.vercel.app/source-truth",
+      "level": "info"
+    },
+    {
+      "at": 1789845507.4106286,
+      "phase": "audit",
+      "message": "[0] 0 finding(s) on https://bit-estate.vercel.app",
+      "level": "info"
+    },
+    {
+      "at": 1789845507.610209,
+      "phase": "audit",
+      "message": "0 finding(s) across 20 check(s) on 4 page(s)",
+      "level": "info"
+    },
+    {
+      "at": 1789845507.6112146,
+      "phase": "pr",
+      "message": "Nothing to fix.",
+      "level": "info"
+    }
+  ],
+  "findings": [
+    {
+      "criterion": "2.1.1",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "all 7 interactive elements were reached by Tab",
+      "targets": [],
+      "census": {
+        "examined": 7,
+        "failed": 0,
+        "passed": 7,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 1,
+        "exclusion_note": "1 delegating container"
+      },
+      "page": "https://bit-estate.vercel.app"
+    },
+    {
+      "criterion": "2.1.2",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "focus moved on every one of 9 Tab presses and left the page at the end",
+      "targets": [],
+      "census": {
+        "examined": 9,
+        "failed": 0,
+        "passed": 9,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app"
+    },
+    {
+      "criterion": "2.4.3",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "tab order matches reading order across 8 stops",
+      "targets": [],
+      "census": {
+        "examined": 8,
+        "failed": 0,
+        "passed": 8,
+        "undecided": 0,
+        "inapplicable": 2,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app"
+    },
+    {
+      "criterion": "2.4.7",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "the focus indicator changed the screen at all 8 stops; 1 borderline and undecided",
+      "targets": [],
+      "census": {
+        "examined": 8,
+        "failed": 0,
+        "passed": 7,
+        "undecided": 1,
+        "inapplicable": 1,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app"
+    },
+    {
+      "criterion": "2.4.11",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "every one of 10 focused elements was visible at its own centre",
+      "targets": [],
+      "census": {
+        "examined": 10,
+        "failed": 0,
+        "passed": 10,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app"
+    },
+    {
+      "criterion": "2.1.1",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "all 7 interactive elements were reached by Tab",
+      "targets": [],
+      "census": {
+        "examined": 7,
+        "failed": 0,
+        "passed": 7,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 1,
+        "exclusion_note": "1 delegating container"
+      },
+      "page": "https://bit-estate.vercel.app/verify"
+    },
+    {
+      "criterion": "2.1.2",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "focus moved on every one of 11 Tab presses and left the page at the end",
+      "targets": [],
+      "census": {
+        "examined": 11,
+        "failed": 0,
+        "passed": 11,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/verify"
+    },
+    {
+      "criterion": "2.4.3",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "tab order differs from reading order at 2 positions, judged not to disadvantage a keyboard user",
+      "targets": [],
+      "census": {
+        "examined": 10,
+        "failed": 0,
+        "passed": 10,
+        "undecided": 0,
+        "inapplicable": 2,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/verify"
+    },
+    {
+      "criterion": "2.4.7",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "the focus indicator changed the screen at all 10 stops",
+      "targets": [],
+      "census": {
+        "examined": 10,
+        "failed": 0,
+        "passed": 10,
+        "undecided": 0,
+        "inapplicable": 1,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/verify"
+    },
+    {
+      "criterion": "2.4.11",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "every one of 12 focused elements was visible at its own centre",
+      "targets": [],
+      "census": {
+        "examined": 12,
+        "failed": 0,
+        "passed": 12,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/verify"
+    },
+    {
+      "criterion": "2.1.1",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "all 8 interactive elements were reached by Tab",
+      "targets": [],
+      "census": {
+        "examined": 8,
+        "failed": 0,
+        "passed": 8,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 1,
+        "exclusion_note": "1 delegating container"
+      },
+      "page": "https://bit-estate.vercel.app/source-truth"
+    },
+    {
+      "criterion": "2.1.2",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "focus moved on every one of 18 Tab presses and left the page at the end",
+      "targets": [],
+      "census": {
+        "examined": 18,
+        "failed": 0,
+        "passed": 18,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/source-truth"
+    },
+    {
+      "criterion": "2.4.3",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "tab order matches reading order across 17 stops",
+      "targets": [],
+      "census": {
+        "examined": 17,
+        "failed": 0,
+        "passed": 17,
+        "undecided": 0,
+        "inapplicable": 2,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/source-truth"
+    },
+    {
+      "criterion": "2.4.7",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "the focus indicator changed the screen at all 17 stops",
+      "targets": [],
+      "census": {
+        "examined": 17,
+        "failed": 0,
+        "passed": 17,
+        "undecided": 0,
+        "inapplicable": 1,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/source-truth"
+    },
+    {
+      "criterion": "2.4.11",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "every one of 19 focused elements was visible at its own centre",
+      "targets": [],
+      "census": {
+        "examined": 19,
+        "failed": 0,
+        "passed": 19,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/source-truth"
+    },
+    {
+      "criterion": "2.1.1",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "all 7 interactive elements were reached by Tab",
+      "targets": [],
+      "census": {
+        "examined": 7,
+        "failed": 0,
+        "passed": 7,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 1,
+        "exclusion_note": "1 delegating container"
+      },
+      "page": "https://bit-estate.vercel.app/login"
+    },
+    {
+      "criterion": "2.1.2",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "focus moved on every one of 9 Tab presses and left the page at the end",
+      "targets": [],
+      "census": {
+        "examined": 9,
+        "failed": 0,
+        "passed": 9,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/login"
+    },
+    {
+      "criterion": "2.4.3",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "tab order matches reading order across 8 stops",
+      "targets": [],
+      "census": {
+        "examined": 8,
+        "failed": 0,
+        "passed": 8,
+        "undecided": 0,
+        "inapplicable": 2,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/login"
+    },
+    {
+      "criterion": "2.4.7",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "the focus indicator changed the screen at all 8 stops",
+      "targets": [],
+      "census": {
+        "examined": 8,
+        "failed": 0,
+        "passed": 8,
+        "undecided": 0,
+        "inapplicable": 1,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/login"
+    },
+    {
+      "criterion": "2.4.11",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "every one of 10 focused elements was visible at its own centre",
+      "targets": [],
+      "census": {
+        "examined": 10,
+        "failed": 0,
+        "passed": 10,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://bit-estate.vercel.app/login"
+    }
+  ],
+  "recordings": {
+    "loaded \u00b7 bit-estate.vercel.app": {
+      "url": "https://bit-estate.vercel.app",
+      "state": "loaded",
+      "state_reached": true,
+      "reach_note": "document.readyState is 'complete'",
+      "truncated": false,
+      "viewport": [
+        1024,
+        740
+      ],
+      "page_height": 1286,
+      "stops": [
+        {
+          "index": 0,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 1286,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-0/loaded/stop-000.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 1,
+          "tag": "A",
+          "role": "link",
+          "name": "BitEstate Document verification",
+          "x": 20,
+          "y": 22,
+          "w": 211,
+          "h": 54,
+          "selector": "#root>div>nav>a",
+          "vx": 20,
+          "vy": 22,
+          "screenshot": "runs/lane-0/loaded/stop-001.png",
+          "obscured_by": null,
+          "focus_delta": 0.06821900566393958,
+          "anchors": {
+            "self": [
+              "a",
+              ".brand"
+            ],
+            "within": [
+              "nav",
+              ".sidebar",
+              "div",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav"
+        },
+        {
+          "index": 2,
+          "tag": "A",
+          "role": "link",
+          "name": "Home",
+          "x": 20,
+          "y": 141,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(1)",
+          "vx": 20,
+          "vy": 141,
+          "screenshot": "runs/lane-0/loaded/stop-002.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link",
+              ".active"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 3,
+          "tag": "A",
+          "role": "link",
+          "name": "Verify",
+          "x": 20,
+          "y": 195,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(2)",
+          "vx": 20,
+          "vy": 195,
+          "screenshot": "runs/lane-0/loaded/stop-003.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 4,
+          "tag": "A",
+          "role": "link",
+          "name": "Source",
+          "x": 20,
+          "y": 249,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(3)",
+          "vx": 20,
+          "vy": 249,
+          "screenshot": "runs/lane-0/loaded/stop-004.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 5,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "Sign in",
+          "x": 20,
+          "y": 533,
+          "w": 211,
+          "h": 42,
+          "selector": "#root>div>nav>div:nth-of-type(3)>button",
+          "vx": 20,
+          "vy": 533,
+          "screenshot": "runs/lane-0/loaded/stop-005.png",
+          "obscured_by": null,
+          "focus_delta": 0.09433389032356068,
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".navbar-actions",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(3)"
+        },
+        {
+          "index": 6,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "More information",
+          "x": 921,
+          "y": 773,
+          "w": 24,
+          "h": 24,
+          "selector": "main>div>section>div:nth-of-type(2)>div:nth-of-type(1)>span>button",
+          "vx": 921,
+          "vy": 473,
+          "screenshot": "runs/lane-0/loaded/stop-006.png",
+          "obscured_by": null,
+          "focus_delta": 0.2975,
+          "anchors": {
+            "self": [
+              "button",
+              ".help-trigger"
+            ],
+            "within": [
+              "span",
+              ".help-tip",
+              "div",
+              ".card-title-row",
+              ".hero-panel",
+              "section",
+              ".home-hero",
+              ".layout",
+              ".section",
+              ".home-page",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "div>main>div>section>div:nth-of-type(2)>div:nth-of-type(1)>span"
+        },
+        {
+          "index": 7,
+          "tag": "A",
+          "role": "link",
+          "name": "FOR REVIEWERS Verify a file Compare a received document with its trusted hash. Check file",
+          "x": 323,
+          "y": 829,
+          "w": 622,
+          "h": 184,
+          "selector": "div>main>div>section>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "vx": 323,
+          "vy": 343,
+          "screenshot": "runs/lane-0/loaded/stop-007.png",
+          "obscured_by": null,
+          "focus_delta": 0.025391849529780564,
+          "anchors": {
+            "self": [
+              "a",
+              ".entry-card"
+            ],
+            "within": [
+              "div",
+              ".entry-grid",
+              ".hero-panel",
+              "section",
+              ".home-hero",
+              ".layout",
+              ".section",
+              ".home-page",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>section>div:nth-of-type(2)>div:nth-of-type(2)"
+        },
+        {
+          "index": 8,
+          "tag": "A",
+          "role": "link",
+          "name": "FOR REGISTRY USERS Register a source Save the official hash for future checks. Register source",
+          "x": 323,
+          "y": 1031,
+          "w": 622,
+          "h": 184,
+          "selector": "div>main>div>section>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "vx": 323,
+          "vy": 414,
+          "screenshot": "runs/lane-0/loaded/stop-008.png",
+          "obscured_by": null,
+          "focus_delta": 0.016609496298970933,
+          "anchors": {
+            "self": [
+              "a",
+              ".entry-card"
+            ],
+            "within": [
+              "div",
+              ".entry-grid",
+              ".hero-panel",
+              "section",
+              ".home-hero",
+              ".layout",
+              ".section",
+              ".home-page",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>section>div:nth-of-type(2)>div:nth-of-type(2)"
+        },
+        {
+          "index": 9,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 1286,
+          "selector": "body",
+          "vx": 0,
+          "vy": -617,
+          "screenshot": "runs/lane-0/loaded/stop-009.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body"
+            ],
+            "within": []
+          },
+          "parent": ""
+        }
+      ],
+      "candidates": [
+        {
+          "selector": "#root>div>nav>a",
+          "tag": "A",
+          "role": null,
+          "name": "BitEstate\nDocument verification",
+          "x": 20,
+          "y": 639,
+          "w": 211,
+          "h": 54,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".brand"
+            ],
+            "within": [
+              "nav",
+              ".sidebar",
+              "div",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(1)",
+          "tag": "A",
+          "role": null,
+          "name": "Home",
+          "x": 20,
+          "y": 758,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link",
+              ".active"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(2)",
+          "tag": "A",
+          "role": null,
+          "name": "Verify",
+          "x": 20,
+          "y": 812,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(3)",
+          "tag": "A",
+          "role": null,
+          "name": "Source",
+          "x": 20,
+          "y": 866,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(3)>button",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "Sign in",
+          "x": 20,
+          "y": 1150,
+          "w": 211,
+          "h": 42,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".navbar-actions",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "div>main>div>section>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "tag": "A",
+          "role": null,
+          "name": "FOR REVIEWERS\n\nVerify a file\n\nCompare a received document wi",
+          "x": 323,
+          "y": 829,
+          "w": 622,
+          "h": 184,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".entry-card"
+            ],
+            "within": [
+              "div",
+              ".entry-grid",
+              ".hero-panel",
+              "section",
+              ".home-hero",
+              ".layout",
+              ".section",
+              ".home-page",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "div>main>div>section>div:nth-of-type(2)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "tag": "A",
+          "role": null,
+          "name": "FOR REGISTRY USERS\n\nRegister a source\n\nSave the official has",
+          "x": 323,
+          "y": 1031,
+          "w": 622,
+          "h": 184,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".entry-card"
+            ],
+            "within": [
+              "div",
+              ".entry-grid",
+              ".hero-panel",
+              "section",
+              ".home-hero",
+              ".layout",
+              ".section",
+              ".home-page",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        }
+      ],
+      "excluded": [
+        {
+          "selector": "#root",
+          "tag": "DIV",
+          "role": null,
+          "rule": "delegating-container",
+          "reason": "9 interactive descendant(s) and no text of its own",
+          "source": "listeners"
+        }
+      ],
+      "focusable_total": 8,
+      "consent_note": "",
+      "menu_triggers": 0,
+      "dialog_triggers": 0,
+      "nav_error": "",
+      "http_status": 200,
+      "text_length": 603,
+      "title": "BitEstate | Home"
+    },
+    "loaded \u00b7 verify": {
+      "url": "https://bit-estate.vercel.app/verify",
+      "state": "loaded",
+      "state_reached": true,
+      "reach_note": "document.readyState is 'complete'",
+      "truncated": false,
+      "viewport": [
+        1024,
+        740
+      ],
+      "page_height": 1117,
+      "stops": [
+        {
+          "index": 0,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 1117,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-1/loaded/stop-000.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 1,
+          "tag": "A",
+          "role": "link",
+          "name": "BitEstate Document verification",
+          "x": 20,
+          "y": 22,
+          "w": 211,
+          "h": 54,
+          "selector": "#root>div>nav>a",
+          "vx": 20,
+          "vy": 22,
+          "screenshot": "runs/lane-1/loaded/stop-001.png",
+          "obscured_by": null,
+          "focus_delta": 0.06821900566393958,
+          "anchors": {
+            "self": [
+              "a",
+              ".brand"
+            ],
+            "within": [
+              "nav",
+              ".sidebar",
+              "div",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav"
+        },
+        {
+          "index": 2,
+          "tag": "A",
+          "role": "link",
+          "name": "Home",
+          "x": 20,
+          "y": 141,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(1)",
+          "vx": 20,
+          "vy": 141,
+          "screenshot": "runs/lane-1/loaded/stop-002.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 3,
+          "tag": "A",
+          "role": "link",
+          "name": "Verify",
+          "x": 20,
+          "y": 195,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(2)",
+          "vx": 20,
+          "vy": 195,
+          "screenshot": "runs/lane-1/loaded/stop-003.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link",
+              ".active"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 4,
+          "tag": "A",
+          "role": "link",
+          "name": "Source",
+          "x": 20,
+          "y": 249,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(3)",
+          "vx": 20,
+          "vy": 249,
+          "screenshot": "runs/lane-1/loaded/stop-004.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 5,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "Sign in",
+          "x": 20,
+          "y": 533,
+          "w": 211,
+          "h": 42,
+          "selector": "#root>div>nav>div:nth-of-type(3)>button",
+          "vx": 20,
+          "vy": 533,
+          "screenshot": "runs/lane-1/loaded/stop-005.png",
+          "obscured_by": null,
+          "focus_delta": 0.09433389032356068,
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".navbar-actions",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(3)"
+        },
+        {
+          "index": 6,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "More information",
+          "x": 683,
+          "y": 90,
+          "w": 24,
+          "h": 24,
+          "selector": "main>div>div:nth-of-type(1)>div>div:nth-of-type(2)>span>button",
+          "vx": 683,
+          "vy": 90,
+          "screenshot": "runs/lane-1/loaded/stop-006.png",
+          "obscured_by": null,
+          "focus_delta": 0.093125,
+          "anchors": {
+            "self": [
+              "button",
+              ".help-trigger"
+            ],
+            "within": [
+              "span",
+              ".help-tip",
+              "div",
+              ".title-row",
+              ".section-header",
+              ".page-intro",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "div>main>div>div:nth-of-type(1)>div>div:nth-of-type(2)>span"
+        },
+        {
+          "index": 7,
+          "tag": "A",
+          "role": "link",
+          "name": "New source",
+          "x": 836,
+          "y": 50,
+          "w": 138,
+          "h": 42,
+          "selector": "#root>div>main>div>div:nth-of-type(1)>a",
+          "vx": 836,
+          "vy": 50,
+          "screenshot": "runs/lane-1/loaded/stop-007.png",
+          "obscured_by": null,
+          "focus_delta": 0.10244066278549037,
+          "anchors": {
+            "self": [
+              "a",
+              ".btn",
+              ".page-action"
+            ],
+            "within": [
+              "div",
+              ".section-header",
+              ".page-intro",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>div:nth-of-type(1)"
+        },
+        {
+          "index": 8,
+          "tag": "SELECT",
+          "role": "combobox",
+          "name": "Source record",
+          "x": 319,
+          "y": 337,
+          "w": 630,
+          "h": 45,
+          "selector": "#reference-source",
+          "vx": 319,
+          "vy": 337,
+          "screenshot": "runs/lane-1/loaded/stop-008.png",
+          "obscured_by": null,
+          "focus_delta": 0.1698726082322489,
+          "anchors": {
+            "self": [
+              "select",
+              "#reference-source",
+              ".select"
+            ],
+            "within": [
+              "div",
+              ".field-group",
+              "section",
+              ".form-card",
+              ".task-card",
+              ".verify-grid",
+              ".task-grid",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>div:nth-of-type(2)>section:nth-of-type(1)>div:nth-of-type(2)"
+        },
+        {
+          "index": 9,
+          "tag": "INPUT",
+          "role": "button",
+          "name": "Document file Choose file No file selected",
+          "x": 319,
+          "y": 781,
+          "w": 1,
+          "h": 1,
+          "selector": "#candidate-file",
+          "vx": 319,
+          "vy": 327,
+          "screenshot": "runs/lane-1/loaded/stop-009.png",
+          "obscured_by": null,
+          "focus_delta": 0.22491349480968859,
+          "anchors": {
+            "self": [
+              "input",
+              "#candidate-file",
+              ".file-picker-input"
+            ],
+            "within": [
+              "div",
+              ".file-picker",
+              ".field-group",
+              "section",
+              ".form-card",
+              ".task-card",
+              ".verify-grid",
+              ".task-grid",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "div>main>div>div:nth-of-type(2)>section:nth-of-type(2)>div:nth-of-type(2)>div"
+        },
+        {
+          "index": 10,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "More information",
+          "x": 482,
+          "y": 950,
+          "w": 24,
+          "h": 24,
+          "selector": "main>div>section>div:nth-of-type(1)>div>span>button",
+          "vx": 482,
+          "vy": 467,
+          "screenshot": "runs/lane-1/loaded/stop-010.png",
+          "obscured_by": null,
+          "focus_delta": 0.09375,
+          "anchors": {
+            "self": [
+              "button",
+              ".help-trigger"
+            ],
+            "within": [
+              "span",
+              ".help-tip",
+              "div",
+              ".card-title-row",
+              ".card-title-row-left",
+              ".section-header",
+              ".compact-header",
+              "section",
+              ".record-section",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "div>main>div>section>div:nth-of-type(1)>div>span"
+        },
+        {
+          "index": 11,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 1117,
+          "selector": "body",
+          "vx": 0,
+          "vy": -483,
+          "screenshot": "runs/lane-1/loaded/stop-011.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body"
+            ],
+            "within": []
+          },
+          "parent": ""
+        }
+      ],
+      "candidates": [
+        {
+          "selector": "#root>div>nav>a",
+          "tag": "A",
+          "role": null,
+          "name": "BitEstate\nDocument verification",
+          "x": 20,
+          "y": 505,
+          "w": 211,
+          "h": 54,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".brand"
+            ],
+            "within": [
+              "nav",
+              ".sidebar",
+              "div",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(1)",
+          "tag": "A",
+          "role": null,
+          "name": "Home",
+          "x": 20,
+          "y": 624,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(2)",
+          "tag": "A",
+          "role": null,
+          "name": "Verify",
+          "x": 20,
+          "y": 678,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link",
+              ".active"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(3)",
+          "tag": "A",
+          "role": null,
+          "name": "Source",
+          "x": 20,
+          "y": 732,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(3)>button",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "Sign in",
+          "x": 20,
+          "y": 1016,
+          "w": 211,
+          "h": 42,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".navbar-actions",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>main>div>div:nth-of-type(1)>a",
+          "tag": "A",
+          "role": null,
+          "name": "New source",
+          "x": 836,
+          "y": 50,
+          "w": 138,
+          "h": 42,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".btn",
+              ".page-action"
+            ],
+            "within": [
+              "div",
+              ".section-header",
+              ".page-intro",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "div>main>div>div:nth-of-type(2)>section:nth-of-type(2)>div:nth-of-type(3)>button",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "Check file",
+          "x": 801,
+          "y": 851,
+          "w": 148,
+          "h": 42,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".form-actions",
+              ".verify-action-row",
+              "section",
+              ".form-card",
+              ".task-card",
+              ".verify-grid",
+              ".task-grid",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        }
+      ],
+      "excluded": [
+        {
+          "selector": "#root",
+          "tag": "DIV",
+          "role": null,
+          "rule": "delegating-container",
+          "reason": "13 interactive descendant(s) and no text of its own",
+          "source": "listeners"
+        }
+      ],
+      "focusable_total": 10,
+      "consent_note": "",
+      "menu_triggers": 0,
+      "dialog_triggers": 0,
+      "nav_error": "",
+      "http_status": 200,
+      "text_length": 679,
+      "title": "BitEstate - Document Verification"
+    },
+    "loaded \u00b7 source-truth": {
+      "url": "https://bit-estate.vercel.app/source-truth",
+      "state": "loaded",
+      "state_reached": true,
+      "reach_note": "document.readyState is 'complete'",
+      "truncated": false,
+      "viewport": [
+        1024,
+        740
+      ],
+      "page_height": 1672,
+      "stops": [
+        {
+          "index": 0,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 1672,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-2/loaded/stop-000.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 1,
+          "tag": "A",
+          "role": "link",
+          "name": "BitEstate Document verification",
+          "x": 20,
+          "y": 22,
+          "w": 211,
+          "h": 54,
+          "selector": "#root>div>nav>a",
+          "vx": 20,
+          "vy": 22,
+          "screenshot": "runs/lane-2/loaded/stop-001.png",
+          "obscured_by": null,
+          "focus_delta": 0.06821900566393958,
+          "anchors": {
+            "self": [
+              "a",
+              ".brand"
+            ],
+            "within": [
+              "nav",
+              ".sidebar",
+              "div",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav"
+        },
+        {
+          "index": 2,
+          "tag": "A",
+          "role": "link",
+          "name": "Home",
+          "x": 20,
+          "y": 141,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(1)",
+          "vx": 20,
+          "vy": 141,
+          "screenshot": "runs/lane-2/loaded/stop-002.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 3,
+          "tag": "A",
+          "role": "link",
+          "name": "Verify",
+          "x": 20,
+          "y": 195,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(2)",
+          "vx": 20,
+          "vy": 195,
+          "screenshot": "runs/lane-2/loaded/stop-003.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 4,
+          "tag": "A",
+          "role": "link",
+          "name": "Source",
+          "x": 20,
+          "y": 249,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(3)",
+          "vx": 20,
+          "vy": 249,
+          "screenshot": "runs/lane-2/loaded/stop-004.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link",
+              ".active"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 5,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "Sign in",
+          "x": 20,
+          "y": 533,
+          "w": 211,
+          "h": 42,
+          "selector": "#root>div>nav>div:nth-of-type(3)>button",
+          "vx": 20,
+          "vy": 533,
+          "screenshot": "runs/lane-2/loaded/stop-005.png",
+          "obscured_by": null,
+          "focus_delta": 0.09433389032356068,
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".navbar-actions",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(3)"
+        },
+        {
+          "index": 6,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "More information",
+          "x": 658,
+          "y": 90,
+          "w": 24,
+          "h": 24,
+          "selector": "main>div>div:nth-of-type(1)>div>div:nth-of-type(2)>span>button",
+          "vx": 658,
+          "vy": 90,
+          "screenshot": "runs/lane-2/loaded/stop-006.png",
+          "obscured_by": null,
+          "focus_delta": 0.095,
+          "anchors": {
+            "self": [
+              "button",
+              ".help-trigger"
+            ],
+            "within": [
+              "span",
+              ".help-tip",
+              "div",
+              ".title-row",
+              ".section-header",
+              ".page-intro",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "div>main>div>div:nth-of-type(1)>div>div:nth-of-type(2)>span"
+        },
+        {
+          "index": 7,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "Sign in",
+          "x": 294,
+          "y": 357,
+          "w": 81,
+          "h": 42,
+          "selector": "#root>div>main>div>div:nth-of-type(3)>button:nth-of-type(1)",
+          "vx": 294,
+          "vy": 357,
+          "screenshot": "runs/lane-2/loaded/stop-007.png",
+          "obscured_by": null,
+          "focus_delta": 0.10789193032349804,
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".source-action-row",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>div:nth-of-type(3)"
+        },
+        {
+          "index": 8,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "Connect wallet",
+          "x": 385,
+          "y": 357,
+          "w": 139,
+          "h": 42,
+          "selector": "#root>div>main>div>div:nth-of-type(3)>button:nth-of-type(2)",
+          "vx": 385,
+          "vy": 357,
+          "screenshot": "runs/lane-2/loaded/stop-008.png",
+          "obscured_by": null,
+          "focus_delta": 0.0796440489432703,
+          "anchors": {
+            "self": [
+              "button",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".source-action-row",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>div:nth-of-type(3)"
+        },
+        {
+          "index": 9,
+          "tag": "INPUT",
+          "role": "textbox",
+          "name": "Device code",
+          "x": 319,
+          "y": 558,
+          "w": 545,
+          "h": 46,
+          "selector": "div>main>div>div:nth-of-type(4)>section>div:nth-of-type(2)>input",
+          "vx": 319,
+          "vy": 551,
+          "screenshot": "runs/lane-2/loaded/stop-009.png",
+          "obscured_by": null,
+          "focus_delta": 0.1229616425694857,
+          "anchors": {
+            "self": [
+              "input",
+              ".input",
+              ".gate-input"
+            ],
+            "within": [
+              "div",
+              ".gate-row",
+              "section",
+              ".form-card",
+              ".task-card",
+              ".access-card",
+              ".source-workspace",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>div:nth-of-type(4)>section>div:nth-of-type(2)"
+        },
+        {
+          "index": 10,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "Unlock",
+          "x": 874,
+          "y": 560,
+          "w": 75,
+          "h": 42,
+          "selector": "div>main>div>div:nth-of-type(4)>section>div:nth-of-type(2)>button",
+          "vx": 874,
+          "vy": 553,
+          "screenshot": "runs/lane-2/loaded/stop-010.png",
+          "obscured_by": null,
+          "focus_delta": 0.11792054099746407,
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".gate-row",
+              "section",
+              ".form-card",
+              ".task-card",
+              ".access-card",
+              ".source-workspace",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>div:nth-of-type(4)>section>div:nth-of-type(2)"
+        },
+        {
+          "index": 11,
+          "tag": "INPUT",
+          "role": "textbox",
+          "name": "Source title",
+          "x": 319,
+          "y": 802,
+          "w": 198,
+          "h": 46,
+          "selector": "#source-title",
+          "vx": 319,
+          "vy": 303,
+          "screenshot": "runs/lane-2/loaded/stop-011.png",
+          "obscured_by": null,
+          "focus_delta": 0.21955079891468193,
+          "anchors": {
+            "self": [
+              "input",
+              "#source-title",
+              ".input"
+            ],
+            "within": [
+              "div",
+              ".field-group",
+              ".form-grid",
+              "form",
+              ".form-card",
+              ".task-card",
+              ".source-form",
+              ".source-workspace",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "div>main>div>div:nth-of-type(4)>form>div:nth-of-type(2)>div:nth-of-type(1)"
+        },
+        {
+          "index": 12,
+          "tag": "SELECT",
+          "role": "combobox",
+          "name": "Document type",
+          "x": 535,
+          "y": 802,
+          "w": 198,
+          "h": 45,
+          "selector": "#document-type",
+          "vx": 535,
+          "vy": 275,
+          "screenshot": "runs/lane-2/loaded/stop-012.png",
+          "obscured_by": null,
+          "focus_delta": 0.18185996629385628,
+          "anchors": {
+            "self": [
+              "select",
+              "#document-type",
+              ".select"
+            ],
+            "within": [
+              "div",
+              ".field-group",
+              ".form-grid",
+              "form",
+              ".form-card",
+              ".task-card",
+              ".source-form",
+              ".source-workspace",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "div>main>div>div:nth-of-type(4)>form>div:nth-of-type(2)>div:nth-of-type(2)"
+        },
+        {
+          "index": 13,
+          "tag": "INPUT",
+          "role": "textbox",
+          "name": "Jurisdiction",
+          "x": 751,
+          "y": 802,
+          "w": 198,
+          "h": 46,
+          "selector": "#jurisdiction",
+          "vx": 751,
+          "vy": 275,
+          "screenshot": "runs/lane-2/loaded/stop-013.png",
+          "obscured_by": null,
+          "focus_delta": 0.28700633102200784,
+          "anchors": {
+            "self": [
+              "input",
+              "#jurisdiction",
+              ".input"
+            ],
+            "within": [
+              "div",
+              ".field-group",
+              ".form-grid",
+              "form",
+              ".form-card",
+              ".task-card",
+              ".source-form",
+              ".source-workspace",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "div>main>div>div:nth-of-type(4)>form>div:nth-of-type(2)>div:nth-of-type(3)"
+        },
+        {
+          "index": 14,
+          "tag": "INPUT",
+          "role": "spinbutton",
+          "name": "Version",
+          "x": 319,
+          "y": 892,
+          "w": 198,
+          "h": 46,
+          "selector": "#version",
+          "vx": 319,
+          "vy": 365,
+          "screenshot": "runs/lane-2/loaded/stop-014.png",
+          "obscured_by": null,
+          "focus_delta": 0.19339764847753996,
+          "anchors": {
+            "self": [
+              "input",
+              "#version",
+              ".input"
+            ],
+            "within": [
+              "div",
+              ".field-group",
+              ".form-grid",
+              "form",
+              ".form-card",
+              ".task-card",
+              ".source-form",
+              ".source-workspace",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "div>main>div>div:nth-of-type(4)>form>div:nth-of-type(2)>div:nth-of-type(4)"
+        },
+        {
+          "index": 15,
+          "tag": "TEXTAREA",
+          "role": "textbox",
+          "name": "Notes",
+          "x": 319,
+          "y": 982,
+          "w": 630,
+          "h": 112,
+          "selector": "#source-notes",
+          "vx": 319,
+          "vy": 455,
+          "screenshot": "runs/lane-2/loaded/stop-015.png",
+          "obscured_by": null,
+          "focus_delta": 0.08940837848297213,
+          "anchors": {
+            "self": [
+              "textarea",
+              "#source-notes",
+              ".textarea"
+            ],
+            "within": [
+              "div",
+              ".field-group",
+              "form",
+              ".form-card",
+              ".task-card",
+              ".source-form",
+              ".source-workspace",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>div:nth-of-type(4)>form>div:nth-of-type(3)"
+        },
+        {
+          "index": 16,
+          "tag": "INPUT",
+          "role": "button",
+          "name": "Source file Choose file No file selected",
+          "x": 319,
+          "y": 1139,
+          "w": 1,
+          "h": 1,
+          "selector": "#source-file",
+          "vx": 319,
+          "vy": 303,
+          "screenshot": "runs/lane-2/loaded/stop-016.png",
+          "obscured_by": null,
+          "focus_delta": 0.1695501730103806,
+          "anchors": {
+            "self": [
+              "input",
+              "#source-file",
+              ".file-picker-input"
+            ],
+            "within": [
+              "div",
+              ".file-picker",
+              ".field-group",
+              "form",
+              ".form-card",
+              ".task-card",
+              ".source-form",
+              ".source-workspace",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "div>main>div>div:nth-of-type(4)>form>div:nth-of-type(4)>div"
+        },
+        {
+          "index": 17,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "More information",
+          "x": 489,
+          "y": 1344,
+          "w": 24,
+          "h": 24,
+          "selector": "main>div>section>div:nth-of-type(1)>div>span>button",
+          "vx": 489,
+          "vy": 503,
+          "screenshot": "runs/lane-2/loaded/stop-017.png",
+          "obscured_by": null,
+          "focus_delta": 0.09375,
+          "anchors": {
+            "self": [
+              "button",
+              ".help-trigger"
+            ],
+            "within": [
+              "span",
+              ".help-tip",
+              "div",
+              ".card-title-row",
+              ".card-title-row-left",
+              ".section-header",
+              ".compact-header",
+              "section",
+              ".record-section",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "div>main>div>section>div:nth-of-type(1)>div>span"
+        },
+        {
+          "index": 18,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 1672,
+          "selector": "body",
+          "vx": 0,
+          "vy": -841,
+          "screenshot": "runs/lane-2/loaded/stop-018.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body"
+            ],
+            "within": []
+          },
+          "parent": ""
+        }
+      ],
+      "candidates": [
+        {
+          "selector": "#root>div>nav>a",
+          "tag": "A",
+          "role": null,
+          "name": "BitEstate\nDocument verification",
+          "x": 20,
+          "y": 863,
+          "w": 211,
+          "h": 54,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".brand"
+            ],
+            "within": [
+              "nav",
+              ".sidebar",
+              "div",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(1)",
+          "tag": "A",
+          "role": null,
+          "name": "Home",
+          "x": 20,
+          "y": 982,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(2)",
+          "tag": "A",
+          "role": null,
+          "name": "Verify",
+          "x": 20,
+          "y": 1036,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(3)",
+          "tag": "A",
+          "role": null,
+          "name": "Source",
+          "x": 20,
+          "y": 1090,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link",
+              ".active"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(3)>button",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "Sign in",
+          "x": 20,
+          "y": 1374,
+          "w": 211,
+          "h": 42,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".navbar-actions",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>main>div>div:nth-of-type(3)>button:nth-of-type(1)",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "Sign in",
+          "x": 294,
+          "y": 357,
+          "w": 81,
+          "h": 42,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".source-action-row",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>main>div>div:nth-of-type(3)>button:nth-of-type(2)",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "Connect wallet",
+          "x": 385,
+          "y": 357,
+          "w": 139,
+          "h": 42,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".source-action-row",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "div>main>div>div:nth-of-type(4)>section>div:nth-of-type(2)>button",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "Unlock",
+          "x": 874,
+          "y": 560,
+          "w": 75,
+          "h": 42,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".gate-row",
+              "section",
+              ".form-card",
+              ".task-card",
+              ".access-card",
+              ".source-workspace",
+              ".layout",
+              ".section",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        }
+      ],
+      "excluded": [
+        {
+          "selector": "#root",
+          "tag": "DIV",
+          "role": null,
+          "rule": "delegating-container",
+          "reason": "20 interactive descendant(s) and no text of its own",
+          "source": "listeners"
+        }
+      ],
+      "focusable_total": 17,
+      "consent_note": "",
+      "menu_triggers": 0,
+      "dialog_triggers": 0,
+      "nav_error": "",
+      "http_status": 200,
+      "text_length": 1000,
+      "title": "BitEstate - Document Verification"
+    },
+    "loaded \u00b7 login": {
+      "url": "https://bit-estate.vercel.app/login",
+      "state": "loaded",
+      "state_reached": true,
+      "reach_note": "document.readyState is 'complete'",
+      "truncated": false,
+      "viewport": [
+        1024,
+        740
+      ],
+      "page_height": 597,
+      "stops": [
+        {
+          "index": 0,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 597,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-000.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 1,
+          "tag": "A",
+          "role": "link",
+          "name": "BitEstate Document verification",
+          "x": 20,
+          "y": 22,
+          "w": 211,
+          "h": 54,
+          "selector": "#root>div>nav>a",
+          "vx": 20,
+          "vy": 22,
+          "screenshot": "runs/lane-3/loaded/stop-001.png",
+          "obscured_by": null,
+          "focus_delta": 0.06821900566393958,
+          "anchors": {
+            "self": [
+              "a",
+              ".brand"
+            ],
+            "within": [
+              "nav",
+              ".sidebar",
+              "div",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav"
+        },
+        {
+          "index": 2,
+          "tag": "A",
+          "role": "link",
+          "name": "Home",
+          "x": 20,
+          "y": 141,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(1)",
+          "vx": 20,
+          "vy": 141,
+          "screenshot": "runs/lane-3/loaded/stop-002.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 3,
+          "tag": "A",
+          "role": "link",
+          "name": "Verify",
+          "x": 20,
+          "y": 195,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(2)",
+          "vx": 20,
+          "vy": 195,
+          "screenshot": "runs/lane-3/loaded/stop-003.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 4,
+          "tag": "A",
+          "role": "link",
+          "name": "Source",
+          "x": 20,
+          "y": 249,
+          "w": 211,
+          "h": 46,
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(3)",
+          "vx": 20,
+          "vy": 249,
+          "screenshot": "runs/lane-3/loaded/stop-004.png",
+          "obscured_by": null,
+          "focus_delta": 0.07474776183032543,
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(2)"
+        },
+        {
+          "index": 5,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "Sign in",
+          "x": 20,
+          "y": 533,
+          "w": 211,
+          "h": 42,
+          "selector": "#root>div>nav>div:nth-of-type(3)>button",
+          "vx": 20,
+          "vy": 533,
+          "screenshot": "runs/lane-3/loaded/stop-005.png",
+          "obscured_by": null,
+          "focus_delta": 0.09433389032356068,
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".navbar-actions",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>nav>div:nth-of-type(3)"
+        },
+        {
+          "index": 6,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "More information",
+          "x": 375,
+          "y": 161,
+          "w": 24,
+          "h": 24,
+          "selector": "div>main>div>div>div:nth-of-type(1)>span>button",
+          "vx": 375,
+          "vy": 161,
+          "screenshot": "runs/lane-3/loaded/stop-006.png",
+          "obscured_by": null,
+          "focus_delta": 0.09375,
+          "anchors": {
+            "self": [
+              "button",
+              ".help-trigger"
+            ],
+            "within": [
+              "span",
+              ".help-tip",
+              "div",
+              ".title-row",
+              ".form-card",
+              ".layout",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>div>div:nth-of-type(1)>span"
+        },
+        {
+          "index": 7,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "Continue with Google",
+          "x": 277,
+          "y": 213,
+          "w": 184,
+          "h": 42,
+          "selector": "#root>div>main>div>div>div:nth-of-type(2)>button",
+          "vx": 277,
+          "vy": 213,
+          "screenshot": "runs/lane-3/loaded/stop-007.png",
+          "obscured_by": null,
+          "focus_delta": 0.095,
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".form-card",
+              ".layout",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>div>div:nth-of-type(2)"
+        },
+        {
+          "index": 8,
+          "tag": "A",
+          "role": "link",
+          "name": "Cancel",
+          "x": 471,
+          "y": 213,
+          "w": 82,
+          "h": 42,
+          "selector": "#root>div>main>div>div>div:nth-of-type(2)>a",
+          "vx": 471,
+          "vy": 213,
+          "screenshot": "runs/lane-3/loaded/stop-008.png",
+          "obscured_by": null,
+          "focus_delta": 0.09482758620689655,
+          "anchors": {
+            "self": [
+              "a",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".form-card",
+              ".layout",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          },
+          "parent": "#root>div>main>div>div>div:nth-of-type(2)"
+        },
+        {
+          "index": 9,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 597,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-009.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body"
+            ],
+            "within": []
+          },
+          "parent": ""
+        }
+      ],
+      "candidates": [
+        {
+          "selector": "#root>div>nav>a",
+          "tag": "A",
+          "role": null,
+          "name": "BitEstate\nDocument verification",
+          "x": 20,
+          "y": 22,
+          "w": 211,
+          "h": 54,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".brand"
+            ],
+            "within": [
+              "nav",
+              ".sidebar",
+              "div",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(1)",
+          "tag": "A",
+          "role": null,
+          "name": "Home",
+          "x": 20,
+          "y": 141,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(2)",
+          "tag": "A",
+          "role": null,
+          "name": "Verify",
+          "x": 20,
+          "y": 195,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(2)>a:nth-of-type(3)",
+          "tag": "A",
+          "role": null,
+          "name": "Source",
+          "x": 20,
+          "y": 249,
+          "w": 211,
+          "h": 46,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".tab-link"
+            ],
+            "within": [
+              "div",
+              ".navbar-tabs",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>nav>div:nth-of-type(3)>button",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "Sign in",
+          "x": 20,
+          "y": 533,
+          "w": 211,
+          "h": 42,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".navbar-actions",
+              "nav",
+              ".sidebar",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>main>div>div>div:nth-of-type(2)>button",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "Continue with Google",
+          "x": 277,
+          "y": 213,
+          "w": 184,
+          "h": 42,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button",
+              ".btn-primary",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".form-card",
+              ".layout",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        },
+        {
+          "selector": "#root>div>main>div>div>div:nth-of-type(2)>a",
+          "tag": "A",
+          "role": null,
+          "name": "Cancel",
+          "x": 471,
+          "y": 213,
+          "w": 82,
+          "h": 42,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".btn"
+            ],
+            "within": [
+              "div",
+              ".form-card",
+              ".layout",
+              "main",
+              ".app-main",
+              ".page-shell",
+              "#root"
+            ]
+          }
+        }
+      ],
+      "excluded": [
+        {
+          "selector": "#root",
+          "tag": "DIV",
+          "role": null,
+          "rule": "delegating-container",
+          "reason": "9 interactive descendant(s) and no text of its own",
+          "source": "listeners"
+        }
+      ],
+      "focusable_total": 8,
+      "consent_note": "",
+      "menu_triggers": 0,
+      "dialog_triggers": 0,
+      "nav_error": "",
+      "http_status": 200,
+      "text_length": 150,
+      "title": "BitEstate - Document Verification"
+    }
+  },
+  "axe": {
+    "ran": true,
+    "version": "4.13.0",
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": 3,
+        "targets": [
+          "div > .eyebrow",
+          ".entry-card[href$=\"verify\"] > .eyebrow",
+          ".entry-card[href$=\"source-truth\"] > .eyebrow"
+        ]
+      }
+    ]
+  },
+  "patches": [],
+  "lesson_ids": [],
+  "watch_url": "https://6080-1b4b07c1-b02f-4443-9e47-7a5d44532f58.daytonaproxy01.net/vnc.html?autoconnect=true&resize=scale",
+  "pages": [
+    {
+      "url": "https://bit-estate.vercel.app",
+      "source": "src/components/HomePage.jsx",
+      "findings": 0,
+      "note": ""
+    },
+    {
+      "url": "https://bit-estate.vercel.app/verify",
+      "source": "src/components/VerifyPage.jsx",
+      "findings": 0,
+      "note": ""
+    },
+    {
+      "url": "https://bit-estate.vercel.app/source-truth",
+      "source": "src/components/UploadPage.jsx",
+      "findings": 0,
+      "note": ""
+    },
+    {
+      "url": "https://bit-estate.vercel.app/login",
+      "source": "",
+      "findings": 0,
+      "note": ""
+    }
+  ],
+  "lanes": [
+    {
+      "index": 0,
+      "url": "https://bit-estate.vercel.app",
+      "label": "",
+      "sandbox_id": "daff8b04-89e1-4986-a7c7-080bdb2eb392",
+      "watch_url": "https://6080-daff8b04-89e1-4986-a7c7-080bdb2eb392.daytonaproxy01.net/vnc.html?autoconnect=true&resize=scale",
+      "status": "done",
+      "note": "",
+      "source": "",
+      "failed": 0,
+      "checks": 5,
+      "duplicate_of": ""
+    },
+    {
+      "index": 1,
+      "url": "https://bit-estate.vercel.app/verify",
+      "label": "",
+      "sandbox_id": "2d2e2606-7d78-40e7-918c-2b9ffb18c5f2",
+      "watch_url": "https://6080-2d2e2606-7d78-40e7-918c-2b9ffb18c5f2.daytonaproxy01.net/vnc.html?autoconnect=true&resize=scale",
+      "status": "done",
+      "note": "",
+      "source": "",
+      "failed": 0,
+      "checks": 5,
+      "duplicate_of": ""
+    },
+    {
+      "index": 2,
+      "url": "https://bit-estate.vercel.app/source-truth",
+      "label": "",
+      "sandbox_id": "f22c0bc8-11d1-4962-9b98-74f71b482796",
+      "watch_url": "https://6080-f22c0bc8-11d1-4962-9b98-74f71b482796.daytonaproxy01.net/vnc.html?autoconnect=true&resize=scale",
+      "status": "done",
+      "note": "",
+      "source": "",
+      "failed": 0,
+      "checks": 5,
+      "duplicate_of": ""
+    },
+    {
+      "index": 3,
+      "url": "https://bit-estate.vercel.app/login",
+      "label": "",
+      "sandbox_id": "03527fc8-cc9a-4ddb-ac99-d9c9af365ed1",
+      "watch_url": "https://6080-03527fc8-cc9a-4ddb-ac99-d9c9af365ed1.daytonaproxy01.net/vnc.html?autoconnect=true&resize=scale",
+      "status": "done",
+      "note": "",
+      "source": "",
+      "failed": 0,
+      "checks": 5,
+      "duplicate_of": ""
+    }
+  ],
+  "pr_url": "",
+  "pr_blocked": "",
+  "diff": "",
+  "trace_url": "",
+  "error": "",
+  "user_id": "",
+  "started": 1789845331.4097867,
+  "finished": 1789845507.6127164,
+  "elapsed": 176.2
+}

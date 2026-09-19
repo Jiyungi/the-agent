@@ -1273,10 +1273,11 @@ table.grid tr.dim td { color: var(--text-muted); }
 /* ---------------------------------------------------------------------------
    The sign-in gate.
 
-   One column, centred, dark. The five criteria are the argument, so they get
-   the space: a person who has only ever seen a colour-contrast report needs to
+   One column, centred, dark. The live checks are the argument, so they get the
+   space: a person who has only ever seen a colour-contrast report needs to
    understand these are a different kind of defect before the GitHub button
-   means anything.
+   means anything. They sit under a heading that says "checking now", because
+   the list is a front, not a boundary.
    ------------------------------------------------------------------------- */
 
 .app-booting {
@@ -1340,8 +1341,8 @@ table.grid tr.dim td { color: var(--text-muted); }
   transition: transform .12s ease, box-shadow .12s ease;
 }
 .signin-button:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
-/* The product is a keyboard-accessibility tool. Its own focus ring is not
-   optional, and it is not allowed to be subtle. */
+/* This is an accessibility tool. Its own focus ring is not optional, and it
+   is not allowed to be subtle. */
 .signin-button:focus-visible,
 .signout:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 3px; }
 
@@ -1359,3 +1360,13 @@ table.grid tr.dim td { color: var(--text-muted); }
 @media (max-width: 560px) {
   .signin-criteria li { grid-template-columns: 1fr; gap: 2px; }
 }
+
+.signin-section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap; margin-top: 8px;
+}
+.signin-section-head h2 {
+  margin: 0; font-size: 12px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase; opacity: .75;
+}
+.signin-section-head span { font-size: 12px; opacity: .5; }

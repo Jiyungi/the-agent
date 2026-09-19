@@ -289,7 +289,7 @@ def live_view(run: dict) -> str:
             + ";--vh:" + str(vh) + '">' + frame + "</div>"
             '<div class="stops"><ol>' + "".join(items) + "</ol></div></div>"
             '<p class="legend">Stop 0 is where focus sat when the state was '
-            "entered, before any Tab. It is half the evidence for a keyboard "
+            "entered, before any Tab. It is half the evidence for an access "
             "trap: focus was here, Tab was pressed, focus is still here. The box "
             "is the focused element&rsquo;s own rectangle, drawn from the "
             "viewport coordinates the recorder captured.</p></div>")
@@ -297,7 +297,7 @@ def live_view(run: dict) -> str:
     script = """<script>
 (function () {
   // Tabs. Arrow keys as well as clicks, because a product that reports on
-  // keyboard access does not get to ship a tablist you can only use with a
+  // access does not get to ship a tablist you can only use with a
   // mouse. Roving tabindex, one stop for the whole set, per the ARIA pattern.
   var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
   function select(tab) {

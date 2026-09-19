@@ -2,15 +2,16 @@
 // because every run clones a repository and opens a pull request as the person
 // who started it.
 //
-// The five criteria are on this screen on purpose. "Accessibility tool" means
-// colour contrast to most people, and the thing worth understanding before you
-// sign in is that these are the defects a scanner structurally cannot find —
-// you have to open the page and press Tab.
+// The criteria listed here are what ACCEL checks TODAY, not what ACCEL is.
+// This screen has to say that plainly, because a list of five reads as a
+// limit unless it is labelled as a front. The product is an accessibility
+// agent; the coverage grows, and the copy must not have to be rewritten each
+// time it does.
 
 import { BrandMark } from '../Icon'
 import { signIn } from '../auth'
 
-const CRITERIA = [
+const LIVE_CHECKS = [
   { id: '2.1.1', name: 'Keyboard', blurb: 'A control you can click but never reach by Tab' },
   { id: '2.1.2', name: 'No Keyboard Trap', blurb: 'Focus goes in and cannot get out' },
   { id: '2.4.3', name: 'Focus Order', blurb: 'Tab jumps backwards up the page' },
@@ -27,16 +28,22 @@ export function SignIn() {
           <span>ACCEL</span>
         </span>
 
-        <h1>Keyboard accessibility, proven.</h1>
+        <h1>Accessibility that proves itself.</h1>
         <p className="signin-lede">
-          ACCEL opens your deployed site in a real browser, presses <kbd>Tab</kbd>
-          {' '}through every page, and records where focus actually goes. Then it
-          finds the component behind each failure, writes the fix, and opens a
-          pull request on your repository.
+          ACCEL opens your deployed site in a real browser and uses it the way
+          someone relying on assistive technology would. It records what
+          actually happens, finds the component behind each failure, writes the
+          fix, and opens a pull request on your repository — and it only calls
+          a finding closed when the same check stops firing on the rebuilt page.
         </p>
 
+        <div className="signin-section-head">
+          <h2>Checking now</h2>
+          <span>WCAG 2.2 · more criteria landing continuously</span>
+        </div>
+
         <ul className="signin-criteria">
-          {CRITERIA.map((c) => (
+          {LIVE_CHECKS.map((c) => (
             <li key={c.id}>
               <code>{c.id}</code>
               <strong>{c.name}</strong>
@@ -46,8 +53,8 @@ export function SignIn() {
         </ul>
 
         <p className="signin-note">
-          Four of these five have no axe-core rule at all. No scanner reading
-          your HTML can find them.
+          Most of these have no axe-core rule at all. A scanner reading your
+          HTML cannot find them — you have to open the page and use it.
         </p>
 
         <button type="button" className="signin-button" onClick={() => void signIn()}>
