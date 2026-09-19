@@ -833,6 +833,17 @@ def start(url: str, repo: str, states: list[str] | None = None,
             traceback.print_exc()
         finally:
             job.finished = time.time()
+            # Close the row out. Without this every run reads as still running
+            # in the history, including the ones that finished hours ago.
+            try:
+                from accel.server import db
+                db.execute("""UPDATE jobs SET status = :s, phase = :p,
+                                     pr_url = NULLIF(:pr,''), finished_at = now()
+                              WHERE id = :id""",
+                           {"s": job.status, "p": job.phase,
+                            "pr": job.pr_url or "", "id": job.id})
+            except Exception:
+                pass
             out = ROOT / "artifacts" / f"{job.id}.json"
             try:
                 out.parent.mkdir(parents=True, exist_ok=True)
