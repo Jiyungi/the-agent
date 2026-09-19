@@ -36,9 +36,7 @@ from dataclasses import dataclass, field, asdict
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "tools"))
 
-import wb_env  # noqa: E402
 
 
 
@@ -46,7 +44,7 @@ def _op(fn):
     return fn
 
 
-CHECKOUT = "/tmp/ally-job"
+CHECKOUT = "/tmp/accel-job"
 PHASES = ["clone", "audit", "fix", "reaudit", "pr"]
 
 
@@ -94,6 +92,13 @@ class Job:
     diff: str = ""
     trace_url: str = ""
     error: str = ""
+    #: Who started this. Empty for a run started from the command line.
+    user_id: str = ""
+    #: Their GitHub token, used to clone and to open the pull request. Stripped
+    #: in to_dict: this object is serialised straight to the browser, and
+    #: `asdict` takes every field, so a secret added here without a matching
+    #: line below is a secret published to whoever opens the page.
+    github_token: str = ""
     started: float = field(default_factory=time.time)
     finished: float = 0.0
 
@@ -101,8 +106,13 @@ class Job:
         self.phase = phase
         self.events.append(Event(time.time(), phase, message, level))
 
+    #: Never sent to the browser. See Job.github_token.
+    SECRET_FIELDS = ("github_token",)
+
     def to_dict(self) -> dict:
         d = asdict(self)
+        for k in self.SECRET_FIELDS:
+            d.pop(k, None)
         d["events"] = [asdict(e) for e in self.events]
         d["elapsed"] = round((self.finished or time.time()) - self.started, 1)
         return d
@@ -696,6 +706,9 @@ def _run(job: Job, states: list[str], want_fix: bool, want_pr: bool) -> None:
                    serve_root=serve_root, client=_client(), lessons=lessons,
                    build=build_cmd)
     loop.workdir = RemoteTree(audit.session, CHECKOUT)
+    # Lets the file lookup grep the clone for the failing element's
+    # class names instead of guessing from the page name.
+    loop.checkout = CHECKOUT
 
     job.say("fix", "Writing patches, then rebuilding and re-auditing each one")
     outcomes = loop.run(job.source, page_sources)
@@ -759,15 +772,27 @@ def _run(job: Job, states: list[str], want_fix: bool, want_pr: bool) -> None:
 
 def start(url: str, repo: str, states: list[str] | None = None,
           want_fix: bool = True, want_pr: bool = True,
-          branch: str = "") -> Job:
+          branch: str = "", user=None) -> Job:
     """Begin a job and return immediately. The UI polls it.
 
     `states` empty means "you decide", which is what the UI now sends.
     """
     job = Job(id=f"job-{uuid.uuid4().hex[:8]}", url=url.strip(), repo=repo.strip(),
               branch=(branch or "").strip())
+    job.user_id = getattr(user, "id", "") or ""
+    # The GitHub token stays on the job, never in the JSON the browser reads.
+    job.github_token = getattr(user, "github_token", "") or ""
     with _LOCK:
         JOBS[job.id] = job
+    try:
+        from accel.server import db
+        db.execute("""INSERT INTO jobs (id, user_id, url, repo, branch, status)
+                      VALUES (:id, NULLIF(:uid,''), :url, :repo, :branch, 'running')
+                      ON CONFLICT (id) DO NOTHING""",
+                   {"id": job.id, "uid": job.user_id, "url": job.url,
+                    "repo": job.repo, "branch": job.branch})
+    except Exception as exc:
+        job.say("start", f"could not record the job: {type(exc).__name__}", "warn")
 
     def body() -> None:
         job.status = "running"

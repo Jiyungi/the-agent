@@ -1,0 +1,4 @@
+anthropic>=0.75.0
+daytona>=0.110.0
+psycopg2-binary>=2.9.9
+certifi>=2024.2.2

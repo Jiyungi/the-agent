@@ -1,0 +1,413 @@
+/* ============================================================
+   Ally — design tokens.
+
+   CONTRAST LEDGER (WCAG 2.x relative luminance, verified):
+     ink        #1b1a19 on paper #fbfaf8 ............... 16.6:1
+     ink        #1b1a19 on card  #ffffff ............... 17.7:1
+     muted      #5c574f on paper ........................ 6.6:1
+     muted      #5c574f on card ......................... 7.0:1
+     accent-ink #7a3b12 on paper ........................ 7.3:1
+     fail-ink   #8c1d18 on fail-tint #fdeceb ............ 8.2:1
+     pass-ink   #1f5136 on pass-tint #e8f3ec ............ 7.4:1
+     skip-ink   #4a4640 on skip-tint #eeebe6 ............ 8.1:1
+     focus ring #b4551f on paper ........................ 4.1:1  (non-text floor 3:1)
+
+   This product reports on focus visibility. Its own focus indicator is
+   3px and never removed; :focus-visible is used so a mouse click does not
+   paint a ring, but every keyboard stop does.
+   ============================================================ */
+
+:root {
+  --paper: #fbfaf8;
+  --card: #ffffff;
+  --line: #e3ded6;
+  --line-strong: #cfc7bb;
+  --ink: #1b1a19;
+  --muted: #5c574f;
+  --accent: #b4551f;
+  --accent-ink: #7a3b12;
+
+  --fail-tint: #fdeceb;  --fail-ink: #8c1d18;
+  --pass-tint: #e8f3ec;  --pass-ink: #1f5136;
+  --skip-tint: #eeebe6;  --skip-ink: #4a4640;
+
+  --radius: 10px;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.5 var(--sans);
+}
+
+/* The whole product is about keyboard access. Ours must be exemplary. */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+a { color: var(--accent-ink); }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--card);
+  padding: 10px 16px;
+  z-index: 100;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+header.bar {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--line);
+  background: var(--card);
+}
+header.bar h1 { font-size: 17px; margin: 0; letter-spacing: -0.01em; }
+header.bar .target { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+
+main { padding: 22px 24px 60px; max-width: 1280px; margin: 0 auto; }
+
+h2 { font-size: 15px; margin: 30px 0 4px; letter-spacing: -0.01em; }
+h2:first-of-type { margin-top: 6px; }
+.sub { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+
+/* ---------- the honesty line ---------- */
+.headline {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+}
+.headline .n { font-size: 22px; font-weight: 620; font-variant-numeric: tabular-nums; }
+.headline .lbl { color: var(--muted); font-size: 12px; text-transform: uppercase;
+                 letter-spacing: 0.05em; }
+.headline .item { display: flex; flex-direction: column; gap: 2px; }
+.headline .warn {
+  flex-basis: 100%;
+  color: var(--fail-ink);
+  background: var(--fail-tint);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-weight: 560;
+}
+
+/* ---------- status words, never colour alone ---------- */
+.status { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px;
+          white-space: nowrap; }
+.status.failed { background: var(--fail-tint); color: var(--fail-ink); }
+.status.passed { background: var(--pass-tint); color: var(--pass-ink); }
+.status.not_evaluated { background: var(--skip-tint); color: var(--skip-ink); }
+
+/* ---------- live view ---------- */
+.live { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(300px, 1fr);
+        gap: 16px; align-items: start; }
+@media (max-width: 900px) { .live { grid-template-columns: minmax(0, 1fr); } }
+
+.frame {
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: #6f6a64;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1024 / 740;
+}
+.frame img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.frame .empty {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  color: #fff; font-size: 13px; text-align: center; padding: 20px;
+}
+
+.stops { max-height: 520px; overflow-y: auto; border: 1px solid var(--line);
+         border-radius: var(--radius); background: var(--card); }
+.stops ol { list-style: none; margin: 0; padding: 0; }
+.stops li { border-bottom: 1px solid var(--line); }
+.stops button {
+  display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; gap: 10px;
+  width: 100%; text-align: left; background: none; border: 0; padding: 8px 12px;
+  font: inherit; color: inherit; cursor: pointer; align-items: baseline;
+}
+.stops button:hover { background: var(--paper); }
+.stops button[aria-current="true"] { background: var(--skip-tint); font-weight: 560; }
+.stops .idx { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.stops .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.stops .role { font-size: 11px; color: var(--muted); font-family: var(--mono); }
+.stops .flag { font-size: 11px; color: var(--fail-ink); font-weight: 600; }
+
+/* ---------- two-column comparison ---------- */
+.compare { width: 100%; border-collapse: collapse; background: var(--card);
+           border: 1px solid var(--line); border-radius: var(--radius);
+           overflow: hidden; }
+.compare th, .compare td { text-align: left; padding: 10px 12px; vertical-align: top;
+                           border-bottom: 1px solid var(--line); font-size: 13px; }
+.compare thead th { background: var(--paper); font-size: 12px; text-transform: uppercase;
+                    letter-spacing: 0.05em; color: var(--muted); }
+.compare tbody tr:last-child td { border-bottom: 0; }
+.compare .crit { font-family: var(--mono); font-weight: 600; white-space: nowrap; }
+.compare .none { color: var(--muted); }
+.compare .gap { color: var(--accent-ink); font-weight: 600; }
+.compare col.ours { background: #fffdfa; }
+
+.legend { color: var(--muted); font-size: 12px; margin-top: 8px; }
+
+table.plain { width: 100%; border-collapse: collapse; background: var(--card);
+              border: 1px solid var(--line); border-radius: var(--radius); }
+table.plain th, table.plain td { text-align: left; padding: 9px 12px; font-size: 13px;
+                                 border-bottom: 1px solid var(--line); }
+table.plain thead th { background: var(--paper); font-size: 12px;
+                       text-transform: uppercase; letter-spacing: 0.05em;
+                       color: var(--muted); }
+table.plain tbody tr:last-child td { border-bottom: 0; }
+
+code { font-family: var(--mono); font-size: 12px; }
+.mono { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+
+/* ============================================================
+   Benchmark and loop screens.
+
+   Two runs side by side is the whole shape of both, so one `.pair`
+   grid serves both and collapses to a stack under 1040px rather
+   than letting a five-column table scroll sideways on a laptop.
+
+   Contrast additions to the ledger at the top of this file:
+     good-ink #1f5136 on card ........................ 7.4:1
+     bad-ink  #8c1d18 on card ........................ 8.2:1
+     tag text #5c574f on skip-tint ................... 6.0:1
+   Numbers are never the only signal: every recall cell carries
+   its figure as text, and pass/fail also changes the tint.
+   ============================================================ */
+
+.pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  margin: 12px 0 18px;
+}
+@media (max-width: 1040px) { .pair { grid-template-columns: minmax(0, 1fr); } }
+
+.col {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px 12px;
+  min-width: 0;
+}
+
+/* The second column is the later run. A hairline accent edge says
+   "this is the one that came after" without relying on order alone. */
+.pair .col:last-child { border-left: 3px solid var(--accent); }
+@media (max-width: 1040px) {
+  .pair .col:last-child { border-left: 1px solid var(--line);
+                          border-top: 3px solid var(--accent); }
+}
+
+.col-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.col-head .tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--skip-ink);
+  background: var(--skip-tint);
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.col-head .big {
+  font-size: 34px;
+  font-weight: 650;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  margin-top: 6px;
+}
+.col-head .big.good { color: var(--pass-ink); }
+.col-head .big.bad { color: var(--fail-ink); }
+.col-head .big .of { font-size: 18px; font-weight: 500; color: var(--muted); }
+.col-head .lbl {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---------- the five-row matrix ---------- */
+table.matrix {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+table.matrix th, table.matrix td {
+  text-align: right;
+  padding: 7px 8px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+table.matrix th[scope="row"] {
+  text-align: left;
+  font-family: var(--mono);
+  font-weight: 600;
+}
+table.matrix thead th {
+  text-align: right;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--line-strong);
+}
+table.matrix thead th:first-child { text-align: left; }
+table.matrix tfoot th, table.matrix tfoot td {
+  border-top: 2px solid var(--line-strong);
+  border-bottom: 0;
+  font-weight: 620;
+  padding-top: 9px;
+}
+table.matrix td.pass { color: var(--pass-ink); background: var(--pass-tint); }
+table.matrix td.fail { color: var(--fail-ink); background: var(--fail-tint); }
+table.matrix td.skip { color: var(--skip-ink); }
+table.matrix td.num { font-family: var(--mono); }
+.muted-s { color: var(--muted); font-size: 11px; }
+
+/* The loop table is denser and its last column holds trace links. */
+table.loop-table td, table.loop-table th { padding: 6px 8px; }
+table.loop-table td:last-child { text-align: left; font-family: var(--mono);
+                                 font-size: 11px; }
+table.loop-table td code { font-size: 11px; }
+
+/* ---------- what changed between two runs ---------- */
+.changed {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  background: var(--paper);
+  border-left: 3px solid var(--line-strong);
+  border-radius: 0 6px 6px 0;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.changed-k {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink);
+  font-weight: 650;
+  margin-bottom: 3px;
+}
+
+.verdict-line { font-size: 13px; margin: 0 0 10px; }
+
+.card.argument { margin: 16px 0; }
+.card.argument h3 { font-size: 14px; margin-bottom: 6px; }
+.card.argument p { font-size: 13px; margin: 0 0 8px; line-height: 1.6; }
+.card.argument p:last-child { margin-bottom: 0; }
+
+ul.tight { margin: 4px 0 10px; padding-left: 20px; font-size: 13px; line-height: 1.6; }
+ul.tight li { margin-bottom: 3px; }
+
+h3 { font-size: 14px; margin: 22px 0 2px; letter-spacing: -0.01em; }
+
+/* Visually hidden but read aloud. Every table gets a caption. */
+.vh {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- live view: tabs, focus box, delta ---------- */
+.tabs-row { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.tab {
+  padding: 6px 13px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  cursor: pointer;
+}
+.tab[aria-selected="true"] {
+  background: var(--card);
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+  font-weight: 580;
+}
+
+/* The focused element's own rectangle, drawn over the frame. This product
+   reports on focus visibility, so showing the box is the demo. */
+.frame .box {
+  position: absolute;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 4px rgba(180, 85, 31, 0.28);
+  border-radius: 2px;
+  pointer-events: none;
+  transition: left 120ms ease, top 120ms ease, width 120ms ease, height 120ms ease;
+}
+/* Something is painted over this element. Hatching, not colour alone. */
+.frame .box.covered {
+  border-color: var(--fail-ink);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 4px rgba(140, 29, 24, 0.3);
+  background: repeating-linear-gradient(45deg,
+    rgba(140, 29, 24, 0.22) 0 6px, rgba(140, 29, 24, 0.06) 6px 12px);
+}
+
+.stops .delta { font-size: 11px; color: var(--muted); font-family: var(--mono); }
+
+/* ---------- the gap strip: the comparison's headline ---------- */
+.gap-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 16px;
+  margin-bottom: 10px;
+  background: var(--card);
+  border: 1px solid var(--accent);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.gap-strip .gap-n {
+  font-size: 30px;
+  font-weight: 680;
+  line-height: 1;
+  color: var(--accent-ink);
+  font-variant-numeric: tabular-nums;
+  flex: none;
+}

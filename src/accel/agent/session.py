@@ -40,9 +40,16 @@ class Session:
             self._owned = False
         else:
             from daytona import CreateSandboxFromSnapshotParams
+            # Daytona's stock snapshot is 1 CPU / 1 GB, and npm install on a
+            # real React app dies there -- exit 137, out of memory, every time.
+            # ACCEL_SNAPSHOT names one built at 4 CPU / 8 GB / 10 GB instead.
+            # CreateSandboxFromSnapshotParams has no `resources` field: a
+            # snapshot's size is fixed when the snapshot is made, which is why
+            # asking for more memory here was never going to work.
             self.sb = self.client.create(CreateSandboxFromSnapshotParams(
+                snapshot=os.environ.get("ACCEL_SNAPSHOT", "ally"),
                 public=True, auto_stop_interval=30,
-                labels={"project": "ally", "purpose": "audit"}))
+                labels={"project": "accel", "purpose": "audit"}))
             self._owned = True
         self.id = self.sb.id
         self._ready = False

@@ -35,6 +35,7 @@ from .patcher import (MAX_LOCATE_ATTEMPTS, MAX_PATCH_ATTEMPTS, ApplyOutcome,
                       locate_context, read_plan, request_edits, resolve_find,
                       write_plan)
 from .lessons import Lesson, describe_fix, group_shape
+from . import whichfile
 from .recording import Result, not_evaluated
 
 
@@ -114,6 +115,10 @@ class FixLoop:
         self.build = build
         #: Why the last re-audit could not be scored, if it could not be.
         self.blocked = ""
+        #: The clone inside the sandbox, so the file lookup can search it.
+        self.checkout = ""
+        #: group key -> whichfile.Located, for the run log and the PR body.
+        self.located: dict = {}
         self.client = client
         #: Stage 4 plugs the lessons table in here. Absent, the prompt carries
         #: no prior cases and the first instance of a criterion has nothing to
@@ -508,9 +513,15 @@ class FixLoop:
         print(f"\n{len(groups)} group(s) to fix "
               f"(findings grouped by component, then criterion)")
         for g in groups:
-            src = (sources or {}).get(g.page) or source_path
+            page_file = (sources or {}).get(g.page) or source_path
+            src, why = page_file, ""
+            if self.checkout:
+                found = whichfile.locate(self.audit.session, self.checkout,
+                                         self.audit, g.targets, page_file)
+                src, why = found.path, found.note()
+                self.located[g.key] = found
             print(f"  [{g.criterion} {g.component}] {len(g.findings)} finding(s)"
-                  f"  in {src}")
+                  f"  in {why or src}")
             outcome = self.fix_group(g, src)
             self.outcomes.append(outcome)
             print(f"      -> {outcome.status}  "
