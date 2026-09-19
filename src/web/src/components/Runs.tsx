@@ -166,10 +166,13 @@ export function Runs({ job, rows, onOpen, onUpdate, onClose }: Props) {
         </div>
       </header>
 
+      {/* "Findings 2" beside "Unresolved 6" read as six of the two findings
+          being outstanding. They are unrelated counts: failures, and checks
+          that reached no verdict. The labels say which is which now. */}
       <dl className="run-summary-bar">
-        <div><dt>Findings</dt><dd>{failed.length}</dd></div>
-        <div><dt>Unresolved</dt><dd>{undecided.length}</dd></div>
-        <div><dt>Closed</dt><dd>{closed}</dd></div>
+        <div><dt>Failed</dt><dd>{failed.length}</dd></div>
+        <div><dt>Couldn't judge</dt><dd>{undecided.length}</dd></div>
+        <div><dt>Fixed</dt><dd>{closed}</dd></div>
         <div><dt>New issues</dt><dd>{created}</dd></div>
         <div><dt>Pages</dt><dd>{job.pages.length || 1}</dd></div>
         <div><dt>States</dt><dd>{Object.keys(job.recordings).length}</dd></div>

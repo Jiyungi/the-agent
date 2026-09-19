@@ -1,0 +1,17 @@
+{
+  "addresses": [
+    "The link at y=516 (stop 2) is tabbed to second, but visually it sits below all other elements (stops 3-6, which are around y=320-437). A sighted keyboard user would tab to a link far below the current content, then jump back up to items above it, creating a disorienting backward jump in focus order that does not match the visual top-to-bottom reading sequence."
+  ],
+  "component": "dd>a",
+  "criterion": "2.4.3",
+  "edits": [
+    {
+      "find": "        <div className=\"space-y-4\">\n          <InsuranceFlowDemo result={result} />\n          <InsuranceFlowDeepgramUpload />\n        </div>",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "        <div className=\"space-y-4\">\n          <InsuranceFlowDeepgramUpload />\n          <InsuranceFlowDemo result={result} />\n        </div>"
+    }
+  ],
+  "locate_attempts": 1,
+  "patch_id": "2-4-3-dd-a-1",
+  "rationale": "The two panels are tabbed in DOM order but the upload panel renders visually above the demo results (whose `dd > a` link sits at y=516), so I swap the DOM order of the two children in the page wrapper to match the visual top-to-bottom sequence without removing anything."
+}

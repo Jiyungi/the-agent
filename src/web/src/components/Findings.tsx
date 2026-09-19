@@ -38,9 +38,10 @@ export function Findings({ findings, axe }: Props) {
     const mine = findings.filter((f) => f.criterion === crit)
     const failed = mine.filter((f) => f.status === 'failed')
     const ne = mine.filter((f) => f.status === 'not_evaluated')
+    const passed = mine.filter((f) => f.status === 'passed')
     const axeHits = [...new Set(byTag.get(AXE_TAG[crit]) ?? [])]
     if (failed.length && !axeHits.length) gaps += 1
-    return { crit, mine, failed, ne, axeHits }
+    return { crit, mine, failed, ne, passed, axeHits }
   })
 
 
@@ -68,8 +69,16 @@ export function Findings({ findings, axe }: Props) {
           </tr>
         </thead>
         <tbody>
-          {rows.map(({ crit, mine, failed, ne, axeHits }) => {
+          {rows.map(({ crit, mine, failed, ne, passed, axeHits }) => {
             const examined = mine.reduce((n, f) => n + (f.census?.examined ?? 0), 0)
+            // One row covers every page and state this criterion ran on. The
+            // verdict used to be the first failing or unevaluated one while
+            // Examined summed all of them, so a criterion that passed on three
+            // pages and could not be judged on a fourth read as
+            // "not evaluated - no interactive elements were captured" beside
+            // an Examined of 7. Both were true of different pages and the row
+            // said neither. When the run is mixed it now says so.
+            const mixed = ne.length > 0 && passed.length > 0
             return (
               <tr key={crit}>
                 <td>
@@ -91,13 +100,24 @@ export function Findings({ findings, axe }: Props) {
                         </span>
                       )}
                     </>
+                  ) : mixed ? (
+                    <>
+                      <span className="status-label status-done">
+                        <Icon name="check" /> passed on {passed.length}
+                      </span>
+                      <span className="muted">
+                        {ne.length} of {mine.length} could not be judged: {ne[0].reason}
+                      </span>
+                    </>
                   ) : ne.length ? (
                     <>
                       <span className="status-label status-queued">not evaluated</span>
                       <span className="muted">{ne[0].reason}</span>
                     </>
                   ) : mine.length ? (
-                    <span className="status-label status-done"><Icon name="check" /> passed</span>
+                    <span className="status-label status-done">
+                      <Icon name="check" /> passed{mine.length > 1 ? ` on ${mine.length}` : ''}
+                    </span>
                   ) : (
                     <span className="muted">not run</span>
                   )}

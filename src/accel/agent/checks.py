@@ -68,6 +68,31 @@ def _too_little_seen(rec: Recording, criterion: str) -> Result | None:
     return None
 
 
+def _never_took_focus(rec: Recording, criterion: str) -> Result | None:
+    """Tab pressed, focus stayed on the document. Not a verdict about the page.
+
+    When every stop is BODY or HTML, focus never reached a control at all. That
+    is the recorder failing to engage the page -- a navigation that did not
+    finish, a script still running, an overlay swallowing the key -- and it is
+    not evidence for or against any criterion.
+
+    It looked like three different bugs. 2.1.1 said no interactive elements
+    were captured, 2.4.7 said no focus comparison was captured, and 2.1.2 said
+    `focus stayed on the same element across a Tab press 40 times: body` and
+    reported a **keyboard trap**. A confident failure on a page with no trap is
+    the worst of the three, because the other two at least refuse to conclude.
+    """
+    real = [s for s in rec.stops if s.tag not in ("BODY", "HTML")]
+    if rec.stops and not real:
+        return not_evaluated(
+            criterion, rec.state,
+            f"focus never left the document: all {len(rec.stops)} stops were on "
+            f"<{rec.stops[0].tag.lower()}>, so Tab never reached a control and "
+            "there is nothing here to judge",
+            census=Census(examined=len(rec.stops), undecided=len(rec.stops)))
+    return None
+
+
 def _gate(rec: Recording, criterion: str) -> Result | None:
     """Preconditions shared by every check (SCOPE rule 5.1).
 
@@ -80,6 +105,8 @@ def _gate(rec: Recording, criterion: str) -> Result | None:
     if len(rec.stops) < 2:
         return not_evaluated(criterion, rec.state,
                              "no keyboard activity recorded: fewer than two focus stops")
+    if (nowhere := _never_took_focus(rec, criterion)):
+        return nowhere
     return None
 
 
@@ -180,6 +207,19 @@ def check_no_trap(rec: Recording) -> Result:
         return passed("2.1.2", rec.state, census=census,
                       summary=f"focus moved on every one of {presses} Tab presses "
                               "and left the page at the end")
+
+    # A page with a single tabbable control gives the same selector on every
+    # press, because focus has nowhere else to go and comes back to it. That is
+    # the page being small, not focus being trapped: a trap is being able to
+    # get IN and not OUT, which needs somewhere else to have been.
+    reachable = {s.selector for s in rec.stops if s.tag not in ("BODY", "HTML")}
+    if len(reachable) <= 1:
+        return not_evaluated(
+            "2.1.2", rec.state,
+            f"only one element on this page is reachable by Tab, so focus "
+            f"returning to it is expected and there is no second place for it "
+            f"to have been trapped away from",
+            census=Census(examined=presses, undecided=presses))
 
     stuck = {rec.stops[j].selector for _, j in repeats}
     refs = sorted({rec.stops[i].cite for pair in repeats for i in pair},
