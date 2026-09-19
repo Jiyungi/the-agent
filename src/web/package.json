@@ -1,9 +1,9 @@
 {
-  "name": "ally-frontend",
+  "name": "accel-frontend",
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Ally: paste a live page and its repository, get a pull request.",
+  "description": "ACCEL: sign in with GitHub, get a pull request.",
   "scripts": {
     "dev": "node ./node_modules/vite/bin/vite.js",
     "build": "node ./node_modules/vite/bin/vite.js build",

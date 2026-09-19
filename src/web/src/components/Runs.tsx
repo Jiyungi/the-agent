@@ -252,7 +252,7 @@ export function Runs({ job, rows, onOpen, onUpdate, onClose }: Props) {
       {Object.keys(job.recordings).length > 0 && (
         <section className="section">
           <div className="section-heading">
-            <div><span className="eyebrow">Evidence</span><h2>The page as Ally drove it</h2></div>
+            <div><span className="eyebrow">Evidence</span><h2>The page as ACCEL drove it</h2></div>
           </div>
           <LiveView recordings={job.recordings} />
         </section>

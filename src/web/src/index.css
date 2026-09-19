@@ -1,22 +1,11 @@
-/* Ally - AccessiFix's "Warm Control Room", ported from
-   Do not push to github/src/app/globals.css.
+/* ACCEL - the warm control room.
 
-   This is the real design system: espresso ink, oat and ivory surfaces,
-   terracotta signal. An earlier attempt built from reference/a11y-agent, a
-   Notion pastiche that is a different project entirely.
-
-   Two lines of the original are dropped, both Tailwind plumbing nothing in the
-   markup depends on: the `@import "tailwindcss"` entry point and the `@theme`
-   block that mirrors the tokens for Tailwind's generator.
-
-   Below the second banner are Ally's own surfaces, for screens AccessiFix does
-   not have -- the frame, the stop list, the phase rail -- written in the same
-   vocabulary and using the same tokens.
-   ============================================================ */
+   Dark, calm surfaces so the live browser panels are the brightest thing on
+   the screen. Everything else recedes. */
 
 
 /* ============================================================
-   AccessiFix — "Warm Control Room"
+   ACCEL — the control room
    Design tokens carried over from Tracecase.
 
    CONTRAST LEDGER (verified via WCAG 2.x relative luminance):
@@ -1111,7 +1100,7 @@ code, pre, kbd, samp { font-family: var(--font-mono); }
 
 
 /* ============================================================
-   Ally's own surfaces, in the same vocabulary.
+   Surfaces for the run views.
    ============================================================ */
 
 .audit-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
@@ -1280,3 +1269,93 @@ table.grid thead th {
 table.grid tbody tr:last-child td { border-bottom: 0; }
 table.grid td.num, table.grid th.num { text-align: right; font-family: var(--font-mono); }
 table.grid tr.dim td { color: var(--text-muted); }
+
+/* ---------------------------------------------------------------------------
+   The sign-in gate.
+
+   One column, centred, dark. The five criteria are the argument, so they get
+   the space: a person who has only ever seen a colour-contrast report needs to
+   understand these are a different kind of defect before the GitHub button
+   means anything.
+   ------------------------------------------------------------------------- */
+
+.app-booting {
+  min-height: 100vh; display: grid; place-items: center;
+  color: var(--ink-soft, #9aa4b2); font-size: 15px; letter-spacing: .01em;
+}
+
+.signin-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 48px 16px;
+}
+
+.signin-card {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.signin-brand { font-size: 20px; letter-spacing: .14em; font-weight: 600; }
+
+.signin-card h1 {
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.signin-lede { margin: 0; font-size: 16px; line-height: 1.6; opacity: .85; }
+.signin-lede kbd {
+  font: inherit; font-size: .9em; padding: 1px 6px; border-radius: 5px;
+  border: 1px solid currentColor; opacity: .8;
+}
+
+.signin-criteria { list-style: none; margin: 8px 0 0; padding: 0;
+  display: flex; flex-direction: column; gap: 1px;
+  border-radius: 12px; overflow: hidden; }
+
+.signin-criteria li {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 170px) minmax(0, 1fr);
+  gap: 12px; align-items: baseline;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, .035);
+}
+.signin-criteria code { font-size: 12px; opacity: .65; letter-spacing: .02em; }
+.signin-criteria strong { font-size: 14px; font-weight: 600; }
+.signin-criteria span { font-size: 13px; opacity: .7; line-height: 1.45; }
+
+.signin-note { margin: 0; font-size: 14px; line-height: 1.55; opacity: .8; }
+
+.signin-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; padding: 15px 20px; margin-top: 4px;
+  font: inherit; font-size: 15px; font-weight: 600;
+  border: 0; border-radius: 12px; cursor: pointer;
+  background: #fff; color: #111;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.signin-button:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+/* The product is a keyboard-accessibility tool. Its own focus ring is not
+   optional, and it is not allowed to be subtle. */
+.signin-button:focus-visible,
+.signout:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 3px; }
+
+.signin-scope { margin: 0; font-size: 12.5px; line-height: 1.55; opacity: .55; }
+
+.signout {
+  background: none; border: 0; padding: 0; cursor: pointer;
+  font: inherit; font-size: 12px; opacity: .65; text-decoration: underline;
+  text-align: left; color: inherit;
+}
+.signout:hover { opacity: 1; }
+
+.sidebar-bottom .avatar { border-radius: 50%; object-fit: cover; }
+
+@media (max-width: 560px) {
+  .signin-criteria li { grid-template-columns: 1fr; gap: 2px; }
+}

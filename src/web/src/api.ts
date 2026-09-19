@@ -1,3 +1,4 @@
+import { authHeaders } from './auth'
 // One place that knows the server exists. Same-origin paths: Vite proxies them
 // in development, the Python server serves the build in production.
 
@@ -99,7 +100,11 @@ export interface AxeViolation {
 async function req<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(path, {
     ...init,
-    headers: { 'Content-Type': 'application/json', ...(init?.headers ?? {}) },
+    headers: {
+      'Content-Type': 'application/json',
+      ...authHeaders(),
+      ...(init?.headers ?? {}),
+    },
   })
   const text = await res.text()
   let body: unknown = null

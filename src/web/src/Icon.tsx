@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 /**
- * Inline line-icon set for AccessiFix.
+ * Inline line-icon set.
  *
  * Accessibility contract:
  * - Decorative by default: `aria-hidden="true"` and `focusable="false"`, so the

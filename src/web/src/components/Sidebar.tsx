@@ -1,4 +1,4 @@
-// AccessiFix's sidebar structure, which its CSS depends on:
+// The sidebar structure the CSS depends on:
 //
 //   .sidebar            space-between
 //     .brand-row          .brand > BrandMark + name
@@ -8,7 +8,7 @@
 
 import { BrandMark, Icon, type IconName } from '../Icon'
 
-export type Tab = 'home' | 'runs' | 'findings' | 'loop'
+export type Tab = 'home' | 'runs' | 'findings'
 
 interface Props {
   tab: Tab
@@ -16,16 +16,19 @@ interface Props {
   target: string
   runCount: number
   findingCount: number
+  login: string
+  avatarUrl: string
+  onSignOut: () => void
 }
 
 const NAV: { id: Tab; label: string; icon: IconName }[] = [
   { id: 'home', label: 'Home', icon: 'home' },
   { id: 'runs', label: 'Runs', icon: 'activity' },
   { id: 'findings', label: 'Findings', icon: 'warning' },
-  { id: 'loop', label: 'The Loop', icon: 'target' },
 ]
 
-export function Sidebar({ tab, setTab, target, runCount, findingCount }: Props) {
+export function Sidebar({ tab, setTab, target, runCount, findingCount,
+                         login, avatarUrl, onSignOut }: Props) {
   const badge = (id: Tab) =>
     id === 'runs' ? runCount : id === 'findings' ? findingCount : 0
 
@@ -34,7 +37,7 @@ export function Sidebar({ tab, setTab, target, runCount, findingCount }: Props) 
       <div className="brand-row">
         <span className="brand">
           <BrandMark />
-          <span>Ally</span>
+          <span>ACCEL</span>
         </span>
       </div>
 
@@ -66,10 +69,14 @@ export function Sidebar({ tab, setTab, target, runCount, findingCount }: Props) 
 
       <div className="sidebar-bottom">
         <span className="account-link">
-          <span className="avatar" aria-hidden="true">AL</span>
+          {avatarUrl
+            ? <img className="avatar" src={avatarUrl} alt="" width={32} height={32} />
+            : <span className="avatar" aria-hidden="true">
+                {(login || '?').slice(0, 2).toUpperCase()}
+              </span>}
           <span className="account-copy">
-            <strong>Ally</strong>
-            <span>WCAG agent</span>
+            <strong>{login || 'Signed in'}</strong>
+            <button type="button" className="signout" onClick={onSignOut}>Sign out</button>
           </span>
         </span>
       </div>

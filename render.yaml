@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: accel
+    runtime: python
+    plan: free
+    rootDir: src
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m accel.server.app

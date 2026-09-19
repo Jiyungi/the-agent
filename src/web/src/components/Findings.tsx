@@ -62,7 +62,7 @@ export function Findings({ findings, axe }: Props) {
         <thead>
           <tr>
             <th>Criterion</th>
-            <th>Ally</th>
+            <th>ACCEL</th>
             <th>axe-core {axe.version}</th>
             <th className="num">Examined</th>
           </tr>
