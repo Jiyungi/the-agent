@@ -39,6 +39,14 @@ export function WatchPanel({ job, live }: { job: Job; live: boolean }) {
 
   const wide = screens.length === 1
 
+  // What a blank desktop means right now, or '' when it should be showing
+  // something and a blank one is a real problem.
+  const idle =
+    job.phase === 'clone' ? 'Nothing opened yet — reading the repository'
+    : job.phase === 'fix' ? 'Paused while the project rebuilds'
+    : job.phase === 'pr' ? 'Audit finished — this sandbox is being released'
+    : ''
+
   return (
     <section className="section">
       <div className="section-heading">
@@ -81,7 +89,15 @@ export function WatchPanel({ job, live }: { job: Job; live: boolean }) {
                   <Icon name="external" />
                 </a>
               </figcaption>
-              <div className="frame">
+              <div className="frame" style={{ position: 'relative' }}>
+                {/* A live desktop with nothing on it looks identical to a
+                    broken panel. Two phases produce one on purpose: during the
+                    clone nothing has been opened yet, and during the fix the
+                    browser and desktop are stopped to free memory for the
+                    build. Both are normal and neither used to say so. */}
+                {s.watch_url && idle && (
+                  <p className="frame-note">{idle}</p>
+                )}
                 {s.watch_url ? (
                   <iframe
                     key={s.watch_url}

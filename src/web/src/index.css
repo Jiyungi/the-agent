@@ -1406,3 +1406,13 @@ table.grid tr.dim td { color: var(--text-muted); }
 }
 .signout:hover { opacity: 1; }
 .sidebar-bottom .avatar { border-radius: 50%; object-fit: cover; }
+
+/* A note laid over a live-but-empty desktop, so a normal pause does not read
+   as a broken panel. */
+.frame-note {
+  position: absolute; inset: auto 8px 8px 8px; z-index: 2;
+  margin: 0; padding: 7px 10px; border-radius: 8px;
+  font-size: 12.5px; line-height: 1.35;
+  background: rgba(35, 21, 15, .82); color: var(--paper);
+  pointer-events: none;
+}
