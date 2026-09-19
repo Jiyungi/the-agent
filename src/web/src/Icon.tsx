@@ -127,13 +127,25 @@ export function Icon({
 }
 
 export function BrandMark({ size = 31 }: { size?: number }) {
+  // The ACCEL mark: a focus ring around the letter.
+  //
+  // The subject of this product is the focus indicator -- the outline a
+  // browser paints when Tab lands on a control, and which on most sites is
+  // invisible. The ring here sits offset outside its element exactly as a real
+  // one does, with the letter inside as the thing being focused.
+  //
+  // Inline rather than the PNG: it stays sharp at any size, needs no request,
+  // and cannot be the broken-image icon if a static path is ever wrong.
   return (
     <span className="brand-mark" style={{ width: size, height: size }}>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" focusable="false" aria-hidden="true">
-        <path d="M12 3v6M12 9 7 13M12 9l5 4" />
-        <circle cx="12" cy="3.6" r="1.5" fill="currentColor" stroke="none" />
-        <path d="m4.5 17.5 2.6 2.6L12 14.6" />
-        <path d="M15.5 18.5h4.6" />
+      <svg viewBox="0 0 48 48" focusable="false" aria-hidden="true">
+        <rect x="4.5" y="4.5" width="39" height="39" rx="11"
+              fill="none" stroke="var(--terracotta)" strokeWidth="3.4" />
+        <rect x="11.5" y="11.5" width="25" height="25" rx="6"
+              fill="var(--espresso-950)" />
+        <text x="24" y="24" textAnchor="middle" dominantBaseline="central"
+              fill="var(--paper)" fontSize="17" fontWeight="700"
+              fontFamily="var(--font-sans, system-ui, sans-serif)">A</text>
       </svg>
     </span>
   );
