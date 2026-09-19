@@ -13,5 +13,12 @@
 
 daytona==0.129.0
 anthropic==0.111.0
+
+# 2.4.7 compares the screenshot before and after focus lands, and crop_diff
+# returns None without Pillow -- so the check reported "no focus-indicator
+# comparison was captured" on every page of every run on the host, and passed
+# on every page locally. An import that is optional in code is not optional in
+# a deployment; it just fails quietly there.
+Pillow==12.3.0
 psycopg2-binary==2.9.11
 certifi==2026.6.17

@@ -101,12 +101,16 @@ export function Findings({ findings, axe }: Props) {
                       )}
                     </>
                   ) : mixed ? (
+                    // Two spans, two facts. Without the block display they ran
+                    // together as "passed on 31 of 4 could not be judged",
+                    // which reads as a number and is not one.
                     <>
                       <span className="status-label status-done">
-                        <Icon name="check" /> passed on {passed.length}
+                        <Icon name="check" /> passed on {passed.length} of {mine.length}
                       </span>
-                      <span className="muted">
-                        {ne.length} of {mine.length} could not be judged: {ne[0].reason}
+                      <span className="muted" style={{ display: 'block' }}>
+                        {ne.length === 1 ? 'One' : ne.length} could not be judged
+                        {': '}{ne[0].reason}
                       </span>
                     </>
                   ) : ne.length ? (
