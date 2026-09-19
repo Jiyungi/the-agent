@@ -1,19 +1,12 @@
 """The lessons table: one row per patch outcome, queried before the next patch.
 
-A table and a query. No training, no embeddings, no vector store. SQLite,
-through the database seam, because moving to Postgres later should be a
-connection string.
+A table and a query. No training, no embeddings, no vector store.
 
     criterion | element shape | fix applied | did it close | what the re-audit said
 
 Written after every patch outcome, whether it closed or not. A fix that did not
 work is more useful than one that did: it is the only thing that stops the next
 attempt repeating it.
-
-**The retrieved row ids go into the Weave trace for that patch call.** That is
-what makes the loop provable rather than claimed. Without it, "patch attempts
-per closed finding fell" is a line on a chart with no mechanism attached to it,
-and a falling line can just as easily mean the later findings were easier.
 
 The first instance of a criterion has nothing to retrieve. That is the point:
 it is what the third instance is compared against.
@@ -28,8 +21,8 @@ from accel.server import db
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS lessons (
-  id            INTEGER PRIMARY KEY AUTOINCREMENT,
-  created_at    TEXT    NOT NULL DEFAULT (datetime('now')),
+  id            SERIAL PRIMARY KEY,
+  created_at    TIMESTAMPTZ NOT NULL DEFAULT now(),
   run_id        TEXT    NOT NULL,
   criterion     TEXT    NOT NULL,
   -- What the damaged element looked like, in the terms a later prompt can
@@ -42,7 +35,7 @@ CREATE TABLE IF NOT EXISTS lessons (
   -- The exact edit, for the cases where the shape is not enough.
   find_text     TEXT,
   replace_text  TEXT,
-  closed        INTEGER NOT NULL,
+  closed        BOOLEAN NOT NULL,
   -- What the re-audit reported when it did not close. Empty when it closed.
   reaudit_said  TEXT    NOT NULL DEFAULT '',
   patch_attempt INTEGER NOT NULL DEFAULT 1
@@ -79,11 +72,11 @@ class Lessons:
             "INSERT INTO lessons (run_id, criterion, element_shape, component, "
             "fix_applied, find_text, replace_text, closed, reaudit_said, patch_attempt) "
             "VALUES (:run_id, :criterion, :shape, :component, :fix, :find, :repl, "
-            ":closed, :said, :attempt)",
+            ":closed, :said, :attempt) RETURNING id",
             {"run_id": self.run_id, "criterion": lesson.criterion,
              "shape": lesson.element_shape, "component": lesson.component,
              "fix": lesson.fix_applied, "find": lesson.find_text[:400],
-             "repl": lesson.replace_text[:400], "closed": int(lesson.closed),
+             "repl": lesson.replace_text[:400], "closed": bool(lesson.closed),
              "said": lesson.reaudit_said[:400], "attempt": lesson.patch_attempt})
 
     # -- reading ----------------------------------------------------------

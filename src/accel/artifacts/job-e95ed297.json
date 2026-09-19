@@ -1,0 +1,3186 @@
+{
+  "id": "job-e95ed297",
+  "url": "https://mariposa-six.vercel.app/demo/insurance-flow",
+  "repo": "github.com/Jiyungi/mariposa",
+  "branch": "",
+  "status": "failed",
+  "phase": "fix",
+  "source": "app/demo/insurance-flow/page.tsx",
+  "events": [
+    {
+      "at": 1789847488.0953228,
+      "phase": "clone",
+      "message": "Cloning Jiyungi/mariposa",
+      "level": "info"
+    },
+    {
+      "at": 1789847507.1335418,
+      "phase": "clone",
+      "message": "At f89e77d",
+      "level": "info"
+    },
+    {
+      "at": 1789847507.8607664,
+      "phase": "clone",
+      "message": "The page is backed by app/demo/insurance-flow/page.tsx",
+      "level": "info"
+    },
+    {
+      "at": 1789847507.8607664,
+      "phase": "audit",
+      "message": "4 routes declared in the repository: /, https://mariposa-six.vercel.app/calendar, https://mariposa-six.vercel.app/chat, https://mariposa-six.vercel.app/home",
+      "level": "info"
+    },
+    {
+      "at": 1789847507.8607664,
+      "phase": "audit",
+      "message": "4 sandbox(es) starting together",
+      "level": "info"
+    },
+    {
+      "at": 1789847519.678619,
+      "phase": "audit",
+      "message": "[3] sandbox ready, opening https://mariposa-six.vercel.app/home",
+      "level": "info"
+    },
+    {
+      "at": 1789847519.7801023,
+      "phase": "audit",
+      "message": "[2] sandbox ready, opening https://mariposa-six.vercel.app/chat",
+      "level": "info"
+    },
+    {
+      "at": 1789847520.0206842,
+      "phase": "audit",
+      "message": "[0] sandbox ready, opening https://mariposa-six.vercel.app/demo/insurance-flow",
+      "level": "info"
+    },
+    {
+      "at": 1789847521.1670256,
+      "phase": "audit",
+      "message": "[1] sandbox ready, opening https://mariposa-six.vercel.app/calendar",
+      "level": "info"
+    },
+    {
+      "at": 1789847552.1064832,
+      "phase": "audit",
+      "message": "[2] 0 finding(s) on https://mariposa-six.vercel.app/chat",
+      "level": "info"
+    },
+    {
+      "at": 1789847555.6381824,
+      "phase": "audit",
+      "message": "[3] 0 finding(s) on https://mariposa-six.vercel.app/home",
+      "level": "info"
+    },
+    {
+      "at": 1789847556.8734505,
+      "phase": "audit",
+      "message": "[1] 0 finding(s) on https://mariposa-six.vercel.app/calendar",
+      "level": "info"
+    },
+    {
+      "at": 1789847564.020309,
+      "phase": "audit",
+      "message": "[0] 1 finding(s) on https://mariposa-six.vercel.app/demo/insurance-flow",
+      "level": "info"
+    },
+    {
+      "at": 1789847564.2153249,
+      "phase": "audit",
+      "message": "[2] https://mariposa-six.vercel.app/chat renders the same screen as https://mariposa-six.vercel.app/calendar; trying https://mariposa-six.vercel.app/summary instead",
+      "level": "warn"
+    },
+    {
+      "at": 1789847564.2153249,
+      "phase": "audit",
+      "message": "[3] https://mariposa-six.vercel.app/home renders the same screen as https://mariposa-six.vercel.app/calendar; trying https://mariposa-six.vercel.app/tasks instead",
+      "level": "warn"
+    },
+    {
+      "at": 1789847575.9538293,
+      "phase": "audit",
+      "message": "[2] sandbox ready, opening https://mariposa-six.vercel.app/summary",
+      "level": "info"
+    },
+    {
+      "at": 1789847575.987359,
+      "phase": "audit",
+      "message": "[3] sandbox ready, opening https://mariposa-six.vercel.app/tasks",
+      "level": "info"
+    },
+    {
+      "at": 1789847600.423993,
+      "phase": "audit",
+      "message": "[2] 0 finding(s) on https://mariposa-six.vercel.app/summary",
+      "level": "info"
+    },
+    {
+      "at": 1789847600.8293855,
+      "phase": "audit",
+      "message": "[3] 0 finding(s) on https://mariposa-six.vercel.app/tasks",
+      "level": "info"
+    },
+    {
+      "at": 1789847601.0782254,
+      "phase": "audit",
+      "message": "[2] https://mariposa-six.vercel.app/summary renders the same screen as https://mariposa-six.vercel.app/calendar; trying https://mariposa-six.vercel.app/call instead",
+      "level": "warn"
+    },
+    {
+      "at": 1789847601.0782254,
+      "phase": "audit",
+      "message": "[3] https://mariposa-six.vercel.app/tasks renders the same screen as https://mariposa-six.vercel.app/calendar; trying https://mariposa-six.vercel.app/demo/pacific-crest-benefits instead",
+      "level": "warn"
+    },
+    {
+      "at": 1789847612.7384386,
+      "phase": "audit",
+      "message": "[3] sandbox ready, opening https://mariposa-six.vercel.app/demo/pacific-crest-benefits",
+      "level": "info"
+    },
+    {
+      "at": 1789847612.8997262,
+      "phase": "audit",
+      "message": "[2] sandbox ready, opening https://mariposa-six.vercel.app/call",
+      "level": "info"
+    },
+    {
+      "at": 1789847637.5678725,
+      "phase": "audit",
+      "message": "[2] 0 finding(s) on https://mariposa-six.vercel.app/call",
+      "level": "info"
+    },
+    {
+      "at": 1789847675.9326181,
+      "phase": "audit",
+      "message": "[3] 1 finding(s) on https://mariposa-six.vercel.app/demo/pacific-crest-benefits",
+      "level": "info"
+    },
+    {
+      "at": 1789847676.1428905,
+      "phase": "audit",
+      "message": "2 finding(s) across 20 check(s) on 4 page(s)",
+      "level": "info"
+    },
+    {
+      "at": 1789847676.1428905,
+      "phase": "fix",
+      "message": "Installing and building the repository so the patch can be re-audited",
+      "level": "info"
+    },
+    {
+      "at": 1789847684.5867596,
+      "phase": "fix",
+      "message": "memory in use 221 of 8192MB, 90 of 8192MB with the browser and desktop stopped for the build",
+      "level": "info"
+    },
+    {
+      "at": 1789847728.970085,
+      "phase": "fix",
+      "message": "Running the app's own server, and rebuilding between patches",
+      "level": "info"
+    },
+    {
+      "at": 1789847729.5507276,
+      "phase": "fix",
+      "message": "SyntaxError: syntax error at or near \"AUTOINCREMENT\"\nLINE 3:   id            INTEGER PRIMARY KEY AUTOINCREMENT,\n                                            ^\n",
+      "level": "error"
+    }
+  ],
+  "findings": [
+    {
+      "criterion": "2.1.1",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "all 4 interactive elements were reached by Tab",
+      "targets": [],
+      "census": {
+        "examined": 4,
+        "failed": 0,
+        "passed": 4,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/demo/insurance-flow"
+    },
+    {
+      "criterion": "2.1.2",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "focus moved on every one of 7 Tab presses and left the page at the end",
+      "targets": [],
+      "census": {
+        "examined": 7,
+        "failed": 0,
+        "passed": 7,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/demo/insurance-flow"
+    },
+    {
+      "criterion": "2.4.3",
+      "state": "loaded",
+      "status": "failed",
+      "reason": null,
+      "evidence_refs": [
+        "stop 2"
+      ],
+      "summary": "tab order does not follow reading order at 1 stops",
+      "targets": [
+        "div>div>section:nth-of-type(1)>dl>div:nth-of-type(9)>dd>a"
+      ],
+      "census": {
+        "examined": 6,
+        "failed": 1,
+        "passed": 5,
+        "undecided": 0,
+        "inapplicable": 2,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/demo/insurance-flow"
+    },
+    {
+      "criterion": "2.4.7",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "the focus indicator changed the screen at all 6 stops",
+      "targets": [],
+      "census": {
+        "examined": 6,
+        "failed": 0,
+        "passed": 6,
+        "undecided": 0,
+        "inapplicable": 1,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/demo/insurance-flow"
+    },
+    {
+      "criterion": "2.4.11",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "every one of 8 focused elements was visible at its own centre",
+      "targets": [],
+      "census": {
+        "examined": 8,
+        "failed": 0,
+        "passed": 8,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/demo/insurance-flow"
+    },
+    {
+      "criterion": "2.1.1",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "all 2 interactive elements were reached by Tab",
+      "targets": [],
+      "census": {
+        "examined": 2,
+        "failed": 0,
+        "passed": 2,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/calendar"
+    },
+    {
+      "criterion": "2.1.2",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "focus moved on every one of 3 Tab presses and left the page at the end",
+      "targets": [],
+      "census": {
+        "examined": 3,
+        "failed": 0,
+        "passed": 3,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/calendar"
+    },
+    {
+      "criterion": "2.4.3",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "tab order matches reading order across 2 stops",
+      "targets": [],
+      "census": {
+        "examined": 2,
+        "failed": 0,
+        "passed": 2,
+        "undecided": 0,
+        "inapplicable": 2,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/calendar"
+    },
+    {
+      "criterion": "2.4.7",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "the focus indicator changed the screen at all 2 stops",
+      "targets": [],
+      "census": {
+        "examined": 2,
+        "failed": 0,
+        "passed": 2,
+        "undecided": 0,
+        "inapplicable": 1,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/calendar"
+    },
+    {
+      "criterion": "2.4.11",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "every one of 4 focused elements was visible at its own centre",
+      "targets": [],
+      "census": {
+        "examined": 4,
+        "failed": 0,
+        "passed": 4,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/calendar"
+    },
+    {
+      "criterion": "2.1.1",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "all 1 interactive elements were reached by Tab",
+      "targets": [],
+      "census": {
+        "examined": 1,
+        "failed": 0,
+        "passed": 1,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/call"
+    },
+    {
+      "criterion": "2.1.2",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "focus moved on every one of 3 Tab presses and left the page at the end",
+      "targets": [],
+      "census": {
+        "examined": 3,
+        "failed": 0,
+        "passed": 3,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/call"
+    },
+    {
+      "criterion": "2.4.3",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "tab order matches reading order across 2 stops",
+      "targets": [],
+      "census": {
+        "examined": 2,
+        "failed": 0,
+        "passed": 2,
+        "undecided": 0,
+        "inapplicable": 2,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/call"
+    },
+    {
+      "criterion": "2.4.7",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "the focus indicator changed the screen at all 2 stops",
+      "targets": [],
+      "census": {
+        "examined": 2,
+        "failed": 0,
+        "passed": 2,
+        "undecided": 0,
+        "inapplicable": 1,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/call"
+    },
+    {
+      "criterion": "2.4.11",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "every one of 4 focused elements was visible at its own centre",
+      "targets": [],
+      "census": {
+        "examined": 4,
+        "failed": 0,
+        "passed": 4,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/call"
+    },
+    {
+      "criterion": "2.1.1",
+      "state": "loaded",
+      "status": "not_evaluated",
+      "reason": "no interactive elements were captured, so there is nothing to compare the focus stops against",
+      "evidence_refs": [],
+      "summary": "",
+      "targets": [],
+      "census": {
+        "examined": 0,
+        "failed": 0,
+        "passed": 0,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/demo/pacific-crest-benefits"
+    },
+    {
+      "criterion": "2.1.2",
+      "state": "loaded",
+      "status": "failed",
+      "reason": null,
+      "evidence_refs": [
+        "stop 0",
+        "stop 1",
+        "stop 2",
+        "stop 3",
+        "stop 4",
+        "stop 5",
+        "stop 6",
+        "stop 7",
+        "stop 8",
+        "stop 9",
+        "stop 10",
+        "stop 11",
+        "stop 12",
+        "stop 13",
+        "stop 14",
+        "stop 15",
+        "stop 16",
+        "stop 17",
+        "stop 18",
+        "stop 19",
+        "stop 20",
+        "stop 21",
+        "stop 22",
+        "stop 23",
+        "stop 24",
+        "stop 25",
+        "stop 26",
+        "stop 27",
+        "stop 28",
+        "stop 29",
+        "stop 30",
+        "stop 31",
+        "stop 32",
+        "stop 33",
+        "stop 34",
+        "stop 35",
+        "stop 36",
+        "stop 37",
+        "stop 38",
+        "stop 39",
+        "stop 40"
+      ],
+      "summary": "focus stayed on the same element across a Tab press 40 times: body",
+      "targets": [
+        "body"
+      ],
+      "census": {
+        "examined": 40,
+        "failed": 40,
+        "passed": 0,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/demo/pacific-crest-benefits"
+    },
+    {
+      "criterion": "2.4.3",
+      "state": "loaded",
+      "status": "not_evaluated",
+      "reason": "fewer than two positioned stops, so there is no order to compare",
+      "evidence_refs": [],
+      "summary": "",
+      "targets": [],
+      "census": {
+        "examined": 0,
+        "failed": 0,
+        "passed": 0,
+        "undecided": 0,
+        "inapplicable": 41,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/demo/pacific-crest-benefits"
+    },
+    {
+      "criterion": "2.4.7",
+      "state": "loaded",
+      "status": "not_evaluated",
+      "reason": "no focus-indicator comparison was captured: the check needs a screenshot before and after each Tab press",
+      "evidence_refs": [],
+      "summary": "",
+      "targets": [],
+      "census": {
+        "examined": 0,
+        "failed": 0,
+        "passed": 0,
+        "undecided": 0,
+        "inapplicable": 40,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/demo/pacific-crest-benefits"
+    },
+    {
+      "criterion": "2.4.11",
+      "state": "loaded",
+      "status": "passed",
+      "reason": null,
+      "evidence_refs": [],
+      "summary": "every one of 41 focused elements was visible at its own centre",
+      "targets": [],
+      "census": {
+        "examined": 41,
+        "failed": 0,
+        "passed": 41,
+        "undecided": 0,
+        "inapplicable": 0,
+        "excluded": 0,
+        "exclusion_note": ""
+      },
+      "page": "https://mariposa-six.vercel.app/demo/pacific-crest-benefits"
+    }
+  ],
+  "recordings": {
+    "loaded \u00b7 insurance-flow": {
+      "url": "https://mariposa-six.vercel.app/demo/insurance-flow",
+      "state": "loaded",
+      "state_reached": true,
+      "reach_note": "document.readyState is 'complete'",
+      "truncated": false,
+      "viewport": [
+        1024,
+        740
+      ],
+      "page_height": 597,
+      "stops": [
+        {
+          "index": 0,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 597,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-0/loaded/stop-000.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 1,
+          "tag": "A",
+          "role": "link",
+          "name": "Back to home",
+          "x": 646,
+          "y": 53,
+          "w": 36,
+          "h": 36,
+          "selector": "body>div:nth-of-type(2)>div>header>div>div:nth-of-type(2)>a",
+          "vx": 646,
+          "vy": 53,
+          "screenshot": "runs/lane-0/loaded/stop-001.png",
+          "obscured_by": null,
+          "focus_delta": 0.16715976331360946,
+          "anchors": {
+            "self": [
+              "a",
+              ".flex",
+              ".size-9",
+              ".items-center",
+              ".justify-center",
+              ".rounded-full",
+              ".text-muted-foreground",
+              ".transition-colors",
+              ".hover:bg-accent",
+              ".hover:text-accent-foreground",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background"
+            ],
+            "within": [
+              "div",
+              ".shrink-0",
+              ".pb-0.5",
+              ".flex",
+              ".items-end",
+              ".justify-between",
+              ".gap-3",
+              "header",
+              ".sticky",
+              ".top-0",
+              ".z-header",
+              ".border-b",
+              ".border-border/70",
+              ".bg-background/85",
+              ".px-5",
+              ".pb-3",
+              ".pt-4",
+              ".backdrop-blur-md",
+              ".supports-[backdrop-filter]:bg-background/70",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".flex-col",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".justify-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          },
+          "parent": "body>div:nth-of-type(2)>div>header>div>div:nth-of-type(2)"
+        },
+        {
+          "index": 2,
+          "tag": "A",
+          "role": "link",
+          "name": "https://mariposa-six.vercel.app/demo/pacific-crest-benefits?member=PCH-0000-1234",
+          "x": 411,
+          "y": 516,
+          "w": 250,
+          "h": 56,
+          "selector": "div>div>section:nth-of-type(1)>dl>div:nth-of-type(9)>dd>a",
+          "vx": 411,
+          "vy": 516,
+          "screenshot": "runs/lane-0/loaded/stop-002.png",
+          "obscured_by": null,
+          "focus_delta": 0.3156328320802005,
+          "anchors": {
+            "self": [
+              "a",
+              ".break-all",
+              ".text-primary",
+              ".hover:underline"
+            ],
+            "within": [
+              "dd",
+              ".text-right",
+              ".text-sm",
+              ".font-medium",
+              ".text-foreground",
+              "div",
+              ".flex",
+              ".items-baseline",
+              ".justify-between",
+              ".gap-4",
+              ".py-2.5",
+              ".first:pt-0",
+              ".last:pb-0",
+              "dl",
+              ".divide-y",
+              ".divide-border/60",
+              ".mt-4",
+              "section",
+              ".rounded-xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".text-card-foreground",
+              ".shadow-card",
+              ".p-5",
+              ".space-y-4",
+              "main",
+              ".mariposa-rise",
+              ".flex-1",
+              ".px-5",
+              ".py-4",
+              ".no-scrollbar",
+              ".min-h-0",
+              ".flex-col",
+              ".overflow-y-auto",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".justify-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          },
+          "parent": "main>div>div>section:nth-of-type(1)>dl>div:nth-of-type(9)>dd"
+        },
+        {
+          "index": 3,
+          "tag": "A",
+          "role": "link",
+          "name": "Open synthetic portal page",
+          "x": 355,
+          "y": 320,
+          "w": 201,
+          "h": 36,
+          "selector": "div>main>div>div>section:nth-of-type(3)>div:nth-of-type(2)>a",
+          "vx": 355,
+          "vy": 320,
+          "screenshot": "runs/lane-0/loaded/stop-003.png",
+          "obscured_by": null,
+          "focus_delta": 0.521446295639844,
+          "anchors": {
+            "self": [
+              "a",
+              ".inline-flex",
+              ".items-center",
+              ".justify-center",
+              ".gap-2",
+              ".whitespace-nowrap",
+              ".rounded-full",
+              ".text-sm",
+              ".font-medium",
+              ".transition-[background-color,box-shadow,transform]",
+              ".duration-150",
+              ".ease-out",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background",
+              ".disabled:pointer-events-none",
+              ".disabled:opacity-50",
+              ".active:scale-[0.98]",
+              ".[&_svg]:size-4",
+              ".[&_svg]:shrink-0",
+              ".motion-reduce:transition-none",
+              ".motion-reduce:active:scale-100",
+              ".border",
+              ".border-border",
+              ".bg-card",
+              ".text-foreground",
+              ".hover:bg-accent",
+              ".hover:text-accent-foreground",
+              ".h-9",
+              ".px-4"
+            ],
+            "within": [
+              "div",
+              ".mt-4",
+              "section",
+              ".rounded-xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".text-card-foreground",
+              ".shadow-card",
+              ".p-5",
+              ".space-y-4",
+              "main",
+              ".mariposa-rise",
+              ".flex-1",
+              ".px-5",
+              ".py-4",
+              ".no-scrollbar",
+              ".flex",
+              ".min-h-0",
+              ".flex-col",
+              ".overflow-y-auto",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".justify-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          },
+          "parent": "div>div>main>div>div>section:nth-of-type(3)>div:nth-of-type(2)"
+        },
+        {
+          "index": 4,
+          "tag": "A",
+          "role": "link",
+          "name": "Open Tasks tab",
+          "x": 355,
+          "y": 320,
+          "w": 129,
+          "h": 36,
+          "selector": "div>main>div>div>section:nth-of-type(6)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "vx": 355,
+          "vy": 320,
+          "screenshot": "runs/lane-0/loaded/stop-004.png",
+          "obscured_by": null,
+          "focus_delta": 0.0986737400530504,
+          "anchors": {
+            "self": [
+              "a",
+              ".inline-flex",
+              ".items-center",
+              ".justify-center",
+              ".gap-2",
+              ".whitespace-nowrap",
+              ".rounded-full",
+              ".text-sm",
+              ".font-medium",
+              ".transition-[background-color,box-shadow,transform]",
+              ".duration-150",
+              ".ease-out",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background",
+              ".disabled:pointer-events-none",
+              ".disabled:opacity-50",
+              ".active:scale-[0.98]",
+              ".[&_svg]:size-4",
+              ".[&_svg]:shrink-0",
+              ".motion-reduce:transition-none",
+              ".motion-reduce:active:scale-100",
+              ".bg-primary",
+              ".text-primary-foreground",
+              ".shadow-sm",
+              ".hover:bg-primary/90",
+              ".h-9",
+              ".px-4"
+            ],
+            "within": [
+              "div",
+              ".mt-4",
+              ".flex",
+              ".flex-wrap",
+              ".gap-2",
+              "section",
+              ".rounded-xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".text-card-foreground",
+              ".shadow-card",
+              ".p-5",
+              ".space-y-4",
+              "main",
+              ".mariposa-rise",
+              ".flex-1",
+              ".px-5",
+              ".py-4",
+              ".no-scrollbar",
+              ".min-h-0",
+              ".flex-col",
+              ".overflow-y-auto",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".justify-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          },
+          "parent": "div>div>main>div>div>section:nth-of-type(6)>div:nth-of-type(2)"
+        },
+        {
+          "index": 5,
+          "tag": "A",
+          "role": "link",
+          "name": "Open doctor summary",
+          "x": 355,
+          "y": 364,
+          "w": 173,
+          "h": 36,
+          "selector": "div>main>div>div>section:nth-of-type(6)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "vx": 355,
+          "vy": 364,
+          "screenshot": "runs/lane-0/loaded/stop-005.png",
+          "obscured_by": null,
+          "focus_delta": 0.09401709401709402,
+          "anchors": {
+            "self": [
+              "a",
+              ".inline-flex",
+              ".items-center",
+              ".justify-center",
+              ".gap-2",
+              ".whitespace-nowrap",
+              ".rounded-full",
+              ".text-sm",
+              ".font-medium",
+              ".transition-[background-color,box-shadow,transform]",
+              ".duration-150",
+              ".ease-out",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background",
+              ".disabled:pointer-events-none",
+              ".disabled:opacity-50",
+              ".active:scale-[0.98]",
+              ".[&_svg]:size-4",
+              ".[&_svg]:shrink-0",
+              ".motion-reduce:transition-none",
+              ".motion-reduce:active:scale-100",
+              ".border",
+              ".border-border",
+              ".bg-card",
+              ".text-foreground",
+              ".hover:bg-accent",
+              ".hover:text-accent-foreground",
+              ".h-9",
+              ".px-4"
+            ],
+            "within": [
+              "div",
+              ".mt-4",
+              ".flex",
+              ".flex-wrap",
+              ".gap-2",
+              "section",
+              ".rounded-xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".text-card-foreground",
+              ".shadow-card",
+              ".p-5",
+              ".space-y-4",
+              "main",
+              ".mariposa-rise",
+              ".flex-1",
+              ".px-5",
+              ".py-4",
+              ".no-scrollbar",
+              ".min-h-0",
+              ".flex-col",
+              ".overflow-y-auto",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".justify-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          },
+          "parent": "div>div>main>div>div>section:nth-of-type(6)>div:nth-of-type(2)"
+        },
+        {
+          "index": 6,
+          "tag": "SUMMARY",
+          "role": "DisclosureTriangle",
+          "name": "Developer test: Deepgram insurance transcript input",
+          "x": 334,
+          "y": 437,
+          "w": 348,
+          "h": 74,
+          "selector": "div:nth-of-type(2)>div>div>main>div>details>summary",
+          "vx": 334,
+          "vy": 437,
+          "screenshot": "runs/lane-0/loaded/stop-006.png",
+          "obscured_by": null,
+          "focus_delta": 0.05225885225885226,
+          "anchors": {
+            "self": [
+              "summary",
+              ".cursor-pointer",
+              ".rounded-xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".p-4",
+              ".text-sm",
+              ".font-medium",
+              ".text-muted-foreground",
+              ".shadow-card",
+              ".transition-colors",
+              ".hover:text-foreground"
+            ],
+            "within": [
+              "details",
+              ".space-y-4",
+              "div",
+              "main",
+              ".mariposa-rise",
+              ".flex-1",
+              ".px-5",
+              ".py-4",
+              ".no-scrollbar",
+              ".flex",
+              ".min-h-0",
+              ".flex-col",
+              ".overflow-y-auto",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".justify-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          },
+          "parent": "body>div:nth-of-type(2)>div>div>main>div>details"
+        },
+        {
+          "index": 7,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 597,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-0/loaded/stop-007.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        }
+      ],
+      "candidates": [
+        {
+          "selector": "body>div:nth-of-type(2)>div>header>div>div:nth-of-type(2)>a",
+          "tag": "A",
+          "role": null,
+          "name": "Back to home",
+          "x": 646,
+          "y": 53,
+          "w": 36,
+          "h": 36,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".flex",
+              ".size-9",
+              ".items-center",
+              ".justify-center",
+              ".rounded-full",
+              ".text-muted-foreground",
+              ".transition-colors",
+              ".hover:bg-accent",
+              ".hover:text-accent-foreground",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background"
+            ],
+            "within": [
+              "div",
+              ".shrink-0",
+              ".pb-0.5",
+              ".flex",
+              ".items-end",
+              ".justify-between",
+              ".gap-3",
+              "header",
+              ".sticky",
+              ".top-0",
+              ".z-header",
+              ".border-b",
+              ".border-border/70",
+              ".bg-background/85",
+              ".px-5",
+              ".pb-3",
+              ".pt-4",
+              ".backdrop-blur-md",
+              ".supports-[backdrop-filter]:bg-background/70",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".flex-col",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".justify-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          }
+        },
+        {
+          "selector": "div>main>div>div>section:nth-of-type(3)>div:nth-of-type(2)>a",
+          "tag": "A",
+          "role": null,
+          "name": "Open synthetic portal page",
+          "x": 355,
+          "y": -533,
+          "w": 201,
+          "h": 36,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".inline-flex",
+              ".items-center",
+              ".justify-center",
+              ".gap-2",
+              ".whitespace-nowrap",
+              ".rounded-full",
+              ".text-sm",
+              ".font-medium",
+              ".transition-[background-color,box-shadow,transform]",
+              ".duration-150",
+              ".ease-out",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background",
+              ".disabled:pointer-events-none",
+              ".disabled:opacity-50",
+              ".active:scale-[0.98]",
+              ".[&_svg]:size-4",
+              ".[&_svg]:shrink-0",
+              ".motion-reduce:transition-none",
+              ".motion-reduce:active:scale-100",
+              ".border",
+              ".border-border",
+              ".bg-card",
+              ".text-foreground",
+              ".hover:bg-accent",
+              ".hover:text-accent-foreground",
+              ".h-9",
+              ".px-4"
+            ],
+            "within": [
+              "div",
+              ".mt-4",
+              "section",
+              ".rounded-xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".text-card-foreground",
+              ".shadow-card",
+              ".p-5",
+              ".space-y-4",
+              "main",
+              ".mariposa-rise",
+              ".flex-1",
+              ".px-5",
+              ".py-4",
+              ".no-scrollbar",
+              ".flex",
+              ".min-h-0",
+              ".flex-col",
+              ".overflow-y-auto",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".justify-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          }
+        },
+        {
+          "selector": "div>main>div>div>section:nth-of-type(6)>div:nth-of-type(2)>a:nth-of-type(1)",
+          "tag": "A",
+          "role": null,
+          "name": "Open Tasks tab",
+          "x": 355,
+          "y": 320,
+          "w": 129,
+          "h": 36,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".inline-flex",
+              ".items-center",
+              ".justify-center",
+              ".gap-2",
+              ".whitespace-nowrap",
+              ".rounded-full",
+              ".text-sm",
+              ".font-medium",
+              ".transition-[background-color,box-shadow,transform]",
+              ".duration-150",
+              ".ease-out",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background",
+              ".disabled:pointer-events-none",
+              ".disabled:opacity-50",
+              ".active:scale-[0.98]",
+              ".[&_svg]:size-4",
+              ".[&_svg]:shrink-0",
+              ".motion-reduce:transition-none",
+              ".motion-reduce:active:scale-100",
+              ".bg-primary",
+              ".text-primary-foreground",
+              ".shadow-sm",
+              ".hover:bg-primary/90",
+              ".h-9",
+              ".px-4"
+            ],
+            "within": [
+              "div",
+              ".mt-4",
+              ".flex",
+              ".flex-wrap",
+              ".gap-2",
+              "section",
+              ".rounded-xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".text-card-foreground",
+              ".shadow-card",
+              ".p-5",
+              ".space-y-4",
+              "main",
+              ".mariposa-rise",
+              ".flex-1",
+              ".px-5",
+              ".py-4",
+              ".no-scrollbar",
+              ".min-h-0",
+              ".flex-col",
+              ".overflow-y-auto",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".justify-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          }
+        },
+        {
+          "selector": "div>main>div>div>section:nth-of-type(6)>div:nth-of-type(2)>a:nth-of-type(2)",
+          "tag": "A",
+          "role": null,
+          "name": "Open doctor summary",
+          "x": 355,
+          "y": 364,
+          "w": 173,
+          "h": 36,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "a",
+              ".inline-flex",
+              ".items-center",
+              ".justify-center",
+              ".gap-2",
+              ".whitespace-nowrap",
+              ".rounded-full",
+              ".text-sm",
+              ".font-medium",
+              ".transition-[background-color,box-shadow,transform]",
+              ".duration-150",
+              ".ease-out",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background",
+              ".disabled:pointer-events-none",
+              ".disabled:opacity-50",
+              ".active:scale-[0.98]",
+              ".[&_svg]:size-4",
+              ".[&_svg]:shrink-0",
+              ".motion-reduce:transition-none",
+              ".motion-reduce:active:scale-100",
+              ".border",
+              ".border-border",
+              ".bg-card",
+              ".text-foreground",
+              ".hover:bg-accent",
+              ".hover:text-accent-foreground",
+              ".h-9",
+              ".px-4"
+            ],
+            "within": [
+              "div",
+              ".mt-4",
+              ".flex",
+              ".flex-wrap",
+              ".gap-2",
+              "section",
+              ".rounded-xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".text-card-foreground",
+              ".shadow-card",
+              ".p-5",
+              ".space-y-4",
+              "main",
+              ".mariposa-rise",
+              ".flex-1",
+              ".px-5",
+              ".py-4",
+              ".no-scrollbar",
+              ".min-h-0",
+              ".flex-col",
+              ".overflow-y-auto",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".justify-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          }
+        }
+      ],
+      "excluded": [],
+      "focusable_total": 6,
+      "consent_note": "",
+      "menu_triggers": 0,
+      "dialog_triggers": 0,
+      "nav_error": "",
+      "http_status": 200,
+      "text_length": 2551,
+      "title": "Mariposa \u2014 Insurance flow demo"
+    },
+    "loaded \u00b7 calendar": {
+      "url": "https://mariposa-six.vercel.app/calendar",
+      "state": "loaded",
+      "state_reached": true,
+      "reach_note": "document.readyState is 'complete'",
+      "truncated": false,
+      "viewport": [
+        1024,
+        740
+      ],
+      "page_height": 597,
+      "stops": [
+        {
+          "index": 0,
+          "tag": "BODY",
+          "role": "generic",
+          "name": "",
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 597,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-1/loaded/stop-000.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 1,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "Maya Her view \u00b7 Together view",
+          "x": 338,
+          "y": 288,
+          "w": 340,
+          "h": 78,
+          "selector": "body>div:nth-of-type(2)>div>div>div>div:nth-of-type(2)>button:nth-of-type(1)",
+          "vx": 338,
+          "vy": 288,
+          "screenshot": "runs/lane-1/loaded/stop-001.png",
+          "obscured_by": null,
+          "focus_delta": 0.05247430074109491,
+          "anchors": {
+            "self": [
+              "button",
+              ".mariposa-rise",
+              ".group",
+              ".flex",
+              ".items-center",
+              ".gap-4",
+              ".rounded-2xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".p-4",
+              ".text-left",
+              ".shadow-card",
+              ".transition-colors",
+              ".duration-150",
+              ".ease-out",
+              ".hover:border-primary/40",
+              ".hover:bg-accent/50",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background"
+            ],
+            "within": [
+              "div",
+              "[role=group]",
+              ".mt-8",
+              ".flex",
+              ".flex-col",
+              ".gap-3",
+              ".flex-1",
+              ".justify-center",
+              ".min-h-0",
+              ".px-6",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          },
+          "parent": "body>div:nth-of-type(2)>div>div>div>div:nth-of-type(2)"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "Daniel His view \u00b7 Together view",
+          "x": 338,
+          "y": 378,
+          "w": 340,
+          "h": 78,
+          "selector": "body>div:nth-of-type(2)>div>div>div>div:nth-of-type(2)>button:nth-of-type(2)",
+          "vx": 338,
+          "vy": 378,
+          "screenshot": "runs/lane-1/loaded/stop-002.png",
+          "obscured_by": null,
+          "focus_delta": 0.05247430074109491,
+          "anchors": {
+            "self": [
+              "button",
+              ".mariposa-rise",
+              ".group",
+              ".flex",
+              ".items-center",
+              ".gap-4",
+              ".rounded-2xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".p-4",
+              ".text-left",
+              ".shadow-card",
+              ".transition-colors",
+              ".duration-150",
+              ".ease-out",
+              ".hover:border-primary/40",
+              ".hover:bg-accent/50",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background"
+            ],
+            "within": [
+              "div",
+              "[role=group]",
+              ".mt-8",
+              ".flex",
+              ".flex-col",
+              ".gap-3",
+              ".flex-1",
+              ".justify-center",
+              ".min-h-0",
+              ".px-6",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          },
+          "parent": "body>div:nth-of-type(2)>div>div>div>div:nth-of-type(2)"
+        },
+        {
+          "index": 3,
+          "tag": "BODY",
+          "role": "generic",
+          "name": "",
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 597,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-1/loaded/stop-003.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        }
+      ],
+      "candidates": [
+        {
+          "selector": "body>div:nth-of-type(2)>div>div>div>div:nth-of-type(2)>button:nth-of-type(1)",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "M\nMaya\nHer view \u00b7 Together view",
+          "x": 338,
+          "y": 288,
+          "w": 340,
+          "h": 78,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button",
+              ".mariposa-rise",
+              ".group",
+              ".flex",
+              ".items-center",
+              ".gap-4",
+              ".rounded-2xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".p-4",
+              ".text-left",
+              ".shadow-card",
+              ".transition-colors",
+              ".duration-150",
+              ".ease-out",
+              ".hover:border-primary/40",
+              ".hover:bg-accent/50",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background"
+            ],
+            "within": [
+              "div",
+              "[role=group]",
+              ".mt-8",
+              ".flex",
+              ".flex-col",
+              ".gap-3",
+              ".flex-1",
+              ".justify-center",
+              ".min-h-0",
+              ".px-6",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          }
+        },
+        {
+          "selector": "body>div:nth-of-type(2)>div>div>div>div:nth-of-type(2)>button:nth-of-type(2)",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "D\nDaniel\nHis view \u00b7 Together view",
+          "x": 338,
+          "y": 378,
+          "w": 340,
+          "h": 78,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button",
+              ".mariposa-rise",
+              ".group",
+              ".flex",
+              ".items-center",
+              ".gap-4",
+              ".rounded-2xl",
+              ".border",
+              ".border-border/70",
+              ".bg-card",
+              ".p-4",
+              ".text-left",
+              ".shadow-card",
+              ".transition-colors",
+              ".duration-150",
+              ".ease-out",
+              ".hover:border-primary/40",
+              ".hover:bg-accent/50",
+              ".focus-visible:outline-none",
+              ".focus-visible:ring-2",
+              ".focus-visible:ring-ring",
+              ".focus-visible:ring-offset-2",
+              ".focus-visible:ring-offset-background"
+            ],
+            "within": [
+              "div",
+              "[role=group]",
+              ".mt-8",
+              ".flex",
+              ".flex-col",
+              ".gap-3",
+              ".flex-1",
+              ".justify-center",
+              ".min-h-0",
+              ".px-6",
+              ".relative",
+              ".h-dvh",
+              ".w-full",
+              ".overflow-hidden",
+              ".bg-background",
+              ".sm:h-[844px]",
+              ".sm:max-h-[calc(100dvh-3rem)]",
+              ".sm:rounded-[2.5rem]",
+              ".sm:border",
+              ".sm:border-border",
+              ".sm:shadow-card",
+              ".items-center",
+              ".bg-secondary/40",
+              ".sm:py-6"
+            ]
+          }
+        }
+      ],
+      "excluded": [],
+      "focusable_total": 2,
+      "consent_note": "",
+      "menu_triggers": 0,
+      "dialog_triggers": 0,
+      "nav_error": "",
+      "http_status": 200,
+      "text_length": 291,
+      "title": "Mariposa"
+    },
+    "loaded \u00b7 call": {
+      "url": "https://mariposa-six.vercel.app/call",
+      "state": "loaded",
+      "state_reached": true,
+      "reach_note": "document.readyState is 'complete'",
+      "truncated": false,
+      "viewport": [
+        1024,
+        740
+      ],
+      "page_height": 597,
+      "stops": [
+        {
+          "index": 0,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 597,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-2/loaded/stop-000.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 1,
+          "tag": "SELECT",
+          "role": "combobox",
+          "name": "Call:\u00a0",
+          "x": 359,
+          "y": 60,
+          "w": 143,
+          "h": 17,
+          "selector": "body>div:nth-of-type(2)>div:nth-of-type(1)>label>select",
+          "vx": 359,
+          "vy": 60,
+          "screenshot": "runs/lane-2/loaded/stop-001.png",
+          "obscured_by": null,
+          "focus_delta": 0.1234991423670669,
+          "anchors": {
+            "self": [
+              "select"
+            ],
+            "within": [
+              "label",
+              "div"
+            ]
+          },
+          "parent": "body>div:nth-of-type(2)>div:nth-of-type(1)>label"
+        },
+        {
+          "index": 2,
+          "tag": "BUTTON",
+          "role": "button",
+          "name": "Start live call",
+          "x": 329,
+          "y": 150,
+          "w": 358,
+          "h": 48,
+          "selector": "body>div:nth-of-type(2)>button",
+          "vx": 329,
+          "vy": 150,
+          "screenshot": "runs/lane-2/loaded/stop-002.png",
+          "obscured_by": null,
+          "focus_delta": 0.03542780748663102,
+          "anchors": {
+            "self": [
+              "button"
+            ],
+            "within": [
+              "div"
+            ]
+          },
+          "parent": "body>div:nth-of-type(2)"
+        },
+        {
+          "index": 3,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 597,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-2/loaded/stop-003.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        }
+      ],
+      "candidates": [
+        {
+          "selector": "body>div:nth-of-type(2)>button",
+          "tag": "BUTTON",
+          "role": null,
+          "name": "Start live call",
+          "x": 329,
+          "y": 150,
+          "w": 358,
+          "h": 48,
+          "focusable": true,
+          "sources": [
+            "listeners"
+          ],
+          "anchors": {
+            "self": [
+              "button"
+            ],
+            "within": [
+              "div"
+            ]
+          }
+        }
+      ],
+      "excluded": [],
+      "focusable_total": 2,
+      "consent_note": "",
+      "menu_triggers": 0,
+      "dialog_triggers": 0,
+      "nav_error": "",
+      "http_status": 200,
+      "text_length": 305,
+      "title": "Mariposa \u2014 Live Grok Voice call"
+    },
+    "loaded \u00b7 pacific-crest-benefits": {
+      "url": "https://mariposa-six.vercel.app/demo/pacific-crest-benefits",
+      "state": "loaded",
+      "state_reached": true,
+      "reach_note": "document.readyState is 'complete'",
+      "truncated": true,
+      "viewport": [
+        1024,
+        740
+      ],
+      "page_height": 802,
+      "stops": [
+        {
+          "index": 0,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-000.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 1,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-001.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 2,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-002.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 3,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-003.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 4,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-004.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 5,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-005.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 6,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-006.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 7,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-007.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 8,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-008.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 9,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-009.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 10,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-010.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 11,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-011.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 12,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-012.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 13,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-013.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 14,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-014.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 15,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-015.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 16,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-016.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 17,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-017.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 18,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-018.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 19,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-019.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 20,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-020.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 21,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-021.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 22,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-022.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 23,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-023.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 24,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-024.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 25,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-025.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 26,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-026.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 27,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-027.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 28,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-028.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 29,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-029.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 30,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-030.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 31,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-031.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 32,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-032.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 33,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-033.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 34,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-034.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 35,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-035.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 36,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-036.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 37,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-037.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 38,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-038.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 39,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-039.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        },
+        {
+          "index": 40,
+          "tag": "BODY",
+          "role": null,
+          "name": null,
+          "x": 0,
+          "y": 0,
+          "w": 1016,
+          "h": 802,
+          "selector": "body",
+          "vx": 0,
+          "vy": 0,
+          "screenshot": "runs/lane-3/loaded/stop-040.png",
+          "obscured_by": null,
+          "focus_delta": null,
+          "anchors": {
+            "self": [
+              "body",
+              ".min-h-dvh",
+              ".bg-secondary/40"
+            ],
+            "within": []
+          },
+          "parent": ""
+        }
+      ],
+      "candidates": [],
+      "excluded": [],
+      "focusable_total": 0,
+      "consent_note": "",
+      "menu_triggers": 0,
+      "dialog_triggers": 0,
+      "nav_error": "",
+      "http_status": 200,
+      "text_length": 1021,
+      "title": "Pacific Crest Health \u2014 Member Benefits (demo)"
+    }
+  },
+  "axe": {
+    "ran": true,
+    "version": "4.13.0",
+    "violations": [
+      {
+        "id": "meta-viewport",
+        "impact": "moderate",
+        "tags": [
+          "cat.sensory-and-visual-cues",
+          "wcag2aa",
+          "wcag144",
+          "EN-301-549",
+          "EN-9.1.4.4",
+          "ACT",
+          "RGAAv4",
+          "RGAA-10.4.2"
+        ],
+        "help": "Zooming and scaling must not be disabled",
+        "nodes": 1,
+        "targets": [
+          "meta[name=\"viewport\"]"
+        ]
+      }
+    ]
+  },
+  "patches": [],
+  "lesson_ids": [],
+  "watch_url": "https://6080-83d9970b-b328-4837-9b02-17a48354c74c.daytonaproxy01.net/vnc.html?autoconnect=true&resize=scale",
+  "pages": [
+    {
+      "url": "https://mariposa-six.vercel.app/demo/insurance-flow",
+      "source": "app/demo/insurance-flow/page.tsx",
+      "findings": 1,
+      "note": ""
+    },
+    {
+      "url": "https://mariposa-six.vercel.app/calendar",
+      "source": "",
+      "findings": 0,
+      "note": ""
+    },
+    {
+      "url": "https://mariposa-six.vercel.app/call",
+      "source": "",
+      "findings": 0,
+      "note": ""
+    },
+    {
+      "url": "https://mariposa-six.vercel.app/demo/pacific-crest-benefits",
+      "source": "",
+      "findings": 1,
+      "note": ""
+    }
+  ],
+  "lanes": [
+    {
+      "index": 0,
+      "url": "https://mariposa-six.vercel.app/demo/insurance-flow",
+      "label": "",
+      "sandbox_id": "17d77c23-e987-47c7-b3d4-37eaeb487873",
+      "watch_url": "https://6080-17d77c23-e987-47c7-b3d4-37eaeb487873.daytonaproxy01.net/vnc.html?autoconnect=true&resize=scale",
+      "status": "done",
+      "note": "",
+      "source": "",
+      "failed": 1,
+      "checks": 5,
+      "duplicate_of": ""
+    },
+    {
+      "index": 1,
+      "url": "https://mariposa-six.vercel.app/calendar",
+      "label": "",
+      "sandbox_id": "c804b034-af32-4060-ab0c-7f73bdfc5640",
+      "watch_url": "https://6080-c804b034-af32-4060-ab0c-7f73bdfc5640.daytonaproxy01.net/vnc.html?autoconnect=true&resize=scale",
+      "status": "done",
+      "note": "",
+      "source": "",
+      "failed": 0,
+      "checks": 5,
+      "duplicate_of": ""
+    },
+    {
+      "index": 2,
+      "url": "https://mariposa-six.vercel.app/call",
+      "label": "",
+      "sandbox_id": "13ec28b7-f09d-4f64-8674-3d5b6b1cd99f",
+      "watch_url": "https://6080-13ec28b7-f09d-4f64-8674-3d5b6b1cd99f.daytonaproxy01.net/vnc.html?autoconnect=true&resize=scale",
+      "status": "done",
+      "note": "",
+      "source": "",
+      "failed": 0,
+      "checks": 5,
+      "duplicate_of": ""
+    },
+    {
+      "index": 3,
+      "url": "https://mariposa-six.vercel.app/demo/pacific-crest-benefits",
+      "label": "",
+      "sandbox_id": "86ec1217-eaa4-4d60-a3ea-92493095e7dc",
+      "watch_url": "https://6080-86ec1217-eaa4-4d60-a3ea-92493095e7dc.daytonaproxy01.net/vnc.html?autoconnect=true&resize=scale",
+      "status": "done",
+      "note": "",
+      "source": "",
+      "failed": 1,
+      "checks": 5,
+      "duplicate_of": ""
+    }
+  ],
+  "pr_url": "",
+  "pr_blocked": "",
+  "diff": "",
+  "trace_url": "",
+  "error": "SyntaxError: syntax error at or near \"AUTOINCREMENT\"\nLINE 3:   id            INTEGER PRIMARY KEY AUTOINCREMENT,\n                                            ^\n",
+  "user_id": "",
+  "started": 1789847484.9683707,
+  "finished": 1789847729.5755584,
+  "elapsed": 244.6
+}

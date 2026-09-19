@@ -165,19 +165,7 @@ CREATE TABLE IF NOT EXISTS jobs (
 CREATE INDEX IF NOT EXISTS jobs_user_started
     ON jobs (user_id, started_at DESC);
 
--- What a past patch attempt did, so the patcher can be shown its own history.
-CREATE TABLE IF NOT EXISTS lessons (
-    id              SERIAL PRIMARY KEY,
-    criterion       TEXT NOT NULL,
-    shape           TEXT NOT NULL,
-    outcome         TEXT NOT NULL,             -- 'closed' | 'still_failing' | ...
-    technique       TEXT NOT NULL DEFAULT '',
-    detail          TEXT NOT NULL DEFAULT '',
-    created_at      TIMESTAMPTZ NOT NULL DEFAULT now()
-);
-
-CREATE INDEX IF NOT EXISTS lessons_criterion_shape
-    ON lessons (criterion, shape, created_at DESC);
+-- The lessons table is created by agent/lessons.py, which owns its shape.
 """
 
 
