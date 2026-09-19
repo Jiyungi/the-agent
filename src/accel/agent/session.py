@@ -203,7 +203,12 @@ class Session:
         self.sb.fs.upload_file(build_runner(url, state, max_tabs, pair_capture, shots,
                                             no_exclusions).encode(),
                                "/tmp/ally_record.py")
-        res = self.exec("cd /tmp && python3 ally_record.py 2>&1 | tail -4", timeout=600)
+        # Not `| tail -4`. A Python traceback is longer than four lines, so
+        # the tail kept the caret markers and threw away the exception itself --
+        # the user-visible error was a row of ~~~~^^^^ and half a file path.
+        # RESULT is one line and is found by scanning, so there is no reason to
+        # discard the rest.
+        res = self.exec("cd /tmp && python3 ally_record.py 2>&1", timeout=600)
         out = (res.result or "").strip()
         line = next((l for l in out.splitlines() if l.startswith("RESULT")), None)
         if not line:
@@ -213,8 +218,14 @@ class Session:
             # zero stops and zero candidates, which reads exactly like a page
             # that tabs nowhere. The distinction is the whole point of rule 7 --
             # a skip is reported, never silent -- so this raises.
+            # The last line of a traceback is the exception; show that first,
+            # then the tail for context. Leading with the first 400 characters
+            # showed the top of the traceback, which is never the reason.
+            tail = out.splitlines()
+            why = tail[-1] if tail else "no output at all"
             raise RuntimeError(
-                f"the recorder produced no RESULT for {state} at {url}: {out[:400]}")
+                f"the recorder failed on {state} at {url}: {why}\n"
+                + "\n".join(tail[-14:]))
         raw = json.loads(line[len("RESULT "):])
         return self._assemble(raw, run_id)
 
