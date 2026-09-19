@@ -1,0 +1,222 @@
+{
+  "source": "clean-app branch, public/index.html",
+  "pages": 5,
+  "defects": 15,
+  "rows": [
+    {
+      "criterion": "2.1.1",
+      "instance": 1,
+      "region": "header, delivery section",
+      "state": "loaded",
+      "selector": "#ally-d1",
+      "expect": "a div with a click handler, no tabindex and no interactive role, so Tab never reaches it",
+      "replacements": [
+        [
+          "<button type=\"button\" onclick=\"openDialog('dialog1', this)\">Add Delivery Address</button>",
+          "<div id=\"ally-d1\" class=\"fake-btn\" onclick=\"openDialog('dialog1', this)\">Add Delivery Address</div>"
+        ]
+      ],
+      "css": "",
+      "js": "",
+      "html": "",
+      "page": "2-1-1.html"
+    },
+    {
+      "criterion": "2.1.1",
+      "instance": 2,
+      "region": "signup form",
+      "state": "loaded",
+      "selector": "#ally-d2",
+      "expect": "the form's submit control is a div, unreachable by keyboard",
+      "replacements": [
+        [
+          "<button type=\"submit\">Submit</button>",
+          "<div id=\"ally-d2\" class=\"fake-btn\" onclick=\"document.getElementById('signup').dispatchEvent(new Event('submit', {cancelable: true, bubbles: true}))\">Submit</div>"
+        ]
+      ],
+      "css": "",
+      "js": "",
+      "html": "",
+      "page": "2-1-1.html"
+    },
+    {
+      "criterion": "2.1.1",
+      "instance": 3,
+      "region": "preferences, page foot",
+      "state": "loaded",
+      "selector": "[role=\"switch\"]",
+      "expect": "the switch keeps its role and its click handler but loses tabindex, so it is announced but never reached",
+      "replacements": [
+        [
+          "<div role=\"switch\" aria-checked=\"false\" tabindex=\"0\">",
+          "<div role=\"switch\" aria-checked=\"false\">"
+        ]
+      ],
+      "css": "",
+      "js": "",
+      "html": "",
+      "page": "2-1-1.html"
+    },
+    {
+      "criterion": "2.1.2",
+      "instance": 1,
+      "region": "actions menu",
+      "state": "menu-open",
+      "selector": "#menu1",
+      "expect": "Tab is swallowed inside the open menu, so focus repeats on the same menu item instead of leaving",
+      "replacements": [],
+      "css": "",
+      "js": "document.getElementById('menu1').addEventListener('keydown', function (e) {\n  if (e.key === 'Tab') { e.preventDefault(); e.stopPropagation(); }\n}, true);",
+      "html": "",
+      "page": "2-1-2.html"
+    },
+    {
+      "criterion": "2.1.2",
+      "instance": 2,
+      "region": "composers tablist",
+      "state": "tabs-focused",
+      "selector": "[role=\"tablist\"]",
+      "expect": "Tab is swallowed in the tablist, so focus never moves on to the tab panel",
+      "replacements": [],
+      "css": "",
+      "js": "document.querySelector('[role=\"tablist\"]').addEventListener('keydown', function (e) {\n  if (e.key === 'Tab') { e.preventDefault(); e.stopPropagation(); }\n}, true);",
+      "html": "",
+      "page": "2-1-2.html"
+    },
+    {
+      "criterion": "2.1.2",
+      "instance": 3,
+      "region": "signup form, email field",
+      "state": "loaded",
+      "selector": "#email",
+      "expect": "Tab is swallowed on the email input, so focus stays on it",
+      "replacements": [],
+      "css": "",
+      "js": "document.getElementById('email').addEventListener('keydown', function (e) {\n  if (e.key === 'Tab') { e.preventDefault(); e.stopPropagation(); }\n}, true);",
+      "html": "",
+      "page": "2-1-2.html"
+    },
+    {
+      "criterion": "2.4.3",
+      "instance": 1,
+      "region": "signup form",
+      "state": "loaded",
+      "selector": "#email_item",
+      "expect": "the email field is painted above the name field while DOM order still reaches name first, so tab order contradicts reading order",
+      "replacements": [],
+      "css": "#signup { display: flex; flex-direction: column; }\n#email_item { order: -1; }",
+      "js": "",
+      "html": "",
+      "page": "2-4-3.html"
+    },
+    {
+      "criterion": "2.4.3",
+      "instance": 2,
+      "region": "delivery dialog footer",
+      "state": "dialog-open",
+      "selector": ".dialog_form_actions",
+      "expect": "Add and Cancel are painted in the opposite order to the one Tab reaches them in",
+      "replacements": [],
+      "css": ".dialog_form_actions { display: flex; flex-direction: row-reverse; justify-content: flex-end; }",
+      "js": "",
+      "html": "",
+      "page": "2-4-3.html"
+    },
+    {
+      "criterion": "2.4.3",
+      "instance": 3,
+      "region": "preferences, page foot",
+      "state": "loaded",
+      "selector": "[role=\"switch\"]",
+      "expect": "the switch carries tabindex=1, so a keyboard user entering the page lands on the last control on it before any of the ones above",
+      "replacements": [
+        [
+          "<div role=\"switch\" aria-checked=\"false\" tabindex=\"0\">",
+          "<div role=\"switch\" aria-checked=\"false\" tabindex=\"1\">"
+        ]
+      ],
+      "css": "",
+      "js": "",
+      "html": "",
+      "page": "2-4-3.html"
+    },
+    {
+      "criterion": "2.4.7",
+      "instance": 1,
+      "region": "signup form, name field",
+      "state": "loaded",
+      "selector": "#full_name",
+      "expect": "nothing on screen changes when focus lands on the name field",
+      "replacements": [],
+      "css": "#full_name:focus { outline: none !important; }",
+      "js": "",
+      "html": "",
+      "page": "2-4-7.html"
+    },
+    {
+      "criterion": "2.4.7",
+      "instance": 2,
+      "region": "delivery dialog, city field",
+      "state": "dialog-open",
+      "selector": ".city_input",
+      "expect": "nothing on screen changes when focus lands on the city field",
+      "replacements": [],
+      "css": ".city_input:focus { outline: none !important; }",
+      "js": "",
+      "html": "",
+      "page": "2-4-7.html"
+    },
+    {
+      "criterion": "2.4.7",
+      "instance": 3,
+      "region": "preferences, page foot",
+      "state": "loaded",
+      "selector": "[role=\"switch\"]",
+      "expect": "nothing on screen changes when focus lands on the switch",
+      "replacements": [],
+      "css": "[role=\"switch\"]:focus {\n  padding: 4px 4px 8px 8px !important;   /* base is 4px 4px 8px 8px */\n  border-width: 0 !important;            /* base is 0 */\n  background-color: transparent !important;\n  outline: none !important;\n}\n[role=\"switch\"]:focus span.switch { background-color: transparent !important; }",
+      "js": "",
+      "html": "",
+      "page": "2-4-7.html"
+    },
+    {
+      "criterion": "2.4.11",
+      "instance": 1,
+      "region": "menu section, last action field",
+      "state": "loaded",
+      "selector": "#action_output",
+      "expect": "a panel is painted over the last-action field, so the element with focus is not the element on screen at that point",
+      "replacements": [],
+      "css": "#ally-cover-1 { position: absolute; left: 217px; top: 330px; width: 200px; height: 34px; background: #23150f; color: #fff; z-index: 9000; padding: 6px 10px; font-size: 12px; }",
+      "js": "",
+      "html": "<div id=\"ally-cover-1\">Cookie notice</div>",
+      "page": "2-4-11.html"
+    },
+    {
+      "criterion": "2.4.11",
+      "instance": 2,
+      "region": "signup form, name field",
+      "state": "loaded",
+      "selector": "#full_name",
+      "expect": "a panel is painted over the name field",
+      "replacements": [],
+      "css": "#ally-cover-2 { position: absolute; left: 118px; top: 466px; width: 200px; height: 34px; background: #b85632; color: #fff; z-index: 9000; padding: 6px 10px; font-size: 12px; }",
+      "js": "",
+      "html": "<div id=\"ally-cover-2\">Live chat</div>",
+      "page": "2-4-11.html"
+    },
+    {
+      "criterion": "2.4.11",
+      "instance": 3,
+      "region": "signup form, email field",
+      "state": "loaded",
+      "selector": "#email",
+      "expect": "a panel is painted over the email field",
+      "replacements": [],
+      "css": "#ally-cover-3 { position: absolute; left: 118px; top: 526px; width: 200px; height: 34px; background: #3f765c; color: #fff; z-index: 9000; padding: 6px 10px; font-size: 12px; }",
+      "js": "",
+      "html": "<div id=\"ally-cover-3\">Newsletter</div>",
+      "page": "2-4-11.html"
+    }
+  ]
+}
