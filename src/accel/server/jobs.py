@@ -410,9 +410,15 @@ def prepare_build(session, checkout: str) -> tuple[str, str]:
 
 
 def clone_repo(session, owner: str, name: str, job_id: str,
-               branch: str = "") -> str:
-    """A shallow clone of the repo the user named, inside the sandbox."""
-    url = f"https://github.com/{owner}/{name}.git"
+               branch: str = "", token: str = "") -> str:
+    """A shallow clone of the repo the user named, inside the sandbox.
+
+    Authenticated with the signed-in person's token when there is one, because
+    an anonymous clone of a private repository fails with a 404 that reads
+    exactly like a typo in the name.
+    """
+    auth = f"x-access-token:{token}@" if token else ""
+    url = f"https://{auth}github.com/{owner}/{name}.git"
     at = f"--branch {branch} " if branch else ""
     r = session.exec(
         f"rm -rf {CHECKOUT} && git clone --depth 1 {at}-q {url} {CHECKOUT} && "
@@ -423,14 +429,24 @@ def clone_repo(session, owner: str, name: str, job_id: str,
     return out.splitlines()[-1].strip()
 
 
-def _can_push(owner: str, name: str) -> bool:
-    """Do we have write access? Decides PR versus diff-only, before any work."""
-    import subprocess
+def _can_push(owner: str, name: str, token: str = "") -> bool:
+    """Does the signed-in person have write access here?
+
+    Asked with their token, not the machine's. The previous version shelled out
+    to `gh`, which answers for whoever is logged in on the server -- correct on
+    one laptop, meaningless once other people use this.
+    """
+    if not token:
+        return False
+    import json as _json, urllib.request
     try:
-        r = subprocess.run(
-            ["gh", "api", f"repos/{owner}/{name}", "--jq", ".permissions.push"],
-            capture_output=True, text=True, timeout=60)
-        return (r.stdout or "").strip() == "true"
+        req = urllib.request.Request(
+            f"https://api.github.com/repos/{owner}/{name}",
+            headers={"Authorization": f"Bearer {token}",
+                     "Accept": "application/vnd.github+json",
+                     "User-Agent": "accel"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return bool(_json.loads(r.read()).get("permissions", {}).get("push"))
     except Exception:
         return False
 
@@ -486,7 +502,8 @@ def _run(job: Job, states: list[str], want_fix: bool, want_pr: bool) -> None:
             job.watch_url = audit.session.watch_url()
     except Exception:
         pass
-    sha = clone_repo(audit.session, owner, name, job.id, job.branch)
+    sha = clone_repo(audit.session, owner, name, job.id, job.branch,
+                     job.github_token)
     job.say("clone", f"At {sha}")
 
     job.source = guess_source(audit.session, job.url, CHECKOUT)
@@ -735,24 +752,32 @@ def _run(job: Job, states: list[str], want_fix: bool, want_pr: bool) -> None:
     if not want_pr:
         job.say("pr", "Diff ready. Pull request not requested.")
         return
-    # Net positive, or nothing. A patch that closes one finding and creates
-    # another has not improved the page, and sending it as a fix is the exact
-    # claim this whole loop exists to refuse.
+
     closed_total = sum(p.get("closed", 0) for p in job.patches)
     created_total = sum(p.get("created", 0) for p in job.patches)
     has_diff = bool((job.diff or "").strip().strip("-"))
-    if closed_total <= created_total or not has_diff:
-        job.pr_blocked = (
-            f"No pull request: {closed_total} finding(s) closed and "
-            f"{created_total} created, so the page is no better than it was. "
-            "What each attempt did, and why, is in the table above."
-            if has_diff else
-            "No pull request: the re-audit did not confirm a single fix, so "
-            "there is nothing here worth sending. What each attempt did, and "
-            "why it failed, is in the table above.")
+
+    # A pull request opens whenever there is a diff, and its title says which
+    # of the three outcomes it is. The previous rule -- net positive or
+    # nothing -- threw away the diff, the evidence and the reasoning every
+    # time the loop could not prove a fix, which is most of the time and
+    # exactly when a person most wants to look at it. Refusing to SEND a
+    # patch and refusing to SHOW it are different refusals.
+    if not has_diff:
+        job.pr_blocked = ("No pull request: nothing in the source changed, so "
+                          "there is no diff to open one with. The findings and "
+                          "the evidence are above.")
         job.say("pr", job.pr_blocked, "warn")
         return
-    if not _can_push(owner, name):
+    if closed_total and created_total >= closed_total:
+        job.say("pr", f"{closed_total} closed and {created_total} created; "
+                      "opening this for review rather than as a fix", "warn")
+    if not job.github_token:
+        job.pr_blocked = ("No pull request: this run has no GitHub "
+                          "authorisation. The diff above is the whole change.")
+        job.say("pr", job.pr_blocked, "warn")
+        return
+    if not _can_push(owner, name, job.github_token):
         job.pr_blocked = (f"No write access to {owner}/{name}, so no branch was "
                           f"pushed. The diff above is the complete change.")
         job.say("pr", job.pr_blocked, "warn")
@@ -760,11 +785,19 @@ def _run(job: Job, states: list[str], want_fix: bool, want_pr: bool) -> None:
 
     job.say("pr", "Opening a pull request")
     try:
-        body = pr_mod.build_body(audit, loop.summary(), outcomes, job.trace_url)
-        out = pr_mod.open_pull_request(audit.session, f"{owner}/{name}", job.id,
-                                      body, CHECKOUT)
-        job.pr_url = (out or {}).get("url", "") if isinstance(out, dict) else str(out or "")
-        job.say("pr", job.pr_url or "Pull request step returned no URL")
+        title, body = pr_mod.build_body(audit, loop.summary(), outcomes,
+                                        audit.results)
+        out = pr_mod.open_pull_request(
+            audit.session, owner, name, job.github_token, job.id,
+            title, body, CHECKOUT, base=job.branch)
+        job.pr_url = (out or {}).get("url", "")
+        if job.pr_url:
+            job.say("pr", job.pr_url)
+        else:
+            job.pr_blocked = (out or {}).get("error", "no pull request URL")
+            job.say("pr", job.pr_blocked, "warn")
+            if (out or {}).get("log"):
+                job.say("pr", out["log"][-300:], "warn")
     except Exception as exc:
         job.pr_blocked = f"{type(exc).__name__}: {str(exc)[:180]}"
         job.say("pr", job.pr_blocked, "warn")
