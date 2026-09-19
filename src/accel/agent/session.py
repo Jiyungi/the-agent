@@ -17,7 +17,7 @@ import time
 import base64
 import concurrent.futures as _futures
 
-from ally import storage
+from accel.server import storage
 from .browser import CHROME_FLAGS, STATES, build_runner
 from .recording import Candidate, Exclusion, Recording, Stop
 
