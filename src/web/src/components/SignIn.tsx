@@ -66,11 +66,7 @@ export function SignIn() {
             Accessibility that<br />proves itself.
           </h1>
 
-          <p className="gate-lede">
-            ACCEL uses your site in a real browser the way assistive technology
-            does, finds what a scanner cannot see, and opens a pull request
-            with the fix.
-          </p>
+          <p className="gate-lede">Ship fast. Stay accessible.</p>
 
           <button type="button" className="gate-cta" onClick={() => void signIn()}>
             <svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
