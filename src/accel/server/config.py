@@ -7,8 +7,8 @@ decides where the database lives.
 Three rules this enforces:
 
   * No absolute paths. Every location derives from one root, which is
-    ALLY_ROOT if set and the current working directory otherwise. On Render or
-    in a container, set ALLY_ROOT and nothing else changes.
+    ACCEL_ROOT if set and the current working directory otherwise. On Render or
+    in a container, set ACCEL_ROOT and nothing else changes.
   * No assumption that the filesystem persists. Anything written under the
     root is disposable; anything that must survive a restart goes in the
     database, which is why `checkpoint_dir` is deliberately absent.
@@ -25,7 +25,7 @@ import pathlib
 
 def root() -> pathlib.Path:
     """The one directory everything else hangs off."""
-    return pathlib.Path(os.environ.get("ALLY_ROOT", ".")).resolve()
+    return pathlib.Path(os.environ.get("ACCEL_ROOT", ".")).resolve()
 
 
 def runs_dir() -> pathlib.Path:

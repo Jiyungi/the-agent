@@ -128,7 +128,7 @@ class FixLoop:
         #: loop applies without a gate, which is only correct in the benchmark.
         self.approve = approve
         self.outcomes: list[FixOutcome] = []
-        self.root = pathlib.Path(os.environ.get("ALLY_ROOT", "."))
+        self.root = pathlib.Path(os.environ.get("ACCEL_ROOT", "."))
 
     # -- one group --------------------------------------------------------
 

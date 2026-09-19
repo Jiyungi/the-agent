@@ -9,7 +9,7 @@ rather than the sum of all five.
 Four is the cap, and it is a quota decision rather than a technical one: the
 plan allows a handful of sandboxes and each one costs start-up time.
 
-The first sandbox is reused from `ALLY_SANDBOX` when it is set, because a warm
+The first sandbox is reused from `ACCEL_SANDBOX` when it is set, because a warm
 sandbox starts a run in seconds where a cold one takes a minute.
 """
 
@@ -88,7 +88,7 @@ def run_lanes(lanes: list[Lane], states: list[str], judge,
     """
     from accel.agent.audit import Audit
 
-    reuse = os.environ.get("ALLY_SANDBOX")
+    reuse = os.environ.get("ACCEL_SANDBOX")
     threads: list[threading.Thread] = []
 
     def drive(lane: Lane) -> None:
@@ -158,7 +158,7 @@ def run_lanes(lanes: list[Lane], states: list[str], judge,
         finally:
             # Session.close() only deletes a sandbox it created: it keeps an
             # _owned flag and leaves a reused one alone. So this is safe to call
-            # on every lane, including the one that reuses ALLY_SANDBOX.
+            # on every lane, including the one that reuses ACCEL_SANDBOX.
             if session is not None:
                 try:
                     session.close()

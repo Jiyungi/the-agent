@@ -490,7 +490,7 @@ def _run(job: Job, states: list[str], want_fix: bool, want_pr: bool) -> None:
     owner, name = parsed
 
     job.say("clone", f"Cloning {owner}/{name}")
-    audit = Audit(job.url, sandbox_id=os.environ.get("ALLY_SANDBOX"),
+    audit = Audit(job.url, sandbox_id=os.environ.get("ACCEL_SANDBOX"),
                   states=states or ["loaded"], run_id=job.id)
     try:
         if audit.session.start_desktop():

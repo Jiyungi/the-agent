@@ -135,7 +135,7 @@ class Audit:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("url")
-    ap.add_argument("--sandbox", default=os.environ.get("ALLY_SANDBOX"))
+    ap.add_argument("--sandbox", default=os.environ.get("ACCEL_SANDBOX"))
     ap.add_argument("--states", default=",".join(DEFAULT_STATES))
     ap.add_argument("--run-id")
     args = ap.parse_args()
