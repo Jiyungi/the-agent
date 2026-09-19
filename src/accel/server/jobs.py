@@ -451,7 +451,7 @@ def _can_push(owner: str, name: str, token: str = "") -> bool:
         return False
 
 
-def ally_run(job_id: str, url: str, repo: str, branch: str,
+def accel_run(job_id: str, url: str, repo: str, branch: str,
              states: list, fix: bool, pr: bool) -> dict:
     """One run, as one trace.
 
@@ -480,9 +480,8 @@ def ally_run(job_id: str, url: str, repo: str, branch: str,
 def _run(job: Job, states: list[str], want_fix: bool, want_pr: bool) -> None:
     from accel.agent.audit import Audit
     from accel.agent.fixloop import FixLoop
-    from accel.agent.judge import _client
     from accel.agent.lessons import Lessons
-    from accel.agent.run import RemoteTree
+    from accel.agent.fixloop import RemoteTree
     from accel.agent import pr as pr_mod
 
     parsed = parse_repo(job.repo)
@@ -491,3 +490,355 @@ def _run(job: Job, states: list[str], want_fix: bool, want_pr: bool) -> None:
     owner, name = parsed
 
     job.say("clone", f"Cloning {owner}/{name}")
+    audit = Audit(job.url, sandbox_id=os.environ.get("ALLY_SANDBOX"),
+                  states=states or ["loaded"], run_id=job.id)
+    try:
+        if audit.session.start_desktop():
+            job.watch_url = audit.session.watch_url()
+    except Exception:
+        pass
+    sha = clone_repo(audit.session, owner, name, job.id, job.branch,
+                     job.github_token)
+    job.say("clone", f"At {sha}")
+
+    job.source = guess_source(audit.session, job.url, CHECKOUT)
+    if not job.source:
+        raise RuntimeError("no HTML-like file found in the repository to patch")
+
+    # The loaded page always. Whether the menu and dialog passes are worth
+    # running is a question about the page, not a question for whoever pasted the
+    # URL: the recorder reports how many elements declare themselves a menu
+    # trigger or a dialog, and that decides it.
+    # Ask the repository what pages exist, before auditing anything. Crawling
+    # a[href] only finds what the entry page links: BitEstate's router declares
+    # ten routes and its landing page links to two, the rest being behind a
+    # login. The source has no such blind spot.
+    #
+    # This runs BEFORE the first audit on purpose. It used to audit the entry
+    # page alone, then discover, then start the rest -- so for the first minute
+    # there was one sandbox on screen and nothing to suggest more were coming.
+    from accel.server.fleet import Lane, MAX_SANDBOXES, run_lanes
+    from accel.server.routes import routes_from_repo, sources_by_page
+
+    # Discover more routes than there are sandboxes. A route that turns out to
+    # render a screen already seen frees its slot for the next one.
+    all_urls = routes_from_repo(audit.session, CHECKOUT, job.url, limit=12)
+    if not all_urls:
+        all_urls = [job.url]
+    urls = all_urls[:MAX_SANDBOXES]
+
+    # The file behind each page. The router is the only thing that knows, and
+    # it also answers for the entry page: guess_source picks index.html on a
+    # React project, which is seven lines with no control in it.
+    try:
+        page_sources = sources_by_page(audit.session, CHECKOUT, job.url)
+    except Exception:
+        page_sources = {}
+    job.source = page_sources.get(job.url.rstrip("/")) or job.source
+    job.say("clone", f"The page is backed by {job.source}")
+
+    if len(urls) > 1:
+        job.say("audit", f"{len(urls)} routes declared in the repository: "
+                         + ", ".join(u.replace(job.url.rstrip('/'), '') or '/'
+                                     for u in urls))
+    else:
+        # One declared route. Try the links on the page next -- a static site
+        # with no framework has neither route files nor a router config -- and
+        # only then treat the page as a flow whose steps are its pages.
+        # Both of these drive a browser over CDP, and neither starts one. It
+        # worked only because a warm sandbox happened to have Chromium running
+        # from an earlier run -- and once the fix step started cleaning up
+        # after itself, the next run's discovery found nothing and reported a
+        # four-step page as a one-page site.
+        audit.session.start_browser()
+        linked = find_pages(audit.session, job.url, limit=MAX_SANDBOXES)
+        if linked:
+            job.say("audit", f"one declared route, {len(linked)} linked page(s)")
+            urls = [job.url] + linked[: MAX_SANDBOXES - 1]
+        else:
+            from accel.server.steps import discover_steps, register_step_state
+
+            steps = discover_steps(audit.session, job.url, limit=MAX_SANDBOXES - 1)
+            if steps:
+                job.say("audit", f"one route and no links; {len(steps)} step(s) "
+                                 "inside this page: "
+                                 + ", ".join(x["label"] for x in steps))
+
+    lanes = [Lane(index=0, url=urls[0])]
+    if len(urls) > 1:
+        lanes += [Lane(index=i + 1, url=u) for i, u in enumerate(urls[1:])]
+    elif "steps" in dir() and steps:
+        for i, st in enumerate(steps):
+            name = register_step_state(f"step-{i + 1}", st["selector"])
+            lanes.append(Lane(index=i + 1, url=job.url, state=name,
+                              label=st["label"]))
+
+    job.lanes = [l.to_dict() for l in lanes]
+    job.say("audit", f"{len(lanes)} sandbox(es) starting together")
+
+    def say(i: int, msg: str, level: str) -> None:
+        job.say("audit", f"[{i}] {msg}", level)
+        job.lanes = [l.to_dict() for l in lanes]
+
+    run_lanes(lanes, states or ["loaded"], audit.judge, say,
+              tag={"job": job.id, "repo": job.repo})
+    job.lanes = [l.to_dict() for l in lanes]
+
+    # Different URL, same screen. BitEstate serves Home at both "/" and "/home",
+    # so four sandboxes can spend their time auditing two pages twice. A lane
+    # whose render matches one already seen is marked as a duplicate, its
+    # findings are dropped rather than double counted, and its slot is spent on
+    # a route nobody has looked at yet.
+    queue = [u for u in all_urls[MAX_SANDBOXES:]]
+    seen: dict = {}
+    for wave in range(2):
+        fresh = []
+        for lane in lanes:
+            if lane.status != "done" or not lane.signature:
+                continue
+            first = seen.get(lane.signature)
+            if first is None:
+                seen[lane.signature] = lane.url
+            elif lane.url != first:
+                lane.duplicate_of = first
+                fresh.append(lane)
+        if not fresh or not queue:
+            break
+        replacements = []
+        for lane in fresh:
+            if not queue:
+                break
+            nxt = queue.pop(0)
+            job.say("audit", f"[{lane.index}] {lane.url} renders the same screen as "
+                             f"{lane.duplicate_of}; trying {nxt} instead", "warn")
+            replacements.append(Lane(index=lane.index, url=nxt))
+        if not replacements:
+            break
+        run_lanes(replacements, states or ["loaded"], audit.judge, say,
+                  tag={"job": job.id, "repo": job.repo})
+        for r in replacements:
+            for i, lane in enumerate(lanes):
+                if lane.index == r.index:
+                    lanes[i] = r
+        job.lanes = [l.to_dict() for l in lanes]
+
+    from accel.agent.recording import Census, Result
+    from accel.agent.axe import AxeResult
+
+    results = []
+    #: Lane recordings arrive already serialised -- they cross a thread
+    #: boundary as dicts -- so they are merged as dicts and never converted
+    #: again. Putting them back into audit.recordings, which is typed for
+    #: Recording objects, is what crashed the run at the end of the audit.
+    merged: dict = {}
+    for lane in lanes:
+        if lane.duplicate_of:
+            job.pages.append({"url": lane.url, "source": "", "findings": 0,
+                              "note": f"same screen as {lane.duplicate_of}"})
+            continue
+        if lane.status != "done":
+            job.pages.append({"url": lane.url, "source": "",
+                              "findings": 0, "note": lane.note or lane.status})
+            continue
+        for f in lane.findings:
+            fields = {k: (tuple(v) if isinstance(v, list) else v)
+                      for k, v in f.items() if k != "census"}
+            fields["page"] = lane.url
+            r = Result(census=Census(**(f.get("census") or {})), **fields)
+            results.append(r)
+        short = lane.label or (lane.url.rstrip("/").rsplit("/", 1)[-1] or "home")
+        for st, r in lane.recordings.items():
+            merged[f"{st} · {short}"] = r
+        if not audit.axe and lane.axe.get("ran"):
+            # A real AxeResult, not a class built on the fly. The shim carried
+            # three attributes and the pull request body asks for a fourth,
+            # `overlapping()`, which ended a finished run with an
+            # AttributeError at the very last step.
+            audit.axe = AxeResult(ran=True, version=lane.axe.get("version", ""),
+                                  violations=lane.axe.get("violations") or [])
+        job.pages.append({
+            "url": (f"{lane.url}  ({lane.label})" if lane.label else lane.url),
+            "source": "",
+            "findings": sum(1 for f in lane.findings if f.get("status") == "failed"),
+            "note": ""})
+
+    if all(l.status != "done" for l in lanes):
+        raise RuntimeError(
+            "no page could be audited. "
+            + "; ".join(f"{l.url}: {l.note}" for l in lanes if l.note)[:300])
+
+    failed = [r for r in results if r.status == "failed"]
+    job.say("audit", f"{len(failed)} finding(s) across {len(results)} check(s) "
+                     f"on {sum(1 for l in lanes if l.status == 'done')} page(s)")
+    # Name the file behind every page, not just the entry one, and do it here
+    # so the answer is on screen even when the fix step is skipped.
+    for pg in job.pages:
+        pg["source"] = page_sources.get(pg["url"].split("  (")[0], "") or pg.get("source", "")
+    if job.pages and not job.pages[0].get("source"):
+        job.pages[0]["source"] = job.source
+
+    job.findings = [r.to_dict() for r in results]
+    job.recordings = merged
+    # The loop reads its work from here, and it was never filled: every run
+    # reached the fix phase with an empty list and nothing to group. Every
+    # page's findings go in; each one carries the page it came from, and the
+    # loop re-audits that page to decide whether its patch held.
+    audit.results = results
+    first_axe = next((l.axe for l in lanes if l.status == "done" and l.axe.get("ran")),
+                     None)
+    job.axe = first_axe or {"ran": False, "version": "", "violations": []}
+
+    if not (want_fix and failed):
+        job.say("pr", "Nothing to fix." if not failed else "Fix step skipped.")
+        return
+
+    # The loop, live. Every outcome is written to the table and the matching
+    # rows for the criterion go into the next prompt.
+    job.say("fix", "Installing and building the repository so the patch can "
+                   "be re-audited")
+    job.say("fix", free_memory_for_build(audit.session))
+    try:
+        serve_root, build_cmd = prepare_build(audit.session, CHECKOUT)
+    except BuildFailed as exc:
+        job.say("pr", f"{exc} The findings above stand; no fix was attempted.",
+                "warn")
+        return
+    if not serve_root:
+        job.say("pr", "The repository has no package.json, so it cannot be built "
+                      "from a clean clone and a patch could not be re-audited. "
+                      "The findings above stand; no fix was attempted.", "warn")
+        return
+    job.say("fix", ("Running the app's own server, and rebuilding between patches"
+                    if serve_root.startswith("server:") else
+                    f"Serving {serve_root.rsplit('/', 1)[-1]}/"
+                    + (" and rebuilding between patches" if build_cmd else "")))
+
+    lessons = Lessons(job.id)
+    loop = FixLoop(audit, workdir=pathlib.Path(CHECKOUT),
+                   serve_root=serve_root, lessons=lessons,
+                   build=build_cmd)
+    loop.workdir = RemoteTree(audit.session, CHECKOUT)
+    # Lets the file lookup grep the clone for the failing element's
+    # class names instead of guessing from the page name.
+    loop.checkout = CHECKOUT
+
+    job.say("fix", "Writing patches, then rebuilding and re-auditing each one")
+    outcomes = loop.run(job.source, page_sources)
+    for o in outcomes:
+        job.patches.append({
+            "criterion": o.criterion, "component": o.component,
+            "status": o.status, "patch_attempts": o.patch_attempts,
+            "locate_attempts": o.locate_attempts,
+            "closed": len(o.closed), "created": len(o.created),
+            "reason": o.reason, "lesson_ids": list(o.lesson_ids)})
+        job.lesson_ids.extend(o.lesson_ids)
+    s = loop.summary()
+    job.say("reaudit", f"{s['closed']} closed, {s['created']} created, "
+                       f"{s['patch_attempts_per_closed']} attempts per fix")
+    # A re-audit that could not be scored says so here rather than being read
+    # as a clean sweep.
+    if loop.blocked:
+        job.say("reaudit", loop.blocked, "warn")
+
+    d = audit.session.exec(f"cd {CHECKOUT} && git diff --stat && echo '---' && "
+                           f"git diff", timeout=180)
+    job.diff = (d.result or "")[:60000]
+
+    if not want_pr:
+        job.say("pr", "Diff ready. Pull request not requested.")
+        return
+
+    closed_total = sum(p.get("closed", 0) for p in job.patches)
+    created_total = sum(p.get("created", 0) for p in job.patches)
+    has_diff = bool((job.diff or "").strip().strip("-"))
+
+    # A pull request opens whenever the source actually changed, and its title
+    # says which of three outcomes it is. The previous rule was net-positive
+    # or nothing, which threw away the diff, the evidence and the reasoning in
+    # exactly the case where a person most wants to read them. Refusing to SEND
+    # a patch as a fix and refusing to SHOW it are different refusals.
+    if not has_diff:
+        job.pr_blocked = ("No pull request: nothing in the source changed, so "
+                          "there is no diff to open one with. The findings and "
+                          "the evidence are above.")
+        job.say("pr", job.pr_blocked, "warn")
+        return
+    if closed_total and created_total >= closed_total:
+        job.say("pr", f"{closed_total} closed and {created_total} created; "
+                      "opening this for review rather than as a fix", "warn")
+    if not job.github_token:
+        job.pr_blocked = ("No pull request: this run carries no GitHub "
+                          "authorisation. The diff above is the whole change.")
+        job.say("pr", job.pr_blocked, "warn")
+        return
+    if not _can_push(owner, name, job.github_token):
+        job.pr_blocked = (f"No write access to {owner}/{name}, so no branch was "
+                          f"pushed. The diff above is the complete change.")
+        job.say("pr", job.pr_blocked, "warn")
+        return
+
+    job.say("pr", "Opening a pull request")
+    try:
+        title, body = pr_mod.build_body(audit, loop.summary(), outcomes,
+                                        audit.results)
+        out = pr_mod.open_pull_request(
+            audit.session, owner, name, job.github_token, job.id,
+            title, body, CHECKOUT, base=job.branch)
+        job.pr_url = (out or {}).get("url", "")
+        if job.pr_url:
+            job.say("pr", job.pr_url)
+        else:
+            job.pr_blocked = (out or {}).get("error", "no pull request URL")
+            job.say("pr", job.pr_blocked, "warn")
+            if (out or {}).get("log"):
+                job.say("pr", str(out["log"])[-300:], "warn")
+    except Exception as exc:
+        job.pr_blocked = f"{type(exc).__name__}: {str(exc)[:180]}"
+        job.say("pr", job.pr_blocked, "warn")
+
+
+def start(url: str, repo: str, states: list[str] | None = None,
+          want_fix: bool = True, want_pr: bool = True,
+          branch: str = "", user=None) -> Job:
+    """Begin a job and return immediately. The UI polls it.
+
+    `states` empty means "you decide", which is what the UI now sends.
+    """
+    job = Job(id=f"job-{uuid.uuid4().hex[:8]}", url=url.strip(), repo=repo.strip(),
+              branch=(branch or "").strip())
+    job.user_id = getattr(user, "id", "") or ""
+    # The GitHub token stays on the job, never in the JSON the browser reads.
+    job.github_token = getattr(user, "github_token", "") or ""
+    with _LOCK:
+        JOBS[job.id] = job
+    try:
+        from accel.server import db
+        db.execute("""INSERT INTO jobs (id, user_id, url, repo, branch, status)
+                      VALUES (:id, NULLIF(:uid,''), :url, :repo, :branch, 'running')
+                      ON CONFLICT (id) DO NOTHING""",
+                   {"id": job.id, "uid": job.user_id, "url": job.url,
+                    "repo": job.repo, "branch": job.branch})
+    except Exception as exc:
+        job.say("start", f"could not record the job: {type(exc).__name__}", "warn")
+
+    def body() -> None:
+        job.status = "running"
+        try:
+            _run(job, states or [], want_fix, want_pr)
+            job.status = "done"
+        except Exception as exc:
+            job.status = "failed"
+            job.error = f"{type(exc).__name__}: {exc}"
+            job.say(job.phase, job.error, "error")
+            traceback.print_exc()
+        finally:
+            job.finished = time.time()
+            out = ROOT / "artifacts" / f"{job.id}.json"
+            try:
+                out.parent.mkdir(parents=True, exist_ok=True)
+                out.write_text(json.dumps(job.to_dict(), indent=2), encoding="utf-8")
+            except Exception:
+                pass
+
+    threading.Thread(target=body, daemon=True).start()
+    return job

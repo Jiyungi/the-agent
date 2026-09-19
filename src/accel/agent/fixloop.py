@@ -544,3 +544,55 @@ class FixLoop:
                       / max(1, sum(1 for o in self.outcomes if o.status == "closed")), 2)
                 if any(o.status == "closed" for o in self.outcomes) else None),
         }
+
+
+class RemoteTree:
+    """pathlib-ish shim so the fix loop can edit files inside the sandbox."""
+
+    def __init__(self, session, root: str) -> None:
+        self.session, self.root = session, root.rstrip("/")
+
+    def __truediv__(self, rel: str) -> "RemoteFile":
+        return RemoteFile(self.session, f"{self.root}/{rel}", rel)
+
+
+class RemoteFile:
+    """One file inside the sandbox, addressed by path.
+
+    Equality and hashing are by path, not identity. apply_plan stages edits in
+    a dict keyed by the file, and `workdir / rel` builds a fresh object each
+    time: without these, three edits to one file became three dict entries,
+    each computed from the ORIGINAL text, and the last write silently discarded
+    the other two. The patch reported as applied and the file was unchanged.
+    """
+
+    def __init__(self, session, path: str, rel: str) -> None:
+        self.session, self.path, self.rel = session, path, rel
+
+    def __eq__(self, other) -> bool:
+        return isinstance(other, RemoteFile) and other.path == self.path
+
+    def __hash__(self) -> int:
+        return hash(self.path)
+
+    @property
+    def name(self) -> str:
+        return self.path.rsplit("/", 1)[-1]
+
+    def exists(self) -> bool:
+        r = self.session.sb.process.exec(f"test -f {self.path} && echo Y || echo N",
+                                         timeout=60)
+        return "Y" in (r.result or "")
+
+    def read_text(self, encoding: str = "utf-8") -> str:
+        import base64
+        r = self.session.sb.process.exec(f"base64 -w0 {self.path}", timeout=120)
+        return base64.b64decode((r.result or "").strip()).decode(encoding)
+
+    def write_text(self, text: str, encoding: str = "utf-8") -> None:
+        self.session.sb.fs.upload_file(text.encode(encoding), self.path)
+
+    def relative_to(self, _root) -> str:
+        return self.rel
+
+
