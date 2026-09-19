@@ -1,10 +1,10 @@
 """One Daytona sandbox, reused across states, producing Recordings.
 
-The sandbox is remote compute. Weave tracing runs here, in the orchestrator,
-never inside the sandbox: api.wandb.ai is not on Daytona's Tier 2 allowlist, so
-a trace written from in there would silently fail.
+The sandbox is remote compute and has no credentials of its own. Model calls
+happen in the orchestrator, never in here: api.anthropic.com is not on
+Daytona's Tier 2 egress allowlist, so a call made from inside would fail.
 
-Screenshot bytes cross into `ally.storage.save_screenshot` and are never seen
+Screenshot bytes cross into `storage.save_screenshot` and are never seen
 again. What travels on is the ref it returned.
 """
 
@@ -91,6 +91,34 @@ class Session:
             time.sleep(2)
         return False
 
+    def _wait_for_devtools(self, seconds: int = 45) -> bool:
+        """Block until Chrome answers on 9222, or give up and say so.
+
+        A fixed sleep after launching Chromium is a race, and it is the race
+        that made runs fail on cold sandboxes while passing on warm ones. The
+        recorder opens http://127.0.0.1:9222 as its first act, so a browser
+        that is still starting gives
+
+            urllib.error.URLError: <urlopen error [Errno 111] Connection refused>
+
+        which reads like a network fault and is really "asked too early".
+        Chromium's own startup time is what varies -- a first launch in a fresh
+        sandbox has no warm page cache -- so the wait has to be on the port
+        answering, never on a number of seconds.
+        """
+        probe = ("python3 -c \"import urllib.request as u,sys;"
+                 "sys.exit(0 if u.urlopen('http://127.0.0.1:9222/json/version',"
+                 "timeout=2).status==200 else 1)\" && echo UP || echo DOWN")
+        deadline = time.time() + seconds
+        while time.time() < deadline:
+            try:
+                if "UP" in (self.sb.process.exec(probe, timeout=30).result or ""):
+                    return True
+            except Exception:
+                pass
+            time.sleep(1.5)
+        return False
+
     def start_browser(self) -> None:
         if self._ready:
             return
@@ -100,7 +128,10 @@ class Session:
             "about:blank > /tmp/chromium.log 2>&1 & echo ok", timeout=150)
         self.sb.process.exec("pip install --quiet websocket-client 2>&1 | tail -1; true",
                              timeout=240)  # noqa: E501
-        time.sleep(3)
+        if not self._wait_for_devtools():
+            raise RuntimeError(
+                "Chromium never opened its debug port in this sandbox. The log "
+                "is at /tmp/chromium.log inside it.")
         self._ready = True
 
     def watch_url(self) -> str:
@@ -189,7 +220,10 @@ class Session:
         self.sb.process.exec(
             f"pkill -f chromium; sleep 1; DISPLAY=:0 nohup chromium {CHROME_FLAGS} "
             "about:blank > /tmp/chromium.log 2>&1 & echo ok", timeout=120)
-        time.sleep(3.5)
+        if not self._wait_for_devtools():
+            raise RuntimeError(
+                "Chromium did not come back after being restarted. The log is "
+                "at /tmp/chromium.log inside the sandbox.")
 
     def record(self, url: str, state: str, run_id: str,
                max_tabs: int = 40, pair_capture: bool = True,
