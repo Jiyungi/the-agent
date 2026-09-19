@@ -1,0 +1,22 @@
+{
+  "addresses": [
+    "focus stayed on the same element across a Tab press 40 times: body"
+  ],
+  "component": "body",
+  "criterion": "2.1.2",
+  "edits": [
+    {
+      "find": "        <main id=\"insurance-flow-content\" tabIndex={-1} className=\"space-y-4\">\n          <a\n            href=\"/demo\"\n            className=\"inline-block rounded px-3 py-2 text-sm underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2\"\n          >\n            Back to all demos\n          </a>\n          <InsuranceFlowDemo result={result} />",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "        <main id=\"insurance-flow-content\" className=\"space-y-4\">\n          <a\n            href=\"/demo\"\n            className=\"inline-block rounded px-3 py-2 text-sm underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2\"\n          >\n            Back to all demos\n          </a>\n          <InsuranceFlowDemo result={result} />"
+    },
+    {
+      "find": "        <main id=\"insurance-flow-content\" tabIndex={-1} className=\"space-y-4\">\n          <a\n            href=\"/demo\"\n            className=\"inline-block rounded px-3 py-2 text-sm underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2\"\n          >\n            Back to all demos\n          </a>\n          <EmptyState",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "        <main id=\"insurance-flow-content\" className=\"space-y-4\">\n          <a\n            href=\"/demo\"\n            className=\"inline-block rounded px-3 py-2 text-sm underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2\"\n          >\n            Back to all demos\n          </a>\n          <EmptyState"
+    }
+  ],
+  "locate_attempts": 1,
+  "patch_id": "2-1-2-body-4",
+  "rationale": "The page wraps all its content in a `<main tabIndex={-1}>`, a programmatically-focusable container that the harness gets parked on so Tab never advances past body; removing the negative tabindex attribute from both branches leaves every link and control in the normal tab order while keeping the skip link's fragment target intact."
+}

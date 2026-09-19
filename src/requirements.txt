@@ -1,10 +1,17 @@
-# Pinned, not floated. The SDK is what launches Chromium inside the sandbox,
-# and `>=0.110.0` resolved to 0.129.0 here and 0.214.0 on the host -- eighty-five
-# versions apart. Every page then failed with "Chromium never opened its debug
-# port", on the host only, on a site that audited cleanly from a laptop.
-# A version range is not a dependency; it is a difference between machines.
-daytona==0.129.0
+# Every version is pinned to the one this was built and tested against.
+#
+# `daytona>=0.110.0` resolved to 0.129.0 here and 0.214.0 on the host, and the
+# SDK is what launches Chromium inside the sandbox. Every page then failed with
+# "Chromium never opened its debug port", on the host only, on a site that
+# audited cleanly from a laptop. A version range is not a dependency; it is a
+# difference between machines that only appears where you cannot attach a
+# debugger.
+#
+# The same exposure applies to anthropic: a minor release that changes how
+# structured output or streaming behaves would show up as the model "getting
+# worse" in production and nowhere else.
 
-anthropic>=0.75.0
-psycopg2-binary>=2.9.9
-certifi>=2024.2.2
+daytona==0.129.0
+anthropic==0.111.0
+psycopg2-binary==2.9.11
+certifi==2026.6.17
