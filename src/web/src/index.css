@@ -1311,9 +1311,9 @@ table.grid tr.dim td { color: var(--text-muted); }
 }
 
 .gate-lede {
-  margin: -6px 0 0; max-width: 34ch;
-  font-size: clamp(16px, 1.9vw, 19px);
-  line-height: 1.5; letter-spacing: -0.008em; opacity: .62;
+  margin: -4px 0 0; max-width: 40ch;
+  font-size: clamp(15.5px, 1.75vw, 18px);
+  line-height: 1.55; letter-spacing: -0.005em; opacity: .64;
 }
 
 .gate-cta {

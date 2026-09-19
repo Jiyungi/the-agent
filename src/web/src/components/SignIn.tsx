@@ -67,7 +67,8 @@ export function SignIn() {
           </h1>
 
           <p className="gate-lede">
-            ACCEL finds the bug, writes the fix, and proves it works.
+            Give ACCEL your site and your GitHub repo. Get back a pull request
+            that fixes your accessibility bugs.
           </p>
 
           <button type="button" className="gate-cta" onClick={() => void signIn()}>
