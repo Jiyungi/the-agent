@@ -1,25 +1,15 @@
 // The gate. Nothing else is reachable without a GitHub token, because every
 // run clones a repository and opens a pull request as the person signing in.
 //
-// One screen, one claim, one button. The earlier version listed all five
-// criteria with a sentence each, which is a specification, not a landing page
-// -- nobody reads five blurbs before deciding whether to sign in.
-//
-// What replaces it is the coverage line. `5 / 55` says where ACCEL is against
-// WCAG 2.2 Level AA without a word of hedging, and it reframes the five from a
-// limit into progress. The number is the whole argument, so it gets the space
-// a paragraph would have taken.
+// One screen, one claim, one button. Nothing here names a criterion or a
+// count. ACCEL is an accessibility agent; what it checks this week is an
+// implementation detail, and putting a number on the door turns the scope
+// into the product.
 
 import { BrandMark } from '../Icon'
 import { signIn } from '../auth'
 
-/** Success criteria live today, against WCAG 2.2 Level AA (A + AA = 55). */
-const LIVE = 5
-const TARGET = 55
-
 export function SignIn() {
-  const pct = Math.round((LIVE / TARGET) * 100)
-
   return (
     <main className="gate" id="main">
       <div className="gate-inner">
@@ -51,24 +41,6 @@ export function SignIn() {
           Sign in with GitHub
         </button>
 
-        <div className="gate-coverage">
-          <div className="gate-coverage-top">
-            <span className="gate-count">
-              <strong>{LIVE}</strong> of {TARGET}
-            </span>
-            <span className="gate-standard">WCAG 2.2 Level AA</span>
-          </div>
-          <div
-            className="gate-bar"
-            role="progressbar"
-            aria-valuenow={LIVE}
-            aria-valuemin={0}
-            aria-valuemax={TARGET}
-            aria-label={`${LIVE} of ${TARGET} WCAG 2.2 Level AA success criteria`}
-          >
-            <span style={{ width: `${pct}%` }} />
-          </div>
-        </div>
       </div>
     </main>
   )
