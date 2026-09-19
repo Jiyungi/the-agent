@@ -1,11 +1,5 @@
 """The five criteria our agent owns. All five read one recording.
 
-Each check is a root-level Weave op, never nested inside a run trace, because
-Signals only score root traces -- fifty judgements under one parent means one
-gets scored. Each call is tagged with its criterion through `weave.attributes`,
-and queries filter on that attribute rather than on op name. Op names carry a
-content hash that changes whenever the function is edited, so a filter written
-against a bare op name silently matches nothing.
 
 Four of the five are arithmetic. Only Focus Order asks a model, and Focus
 Visible asks one only when the pixel difference is too small to call.

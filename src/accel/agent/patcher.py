@@ -21,7 +21,7 @@ A finding can locate perfectly every time and never close.
 **One copy of a patch exists, and it lives in a file.** The planner writes it,
 the approval screen reads that file, the applier reads the same file. A
 fingerprint is taken at write time and checked before applying, so the bytes
-somebody approved are the bytes that land. AccessiFix compared a patch against
+somebody approved are the bytes that land. Comparing a patch against
 a freshly regenerated one from the same pure function, which is a check that
 could never fail.
 
@@ -244,7 +244,7 @@ def apply_plan(plan: PatchPlan, workdir: pathlib.Path) -> ApplyOutcome:
     # A model that will not repeat a long stretch of code sometimes writes a
     # note in its place, and if that note lands in the file the code it
     # replaced is gone. Counting rather than searching: a genuine helper whose
-    # name looks like such a note gave AccessiFix a false alarm.
+    # name looks like such a note is a false alarm waiting to happen.
     NOTES = ("rest of the file unchanged", "... unchanged ...", "rest of code",
              "unchanged code here", "// ... existing")
     for target, new_text in staged.items():

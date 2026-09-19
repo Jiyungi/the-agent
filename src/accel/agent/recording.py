@@ -215,12 +215,7 @@ class Stop:
     def cite(self) -> str:
         """The citation form. `evidence_refs` entries look exactly like this.
 
-        NOT named `ref`. Weave's `get_ref(obj)` is `getattr(obj, "ref", None)`,
-        so a `ref` property returning a string makes Weave treat this object as
-        already-saved and then call `ref.project` on a str. Every trace holding
-        a Recording raised AttributeError inside _save_nested_objects and was
-        dropped, which is why no stage before 2026-09-12 has a trace record.
-        The collision is silent: weave.init succeeds and the ops still run.
+        The citation form. Not named `ref`.
         """
         return f"stop {self.index}"
 
@@ -309,7 +304,7 @@ class Recording:
     def loaded_note(self) -> str:
         """Why this page is not the page, or "" when it looks real.
 
-        Ally audited Chrome's own network error page once and reported four
+        ACCEL audited Chrome's own network error page once and reported four
         passes on it: readyState was "complete", and the Reload and Back buttons
         were two perfectly reachable controls. A verdict about a page we never
         reached is worse than no verdict, so this is checked before any check

@@ -33,7 +33,7 @@ import json
 #: `--disable-gpu` used to be in here, and it made WebGL unavailable. Clearway
 #: builds a renderer on page load, got null back from getContext('webgl'), threw
 #: "Cannot set properties of null (setting 'renderer')", and Next.js replaced the
-#: whole page with its error boundary. Ally then audited that error screen and
+#: whole page with its error boundary. ACCEL then audited that error screen and
 #: reported four passes on it.
 #:
 #: SwiftShader is Chrome's software rasteriser, so WebGL works with no GPU under

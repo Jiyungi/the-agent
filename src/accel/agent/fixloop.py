@@ -1,9 +1,9 @@
 """The fix loop: patch, rebuild, re-audit, count what closed and what appeared.
 
 A finding is closed only when the same check, on the same state, on the rebuilt
-page, no longer reports it. Never when the patch merely applied. AccessiFix
-closed findings on a successful compile and reported zero failures while eight
-were still open.
+page, no longer reports it. Never when the patch merely applied. Closing a
+finding on a successful compile reports zero failures while every one of them
+is still open.
 
 Verification rule 1 applies here more than anywhere, because the patcher's
 whole job is making findings disappear, which is also what a broken patcher
@@ -140,12 +140,6 @@ class FixLoop:
         the later findings were easier. With them a reader can open a patch call
         and see which earlier cases went into the prompt that produced it.
 
-        This used to call `weave.attributes({...}).__enter__()` and never exit
-        it. An unbalanced context manager either leaks the attributes into
-        unrelated later calls or applies to nothing, depending on the
-        implementation, and either way the one claim it exists to support could
-        not be checked. It is a `with` block now, wrapping every patch attempt
-        for this group.
         """
         lesson_rows, lesson_text = [], ""
         if self.lessons is not None:

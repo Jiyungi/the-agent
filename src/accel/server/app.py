@@ -120,13 +120,13 @@ def page(title: str, body: str, target: str = "") -> bytes:
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title} — Ally</title>
+<title>{title} — ACCEL</title>
 <link rel="stylesheet" href="/static/app.css">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="bar">
-  <h1><a href="/" style="color:inherit;text-decoration:none">Ally</a></h1>
+  <h1><a href="/" style="color:inherit;text-decoration:none">ACCEL</a></h1>
   <nav aria-label="Screens" style="display:flex;gap:14px;font-size:13px">
     <a href="/">Start</a>
   </nav>
@@ -425,7 +425,7 @@ def comparison(run: dict) -> str:
 
     return f"""{banner}<table class="compare">
 <colgroup><col><col class="ours"><col><col></colgroup>
-<thead><tr><th>Criterion</th><th>Ally</th><th>axe-core {esc(axe.get('version', ''))}</th><th></th></tr></thead>
+<thead><tr><th>Criterion</th><th>ACCEL</th><th>axe-core {esc(axe.get('version', ''))}</th><th></th></tr></thead>
 <tbody>{''.join(rows)}</tbody>
 </table>
 <p class="legend">axe's column is read from the WCAG tags on the rules it fired on
@@ -492,7 +492,7 @@ def run_screen(run_id: str) -> bytes | None:
 when focus landed on it.</p>
 {live_view(run)}
 
-<h2>Ally against axe, same page</h2>
+<h2>ACCEL against axe, same page</h2>
 <p class="sub">Both halves of the report. We run axe as-is and improve none of it;
 these five are what it does not cover.</p>
 {comparison(run)}
