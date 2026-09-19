@@ -135,10 +135,18 @@ class Session:
         self._ready = True
 
     def watch_url(self) -> str:
-        """The live noVNC view. The port root serves a directory index; the
-        viewer itself is /vnc.html."""
-        return (self.sb.get_preview_link(6080).url.rstrip("/")
-                + "/vnc.html?autoconnect=true&resize=scale")
+        """The live noVNC view, served from our own origin.
+
+        Daytona's own preview URL puts an interstitial in front of every new
+        subdomain, and a run makes four of them, so the warning appears four
+        times in front of the thing worth watching. The link handed out here
+        points at this server, which relays to the sandbox with the headers
+        that suppress it -- and keeps the preview token out of the browser.
+        """
+        from accel.server import watch
+
+        link = self.sb.get_preview_link(6080)
+        return watch.remember(self.id, link.url, getattr(link, "token", "") or "")
 
     def close(self) -> None:
         if self._owned:

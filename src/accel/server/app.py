@@ -590,6 +590,24 @@ class Handler(BaseHTTPRequestHandler):
         u = urlparse(self.path)
         p = u.path
 
+        # The live browser view, relayed from our own origin so the sandbox's
+        # preview warning never appears. A WebSocket upgrade is joined socket
+        # to socket; everything else is an ordinary proxied GET.
+        if p.startswith("/watch/"):
+            from accel.server import watch
+
+            sid, tail = watch.split_path(self.path)
+            if not sid:
+                return self._send(b"no sandbox named", "text/plain", 404)
+            if "websocket" in (self.headers.get("Upgrade", "") or "").lower():
+                if watch.relay(self, sid, tail):
+                    self.close_connection = True
+                    return
+                return self._send(b"the sandbox would not upgrade",
+                                  "text/plain", 502)
+            code, ctype, body = watch.fetch(sid, tail or "vnc.html")
+            return self._send(body, ctype, code)
+
         # The built React app owns the UI. Anything that is not an API call, a
         # screenshot or a stylesheet falls through to index.html so a client
         # route survives a reload.
