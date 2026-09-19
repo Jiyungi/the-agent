@@ -35,21 +35,23 @@ export function SignIn() {
   const [i, setI] = useState(0)
   const [caught, setCaught] = useState(false)
 
+  // One pass over the stops, hold on the miss, then start again. `caught` has
+  // to be cleared on the way round: leaving it set meant the red control and
+  // the red caption were simply always there, which is a still image, not a
+  // demonstration.
   useEffect(() => {
     const t = setInterval(() => {
       setI((n) => {
-        const next = n + 1
-        if (next > STOPS.length) {
-          setCaught(true)
-          return 0
-        }
-        return next
+        if (n < STOPS.length - 1) return n + 1
+        setCaught(true)
+        window.setTimeout(() => setCaught(false), 2600)
+        return 0
       })
-    }, 900)
+    }, 850)
     return () => clearInterval(t)
   }, [])
 
-  const at = STOPS[Math.min(i, STOPS.length - 1)]
+  const at = STOPS[i]
 
   return (
     <main className="gate" id="main">
