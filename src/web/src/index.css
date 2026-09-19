@@ -1273,91 +1273,123 @@ table.grid tr.dim td { color: var(--text-muted); }
 /* ---------------------------------------------------------------------------
    The gate.
 
-   One screen: name, claim, button, coverage. Everything is centred on a single
-   column and nothing competes with the button. The coverage bar sits BELOW the
-   button on purpose -- it is the reason to trust the claim, not the reason to
-   click, and putting it above meant reading a statistic before knowing what
-   the product was.
+   Two columns: the claim, and the claim happening. The right-hand stage is a
+   miniature interface with a focus ring walking it, and one control the ring
+   never reaches. It is the product's whole argument in a shape you can watch
+   rather than read.
+
+   The stage is decorative and marked aria-hidden. It repeats what the copy
+   already says, so a screen reader announcing a wall of empty divs would be
+   noise. On an accessibility tool that is not a detail.
    ------------------------------------------------------------------------- */
 
 .app-booting {
   min-height: 100vh; display: grid; place-items: center;
-  color: var(--ink-soft, #9aa4b2); font-size: 15px;
+  color: var(--ink-soft, #8a8378); font-size: 15px;
 }
 
-.gate {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 40px 20px;
+.gate { min-height: 100vh; display: grid; place-items: center; padding: 40px 24px; }
+
+.gate-grid {
+  width: 100%; max-width: 1080px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(32px, 6vw, 72px); align-items: center;
 }
 
-.gate-inner {
-  width: 100%;
-  max-width: 460px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 22px;
-}
+.gate-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
 
 .gate-brand {
   display: inline-flex; align-items: center; gap: 9px;
-  font-size: 13px; font-weight: 600;
-  letter-spacing: .22em; text-transform: uppercase;
-  opacity: .72;
+  font-size: 12.5px; font-weight: 600;
+  letter-spacing: .24em; text-transform: uppercase; opacity: .7;
 }
 .gate-brand svg { width: 20px; height: 20px; }
 
 .gate-title {
-  margin: 0;
-  font-size: clamp(34px, 7vw, 52px);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-  font-weight: 600;
+  margin: 0; font-size: clamp(36px, 5.2vw, 58px);
+  line-height: 1.02; letter-spacing: -0.038em; font-weight: 650;
 }
 
-.gate-lede {
-  margin: 0;
-  max-width: 40ch;
-  font-size: 15.5px;
-  line-height: 1.6;
-  opacity: .66;
-}
+.gate-lede { margin: 0; max-width: 42ch; font-size: 16px; line-height: 1.6; opacity: .68; }
 
 .gate-cta {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  width: 100%; padding: 16px 22px; margin-top: 4px;
+  padding: 15px 26px; margin-top: 2px;
   font: inherit; font-size: 15px; font-weight: 600;
   border: 0; border-radius: 12px; cursor: pointer;
-  background: #fff; color: #0b0d10;
+  background: currentColor;
   transition: transform .14s ease, box-shadow .14s ease;
 }
-.gate-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+.gate-cta > * { color: var(--paper, #f3ece1); }
+.gate-cta:hover { transform: translateY(-1px); box-shadow: 0 12px 30px rgba(0,0,0,.22); }
 /* This is an accessibility tool. Its own focus ring is not optional, and it is
    not allowed to be subtle. */
-.gate-cta:focus-visible,
-.signout:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 3px; }
-
-.gate-coverage { width: 100%; margin-top: 10px; display: grid; gap: 8px; }
-
-.gate-coverage-top {
-  display: flex; align-items: baseline; justify-content: space-between;
-  font-size: 12.5px; letter-spacing: .02em;
+.gate-cta:focus-visible, .signout:focus-visible {
+  outline: 3px solid #2f6fed; outline-offset: 3px;
 }
-.gate-count { opacity: .8; }
-.gate-count strong { font-size: 15px; font-weight: 650; opacity: 1; }
-.gate-standard { opacity: .45; }
 
-.gate-bar {
-  height: 3px; width: 100%; border-radius: 99px;
-  background: rgba(255,255,255,.1);
-  overflow: hidden;
+/* ---- the stage ---------------------------------------------------------- */
+
+.gate-stage { display: flex; flex-direction: column; gap: 14px; }
+
+.mock {
+  position: relative; width: 100%; aspect-ratio: 4 / 3;
+  border-radius: 14px; overflow: hidden;
+  background: rgba(0, 0, 0, .045);
+  box-shadow: 0 24px 60px -24px rgba(0, 0, 0, .35),
+              inset 0 0 0 1px rgba(0, 0, 0, .07);
 }
-.gate-bar > span {
-  display: block; height: 100%; border-radius: 99px;
-  background: currentColor; opacity: .85;
+
+.mock-chrome {
+  display: flex; gap: 6px; padding: 12px 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, .06);
+}
+.mock-chrome span {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: currentColor; opacity: .17;
+}
+
+.mock-body { position: absolute; inset: 38px 0 0; }
+
+.mock-el {
+  position: absolute; border-radius: 6px;
+  background: currentColor; opacity: .1;
+}
+.mock-el.mock-title { opacity: .22; border-radius: 4px; }
+.mock-el.mock-line  { opacity: .07; border-radius: 4px; }
+.mock-el.mock-solid { opacity: .3; }
+
+.mock-missed { transition: background .45s ease, opacity .45s ease, box-shadow .45s ease; }
+.mock-missed.is-caught {
+  opacity: 1;
+  background: rgba(200, 44, 44, .16);
+  box-shadow: inset 0 0 0 2px rgba(200, 44, 44, .85);
+}
+
+.ring {
+  position: absolute; border-radius: 7px;
+  box-shadow: 0 0 0 3px #2f6fed, 0 0 0 7px rgba(47, 111, 237, .2);
+  transition: top .42s cubic-bezier(.2, .9, .25, 1),
+              left .42s cubic-bezier(.2, .9, .25, 1),
+              width .42s cubic-bezier(.2, .9, .25, 1),
+              height .42s cubic-bezier(.2, .9, .25, 1);
+}
+
+.stage-caption {
+  margin: 0; font-size: 13px; letter-spacing: .01em; opacity: .5;
+  transition: opacity .3s ease, color .3s ease;
+}
+.stage-caption.is-caught { opacity: .95; color: #b02a2a; font-weight: 550; }
+
+@media (prefers-reduced-motion: reduce) {
+  .ring { transition: none; }
+  .mock-missed { transition: none; }
+}
+
+@media (max-width: 860px) {
+  .gate-grid { grid-template-columns: minmax(0, 1fr); gap: 34px; }
+  .gate-stage { order: -1; }
+  .mock { aspect-ratio: 16 / 10; }
 }
 
 .signout {
@@ -1366,5 +1398,4 @@ table.grid tr.dim td { color: var(--text-muted); }
   text-align: left; color: inherit;
 }
 .signout:hover { opacity: 1; }
-
 .sidebar-bottom .avatar { border-radius: 50%; object-fit: cover; }
