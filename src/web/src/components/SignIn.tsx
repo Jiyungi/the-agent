@@ -63,10 +63,12 @@ export function SignIn() {
           </span>
 
           <h1 className="gate-title">
-            Accessibility that<br />proves itself.
+            Ship fast.<br />Stay accessible.
           </h1>
 
-          <p className="gate-lede">Ship fast. Stay accessible.</p>
+          <p className="gate-lede">
+            ACCEL finds the bug, writes the fix, and proves it works.
+          </p>
 
           <button type="button" className="gate-cta" onClick={() => void signIn()}>
             <svg width="18" height="18" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
