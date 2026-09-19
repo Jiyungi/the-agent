@@ -1,0 +1,22 @@
+{
+  "addresses": [
+    "focus stayed on the same element across a Tab press 40 times: body"
+  ],
+  "component": "body",
+  "criterion": "2.1.2",
+  "edits": [
+    {
+      "find": "      <InsuranceFlowDemoChrome>\n        <div className=\"space-y-4\">\n          <InsuranceFlowDemo result={result} />\n          <InsuranceFlowDeepgramUpload />\n        </div>\n      </InsuranceFlowDemoChrome>",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "      <InsuranceFlowDemoChrome>\n        <a\n          href=\"#insurance-flow-content\"\n          className=\"sr-only focus:not-sr-only focus:absolute focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:underline\"\n        >\n          Skip to insurance flow content\n        </a>\n        <div id=\"insurance-flow-content\" tabIndex={-1} className=\"space-y-4\">\n          <InsuranceFlowDemo result={result} />\n          <InsuranceFlowDeepgramUpload />\n        </div>\n      </InsuranceFlowDemoChrome>"
+    },
+    {
+      "find": "      <InsuranceFlowDemoChrome>\n        <EmptyState\n          icon={AlertTriangle}\n          title=\"Insurance flow unavailable\"\n          description=\"The local insurance workflow could not run. Check server logs and try again.\"\n        />\n      </InsuranceFlowDemoChrome>",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "      <InsuranceFlowDemoChrome>\n        <a\n          href=\"#insurance-flow-content\"\n          className=\"sr-only focus:not-sr-only focus:absolute focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-sm focus:underline\"\n        >\n          Skip to insurance flow content\n        </a>\n        <div id=\"insurance-flow-content\" tabIndex={-1} className=\"space-y-4\">\n          <EmptyState\n            icon={AlertTriangle}\n            title=\"Insurance flow unavailable\"\n            description=\"The local insurance workflow could not run. Check server logs and try again.\"\n          />\n        </div>\n      </InsuranceFlowDemoChrome>"
+    }
+  ],
+  "locate_attempts": 1,
+  "patch_id": "2-1-2-body-1",
+  "rationale": "Tab never moved off <body> because this page exposed no reachable focus stop of its own, so keyboard users were stuck; each branch now starts with a real, focusable skip link that moves focus into a labelled content container, letting Tab progress out of the body in both the success and error renders."
+}

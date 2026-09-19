@@ -1,0 +1,37 @@
+{
+  "addresses": [
+    "focus stayed on the same element across a Tab press 40 times: body"
+  ],
+  "component": "body",
+  "criterion": "2.1.2",
+  "edits": [
+    {
+      "find": "import {\n  InsuranceFlowDemo,\n  InsuranceFlowDemoChrome,\n} from \"@/components/mariposa/InsuranceFlowDemo\";",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "import { InsuranceFlowDemo } from \"@/components/mariposa/InsuranceFlowDemo\";"
+    },
+    {
+      "find": "    const result = await runInsuranceFlow();\n\n    return (\n      <InsuranceFlowDemoChrome>",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "    const result = await runInsuranceFlow();\n\n    return (\n      <div className=\"mx-auto w-full max-w-5xl space-y-6 p-6\">"
+    },
+    {
+      "find": "          <InsuranceFlowDeepgramUpload />\n        </main>\n      </InsuranceFlowDemoChrome>",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "          <InsuranceFlowDeepgramUpload />\n        </main>\n      </div>"
+    },
+    {
+      "find": "  } catch {\n    return (\n      <InsuranceFlowDemoChrome>",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "  } catch {\n    return (\n      <div className=\"mx-auto w-full max-w-5xl space-y-6 p-6\">"
+    },
+    {
+      "find": "            description=\"The local insurance workflow could not run. Check server logs and try again.\"\n          />\n        </main>\n      </InsuranceFlowDemoChrome>",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "            description=\"The local insurance workflow could not run. Check server logs and try again.\"\n          />\n        </main>\n      </div>"
+    }
+  ],
+  "locate_attempts": 1,
+  "patch_id": "2-1-2-body-3",
+  "rationale": "The Tab-trap is not in the page markup itself but in the `InsuranceFlowDemoChrome` wrapper, which swallows Tab keydowns so focus never leaves `body`; I replace that wrapper with a plain layout container in both render branches while keeping every link, button and interactive child intact."
+}

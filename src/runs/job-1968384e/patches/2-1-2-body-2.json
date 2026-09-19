@@ -1,0 +1,22 @@
+{
+  "addresses": [
+    "focus stayed on the same element across a Tab press 40 times: body"
+  ],
+  "component": "body",
+  "criterion": "2.1.2",
+  "edits": [
+    {
+      "find": "        <div id=\"insurance-flow-content\" tabIndex={-1} className=\"space-y-4\">\n          <InsuranceFlowDemo result={result} />\n          <InsuranceFlowDeepgramUpload />\n        </div>",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "        <main id=\"insurance-flow-content\" tabIndex={-1} className=\"space-y-4\">\n          <a\n            href=\"/demo\"\n            className=\"inline-block rounded px-3 py-2 text-sm underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2\"\n          >\n            Back to all demos\n          </a>\n          <InsuranceFlowDemo result={result} />\n          <InsuranceFlowDeepgramUpload />\n        </main>"
+    },
+    {
+      "find": "        <div id=\"insurance-flow-content\" tabIndex={-1} className=\"space-y-4\">\n          <EmptyState\n            icon={AlertTriangle}\n            title=\"Insurance flow unavailable\"\n            description=\"The local insurance workflow could not run. Check server logs and try again.\"\n          />\n        </div>",
+      "path": "app/demo/insurance-flow/page.tsx",
+      "replace": "        <main id=\"insurance-flow-content\" tabIndex={-1} className=\"space-y-4\">\n          <a\n            href=\"/demo\"\n            className=\"inline-block rounded px-3 py-2 text-sm underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2\"\n          >\n            Back to all demos\n          </a>\n          <EmptyState\n            icon={AlertTriangle}\n            title=\"Insurance flow unavailable\"\n            description=\"The local insurance workflow could not run. Check server logs and try again.\"\n          />\n        </main>"
+    }
+  ],
+  "locate_attempts": 1,
+  "patch_id": "2-1-2-body-2",
+  "rationale": "Tab never moved focus off <body> because the only tabbable element on either branch was the visually-hidden skip link, so I added a real, always-visible \"Back to all demos\" link (and a proper <main> landmark) as the first tab stop in both the success and error branches, giving keyboard users an escape path out of the page shell."
+}
